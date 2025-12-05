@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Forge - Каталог</title>
+    <!-- Підключаємо красивий шрифт -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            font-family: 'Roboto', sans-serif; 
+            background-color: #f0f2f5; 
+            margin: 0; 
+            padding: 20px; 
+            color: #333;
+        }
+        header { text-align: center; margin-bottom: 40px; }
+        h1 { color: #2c3e50; font-size: 2.5em; }
+        p.subtitle { color: #666; font-size: 1.1em; }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .item {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .item:hover { transform: translateY(-5px); }
+
+        .photo-container {
+            height: 250px;
+            overflow: hidden;
+            background: #ddd;
+        }
+
+        .photo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .info { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; }
+        
+        .name { font-size: 1.2em; font-weight: bold; margin-bottom: 10px; color: #2c3e50; }
+        .desc { font-size: 0.9em; color: #777; margin-bottom: 15px; flex-grow: 1; }
+        
+        .bottom-row { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            margin-top: auto;
+        }
+        
+        .price { font-size: 1.3em; color: #27ae60; font-weight: bold; }
+        
+        .btn {
+            background-color: #0088cc; /* Колір Telegram */
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 0.9em;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        .btn:hover { background-color: #006699; }
+        
+        /* Контакти внизу */
+        footer { text-align: center; margin-top: 50px; color: #888; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>🛠️ Майстерня 3D Друку</h1>
+        <p class="subtitle">Друк фігурок, мініатюр та деталей під замовлення</p>
+    </header>
+
+    <div class="gallery">
+
+        <!-- ТОВАР 1 -->
+        <div class="item">
+            <div class="photo-container">
+                <!-- Встав сюди посилання на своє фото -->
+                <img src="https://via.placeholder.com/400x300?text=Warhammer+Ork" alt="Орк">
+            </div>
+            <div class="info">
+                <div class="name">Бойовий Орк (Warhammer 40k)</div>
+                <div class="desc">Висока деталізація, висота 12 см. Сірий фотополімер. Без фарбування.</div>
+                <div class="bottom-row">
+                    <span class="price">450 грн</span>
+                    <!-- УВАГА: Заміни 'TVIY_NICK' на свій нік в Telegram без @ -->
+                    <a href="https://t.me/TVIY_NICK?text=Привіт! Мене цікавить фігурка 'Бойовий Орк'" class="btn" target="_blank">Замовити</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- ТОВАР 2 -->
+        <div class="item">
+            <div class="photo-container">
+                <img src="https://via.placeholder.com/400x300?text=Darth+Vader" alt="Вейдер">
+            </div>
+            <div class="info">
+                <div class="name">Бюст Дарт Вейдер</div>
+                <div class="desc">PLA пластик, чорний колір. Висота 15 см. Шліфований під фарбування.</div>
+                <div class="bottom-row">
+                    <span class="price">800 грн</span>
+                    <a href="https://t.me/TVIY_NICK?text=Привіт! Мене цікавить 'Бюст Вейдер'" class="btn" target="_blank">Замовити</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Щоб додати товар, скопіюй блок <div class="item">...</div> і встав тут -->
+
+    </div>
+
+    <footer>
+        <p>Працюємо по всій Україні (Нова Пошта)</p>
+        <p>Для індивідуальних замовлень пишіть у <a href="https://t.me/TVIY_NICK">Telegram</a></p>
+    </footer>
+
+</body>
+</html>
