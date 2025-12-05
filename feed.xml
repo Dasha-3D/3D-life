@@ -3,7 +3,7 @@
     <title>3D Life</title>
     <link href="https://dasha-3d.github.io/3D-life/feed.xml" rel="self" />
     <link href="https://dasha-3d.github.io/3D-life" />
-    <updated>2025-12-05T12:36:07+02:00</updated>
+    <updated>2025-12-05T12:52:27+02:00</updated>
     <author>
         <name>Dasha</name>
     </author>
@@ -40,18 +40,18 @@
         </author>
         <link href="https://dasha-3d.github.io/3D-life/skelet-drakona.html"/>
         <id>https://dasha-3d.github.io/3D-life/skelet-drakona.html</id>
-        <media:content url="https://dasha-3d.github.io/3D-life/media/posts/1/hex.jpg" medium="image" />
+        <media:content url="https://dasha-3d.github.io/3D-life/media/posts/1/dragon-skeleton.webp" medium="image" />
 
         <updated>2025-12-05T12:12:32+02:00</updated>
             <summary type="html">
                 <![CDATA[
-                        <img src="https://dasha-3d.github.io/3D-life/media/posts/1/hex.jpg" alt="" />
+                        <img src="https://dasha-3d.github.io/3D-life/media/posts/1/dragon-skeleton.webp" alt="" />
                     Ціна: 75грн ЗАМОВИТИ
                 ]]>
             </summary>
         <content type="html">
             <![CDATA[
-                    <p><img src="https://dasha-3d.github.io/3D-life/media/posts/1/hex.jpg" class="type:primaryImage" alt="" /></p>
+                    <p><img src="https://dasha-3d.github.io/3D-life/media/posts/1/dragon-skeleton.webp" class="type:primaryImage" alt="" /></p>
                 <p>Ціна: 75грн</p>
 <p><a href="@Birovalex" target="_blank" rel="noopener noreferrer">ЗАМОВИТИ</a></p>
             ]]>
