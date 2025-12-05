@@ -14,7 +14,7 @@
             "url": "https://dasha-3d.github.io/3D-life/fidzhet-geksagon.html",
             "title": "Фіджет Гексагон",
             "summary": "Ціна: 70 грн ЗАМОВИТИ",
-            "content_html": "<p>Ціна: 70 грн </p>\n<p><strong><a href=\"https://t.me/Birovalex\" target=\"null\">ЗАМОВИТИ</a><a href=\"https://t.me/@Dashieed\"></a></strong></p>\n<p> </p>",
+            "content_html": "<p>Ціна: 70 грн </p>\n<p><strong><span style=\"text-decoration: underline; color: #2dc26b;\"><a href=\"https://t.me/Birovalex\" target=\"null\" style=\"color: #2dc26b; text-decoration: underline;\">ЗАМОВИТИ</a></span><a href=\"https://t.me/@Dashieed\"></a></strong></p>\n<p> </p>",
             "image": "https://dasha-3d.github.io/3D-life/media/posts/2/hex.jpg",
             "author": {
                 "name": "Dasha"
@@ -22,7 +22,7 @@
             "tags": [
             ],
             "date_published": "2025-12-05T12:36:07+02:00",
-            "date_modified": "2025-12-05T13:06:48+02:00"
+            "date_modified": "2025-12-05T13:08:09+02:00"
         },
         {
             "id": "https://dasha-3d.github.io/3D-life/skelet-drakona.html",
