@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://dasha-3d.github.io/3D-life/sitemap.xml
