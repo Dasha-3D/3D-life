@@ -9,86 +9,65 @@
                     this.classList.add('is-loaded');
                 }, false);
             }
-        }</script><style>/* --- СТИЛІ ДЛЯ СОРТУВАННЯ ТА ФІЛЬТРІВ --- */
+        }</script><style>/* --- СТИЛІ ПАНЕЛІ УПРАВЛІННЯ --- */
     .shop-controls {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        align-items: center;
-        justify-content: space-between;
-        margin-bottom: 20px;
-        padding: 15px;
-        background: #2b2b2b;
-        border-radius: 12px;
-        border: 1px solid #444;
+        display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between;
+        margin-bottom: 20px; padding: 15px; background: #2b2b2b; border-radius: 12px; border: 1px solid #444;
     }
-
-    .sort-select {
-        background: #444;
-        color: white;
-        border: none;
-        padding: 8px 12px;
-        border-radius: 8px;
-        cursor: pointer;
-        font-size: 14px;
-    }
-
-    .fav-filter-btn {
-        background: transparent;
-        border: 1px solid #ff4d4d;
-        color: #ff4d4d;
-        padding: 8px 15px;
-        border-radius: 20px;
-        cursor: pointer;
-        font-weight: bold;
-        display: flex;
-        align-items: center;
-        gap: 5px;
-        transition: all 0.3s;
-    }
-
-    .fav-filter-btn.active {
-        background: #ff4d4d;
-        color: white;
-    }
-
-    /* --- СТИЛІ СЕРДЕЧКА НА КАРТЦІ --- */
-    .card-heart {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        font-size: 24px;
-        cursor: pointer;
-        z-index: 10;
-        color: rgba(255, 255, 255, 0.5);
-        transition: transform 0.2s, color 0.2s;
-        filter: drop-shadow(0 0 2px rgba(0,0,0,0.5));
-    }
+    .sort-select { background: #444; color: white; border: none; padding: 8px 12px; border-radius: 8px; cursor: pointer; font-size: 14px; }
     
+    .fav-filter-btn {
+        background: transparent; border: 1px solid #ff4d4d; color: #ff4d4d; padding: 8px 15px; border-radius: 20px;
+        cursor: pointer; font-weight: bold; display: flex; align-items: center; gap: 5px; transition: all 0.3s;
+    }
+    .fav-filter-btn.active { background: #ff4d4d; color: white; }
+
+    /* --- НОВА ПАНЕЛЬ "ЗАМОВИТИ ВИБРАНЕ" --- */
+    .favorites-panel {
+        display: none; /* Схована за замовчуванням */
+        background: #1a1a1a;
+        border: 2px solid #FFD700;
+        border-radius: 12px;
+        padding: 20px;
+        margin-bottom: 20px;
+        text-align: center;
+        animation: fadeIn 0.3s;
+    }
+    .favorites-panel.visible { display: block; }
+
+    .fav-title { color: #FFD700; font-size: 1.2em; margin-bottom: 15px; font-weight: bold; }
+    
+    .fav-buttons-row {
+        display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;
+    }
+
+    /* Великі кнопки замовлення списком */
+    .big-order-btn {
+        display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 30px;
+        color: white; text-decoration: none; font-weight: bold; font-size: 16px;
+        transition: transform 0.2s; box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+    .big-order-btn:hover { transform: scale(1.05); }
+
+    .back-btn {
+        display: inline-flex; align-items: center; gap: 5px; padding: 10px 20px; border-radius: 30px;
+        background: #444; color: white; cursor: pointer; border: none; font-size: 14px;
+    }
+    .back-btn:hover { background: #555; }
+
+    /* --- СТАРІ СТИЛІ --- */
+    .card-heart { position: absolute; top: 10px; right: 10px; font-size: 24px; cursor: pointer; z-index: 10; color: rgba(255, 255, 255, 0.5); transition: transform 0.2s, color 0.2s; filter: drop-shadow(0 0 2px rgba(0,0,0,0.5)); }
     .card-heart:hover { transform: scale(1.2); }
     .card-heart.liked { color: #ff4d4d; opacity: 1; }
-
-    /* Для теми Simple треба зробити position relative для article, щоб сердечко стало в кут */
     article { position: relative; }
-
-    /* --- СТАРІ СТИЛІ (ЦІНА, ОПИС, КНОПКИ) --- */
     .feed__readmore, .read-more { display: none !important; }
-    .feed__excerpt, .card__excerpt { 
-        margin-top: 12px; 
-        font-size: 0.95em; 
-        color: inherit; opacity: 0.8; display: block !important; 
-    }
-    .action-row {
-        display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 10px; margin-bottom: 10px;
-    }
-    .custom-price-tag {
-        display: inline-block; font-size: 16px; font-weight: 800; color: #FFD700;
-        background-color: #2b2b2b; padding: 6px 12px; border-radius: 12px;
-        border: 1px solid #FFD700; box-shadow: 0 2px 5px rgba(0,0,0,0.2); white-space: nowrap;
-    }
-    .buttons-group { display: flex; gap: 8px; }</style><script>document.addEventListener("DOMContentLoaded", function() {
+    .feed__excerpt, .card__excerpt { margin-top: 12px; font-size: 0.95em; color: inherit; opacity: 0.8; display: block !important; }
+    .action-row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 10px; margin-bottom: 10px; }
+    .custom-price-tag { display: inline-block; font-size: 16px; font-weight: 800; color: #FFD700; background-color: #2b2b2b; padding: 6px 12px; border-radius: 12px; border: 1px solid #FFD700; box-shadow: 0 2px 5px rgba(0,0,0,0.2); white-space: nowrap; }
+    .buttons-group { display: flex; gap: 8px; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }</style><script>document.addEventListener("DOMContentLoaded", function() {
     // -----------------------------------------------------------
-    // ВАШІ ДАНІ (ПЕРЕВІРТЕ НОМЕР!)
+    // ВАШІ ДАНІ (ОБОВ'ЯЗКОВО ЗМІНІТЬ!)
     // -----------------------------------------------------------
     var viberNumber = "380XXXXXXXXX"; 
     var tgUsername = "dasha_3d";      
@@ -97,10 +76,10 @@
     var articles = document.querySelectorAll('article');
     var favorites = JSON.parse(localStorage.getItem('dasha_favorites')) || [];
 
-    // --- 1. ДОДАЄМО ПАНЕЛЬ УПРАВЛІННЯ (Сортування і Фільтр) ---
-    // Шукаємо куди вставити (перед списком товарів)
+    // --- 1. ДОДАЄМО ПАНЕЛЬ УПРАВЛІННЯ ТА ПАНЕЛЬ ВИБРАНОГО ---
     var feedContainer = document.querySelector('.feed, .main__content, main');
     if (feedContainer) {
+        // Основні контроли
         var controlsHTML = `
             <div class="shop-controls">
                 <select id="sortOrder" class="sort-select">
@@ -113,99 +92,174 @@
                     ❤ Тільки вибране <span id="favCount">(${favorites.length})</span>
                 </button>
             </div>
+            
+            <!-- ПАНЕЛЬ ЗАМОВЛЕННЯ ВИБРАНОГО -->
+            <div id="favOrderPanel" class="favorites-panel">
+                <div class="fav-title">Ви обрали <span id="favTotalCount">0</span> товарів</div>
+                <div class="fav-buttons-row">
+                    <button id="closeFavBtn" class="back-btn">← Повернутись</button>
+                    
+                    <!-- Кнопка Telegram (Списком) -->
+                    <a id="orderAllTg" href="#" target="_blank" class="big-order-btn" style="background-color: #24A1DE;">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="white"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.962 6.502-1.359 8.627-.168.9-.5 1.201-.82 1.23-.697.064-1.226-.46-1.901-.903-1.056-.692-1.653-1.123-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.062 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.751-.244-1.349-.374-1.297-.789.027-.216.324-.437.893-.663 3.498-1.524 5.831-2.529 6.998-3.014 3.332-1.386 4.024-1.627 4.476-1.635.1-.002.321.023.465.14a.505.505 0 0 1 .171.325c.016.093.037.306.02.472z"/></svg>
+                        Замовити все в TG
+                    </a>
+                    
+                    <!-- Кнопка Viber (Списком) -->
+                    <a id="orderAllViber" href="#" target="_blank" class="big-order-btn" style="background-color: #7360f2;">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="white"><path d="M22.5 11.1C22.5 5.5 17.9 1 12.2 1S2 5.5 2 11.1C2 14.6 3.9 17.7 6.8 19.5C6.2 19.8 5.6 20.1 5 20.4L4.5 22.8L8.9 20.7C10.2 21.1 11.7 21.2 13.1 21.1C18.4 20.7 22.5 16.3 22.5 11.1M17.4 16.3C16.8 17.2 15.5 17.5 14.9 17.6C12.5 17.9 8.8 15.2 6.9 12.3C6.1 11 6.1 9.7 7.4 8.5C7.8 8.1 8.3 7.7 8.7 7.4C9.1 7.1 9.4 7.3 9.6 7.7C9.9 8.3 10.6 10.2 10.7 10.4C10.8 10.6 10.7 10.9 10.5 11.1C10.3 11.3 10 11.6 9.8 11.8C9.6 12 9.4 12.3 9.6 12.7C10.1 13.7 11.1 15 12.6 16.3C13.2 16.8 13.7 16.9 14 16.6C14.3 16.3 14.8 15.7 15 15.3C15.2 15 15.5 15.1 15.8 15.2C16.1 15.3 17.6 16 17.9 16.2C18.2 16.3 18.4 16.4 18.4 16.6C18.4 16.6 18 17.1 17.4 16.3Z"/></svg>
+                        Замовити все у Viber
+                    </a>
+                </div>
+            </div>
         `;
-        // Вставляємо на самий початок контейнера
         feedContainer.insertAdjacentHTML('afterbegin', controlsHTML);
     }
 
-    // --- 2. ОБРОБКА КОЖНОЇ КАРТКИ ---
+    // --- 2. ФУНКЦІЯ ОНОВЛЕННЯ ПОСИЛАНЬ НА "ЗАМОВИТИ ВСЕ" ---
+    function updateOrderAllLinks() {
+        var favList = JSON.parse(localStorage.getItem('dasha_favorites')) || [];
+        var countSpan = document.getElementById('favTotalCount');
+        if(countSpan) countSpan.innerText = favList.length;
+
+        if (favList.length > 0) {
+            // Формуємо список товарів з нового рядка
+            var listText = favList.join(",\n- "); 
+            var fullMessage = "Доброго дня! Хочу замовити з вибраного:\n- " + listText;
+            var encodedMsg = encodeURIComponent(fullMessage);
+
+            var tgLink = "https://t.me/" + tgUsername + "?text=" + encodedMsg;
+            var viberLink = "viber://chat?number=%2B" + viberNumber + "&draft=" + encodedMsg;
+
+            document.getElementById('orderAllTg').href = tgLink;
+            document.getElementById('orderAllViber').href = viberLink;
+            
+            // Показуємо кнопки замовлення
+            document.getElementById('orderAllTg').style.display = 'inline-flex';
+            document.getElementById('orderAllViber').style.display = 'inline-flex';
+        } else {
+            // Якщо пусто - ховаємо кнопки замовлення
+            document.getElementById('orderAllTg').style.display = 'none';
+            document.getElementById('orderAllViber').style.display = 'none';
+        }
+    }
+
+    // --- 3. ОБРОБКА КАРТОК ---
     articles.forEach(function(article) {
         var title = article.querySelector('h1, h2, h3');
         if (!title) return;
 
         var productName = title.childNodes[0].textContent.trim();
         if (!productName && title.querySelector('a')) productName = title.querySelector('a').innerText.trim();
-        
-        // Зберігаємо назву як атрибут для сортування
         article.setAttribute('data-name', productName);
 
-        // --- ЦІНА ---
+        // ЦІНА
         var excerptDiv = article.querySelector('.feed__excerpt, .card__excerpt, p');
         var priceHtml = "";
-        var priceValue = 999999; // Ціна за замовчуванням для сортування (якщо не знайдено)
+        var priceValue = 999999; 
 
         if (excerptDiv) {
             var text = excerptDiv.innerHTML;
             var priceMatch = text.match(/(?:Ціна\s*)?(\d+\s*грн)/i);
-            
             if (priceMatch) {
                 priceHtml = `<div class="custom-price-tag">${priceMatch[1]}</div>`;
-                excerptDiv.innerHTML = text.replace(priceMatch[0], ''); // Вирізаємо з тексту
-                
-                // Витягуємо чисте число для сортування
+                excerptDiv.innerHTML = text.replace(priceMatch[0], ''); 
                 priceValue = parseInt(priceMatch[1].replace(/\D/g, ''));
             }
         }
-        // Зберігаємо ціну як атрибут для сортування
         article.setAttribute('data-price', priceValue);
 
-        // --- КНОПКИ ЗАМОВЛЕННЯ ---
+        // КНОПКИ НА КАРТЦІ (Одиночні)
         if (!title.querySelector('.action-row')) {
-            var messageText = "Доброго дня! Хочу замовити: " + productName;
-            var encodedMessage = encodeURIComponent(messageText);
-            var tgLink = "https://t.me/" + tgUsername + "?text=" + encodedMessage;
-            var viberLink = "viber://chat?number=%2B" + viberNumber + "&draft=" + encodedMessage;
-
+            var msg = encodeURIComponent("Доброго дня! Хочу замовити: " + productName);
+            var tgL = "https://t.me/" + tgUsername + "?text=" + msg;
+            var vbL = "viber://chat?number=%2B" + viberNumber + "&draft=" + msg;
             var btnStyle = "display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: white; padding: 7px 12px; border-radius: 20px; text-decoration: none; border: none; cursor: pointer; font-weight: bold; line-height: 1.2; box-shadow: 0 3px 5px rgba(0,0,0,0.2); transition: transform 0.2s;";
-
-            var tgBtn = `<a href="${tgLink}" target="_blank" style="${btnStyle} background-color: #24A1DE;"><svg viewBox="0 0 24 24" width="16" height="16" fill="white"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.962 6.502-1.359 8.627-.168.9-.5 1.201-.82 1.23-.697.064-1.226-.46-1.901-.903-1.056-.692-1.653-1.123-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.062 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.751-.244-1.349-.374-1.297-.789.027-.216.324-.437.893-.663 3.498-1.524 5.831-2.529 6.998-3.014 3.332-1.386 4.024-1.627 4.476-1.635.1-.002.321.023.465.14a.505.505 0 0 1 .171.325c.016.093.037.306.02.472z"/></svg>Замовити</a>`;
-            var viberBtn = `<a href="${viberLink}" target="_blank" style="${btnStyle} background-color: #7360f2;"><svg viewBox="0 0 24 24" width="16" height="16" fill="white"><path d="M22.5 11.1C22.5 5.5 17.9 1 12.2 1S2 5.5 2 11.1C2 14.6 3.9 17.7 6.8 19.5C6.2 19.8 5.6 20.1 5 20.4L4.5 22.8L8.9 20.7C10.2 21.1 11.7 21.2 13.1 21.1C18.4 20.7 22.5 16.3 22.5 11.1M17.4 16.3C16.8 17.2 15.5 17.5 14.9 17.6C12.5 17.9 8.8 15.2 6.9 12.3C6.1 11 6.1 9.7 7.4 8.5C7.8 8.1 8.3 7.7 8.7 7.4C9.1 7.1 9.4 7.3 9.6 7.7C9.9 8.3 10.6 10.2 10.7 10.4C10.8 10.6 10.7 10.9 10.5 11.1C10.3 11.3 10 11.6 9.8 11.8C9.6 12 9.4 12.3 9.6 12.7C10.1 13.7 11.1 15 12.6 16.3C13.2 16.8 13.7 16.9 14 16.6C14.3 16.3 14.8 15.7 15 15.3C15.2 15 15.5 15.1 15.8 15.2C16.1 15.3 17.6 16 17.9 16.2C18.2 16.3 18.4 16.4 18.4 16.6C18.4 16.6 18 17.1 17.4 16.3Z"/></svg>Замовити</a>`;
-
+            
+            // Вставляємо з іконками
+            var tBtn = `<a href="${tgL}" target="_blank" style="${btnStyle} background-color: #24A1DE;"><svg viewBox="0 0 24 24" width="16" height="16" fill="white"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.962 6.502-1.359 8.627-.168.9-.5 1.201-.82 1.23-.697.064-1.226-.46-1.901-.903-1.056-.692-1.653-1.123-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.062 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.751-.244-1.349-.374-1.297-.789.027-.216.324-.437.893-.663 3.498-1.524 5.831-2.529 6.998-3.014 3.332-1.386 4.024-1.627 4.476-1.635.1-.002.321.023.465.14a.505.505 0 0 1 .171.325c.016.093.037.306.02.472z"/></svg>Замовити</a>`;
+            var vBtn = `<a href="${vbL}" target="_blank" style="${btnStyle} background-color: #7360f2;"><svg viewBox="0 0 24 24" width="16" height="16" fill="white"><path d="M22.5 11.1C22.5 5.5 17.9 1 12.2 1S2 5.5 2 11.1C2 14.6 3.9 17.7 6.8 19.5C6.2 19.8 5.6 20.1 5 20.4L4.5 22.8L8.9 20.7C10.2 21.1 11.7 21.2 13.1 21.1C18.4 20.7 22.5 16.3 22.5 11.1M17.4 16.3C16.8 17.2 15.5 17.5 14.9 17.6C12.5 17.9 8.8 15.2 6.9 12.3C6.1 11 6.1 9.7 7.4 8.5C7.8 8.1 8.3 7.7 8.7 7.4C9.1 7.1 9.4 7.3 9.6 7.7C9.9 8.3 10.6 10.2 10.7 10.4C10.8 10.6 10.7 10.9 10.5 11.1C10.3 11.3 10 11.6 9.8 11.8C9.6 12 9.4 12.3 9.6 12.7C10.1 13.7 11.1 15 12.6 16.3C13.2 16.8 13.7 16.9 14 16.6C14.3 16.3 14.8 15.7 15 15.3C15.2 15 15.5 15.1 15.8 15.2C16.1 15.3 17.6 16 17.9 16.2C18.2 16.3 18.4 16.4 18.4 16.6C18.4 16.6 18 17.1 17.4 16.3Z"/></svg>Замовити</a>`;
+            
             var mainContainer = document.createElement('div');
             mainContainer.className = "action-row";
-            mainContainer.innerHTML = priceHtml + `<div class="buttons-group">${tgBtn + viberBtn}</div>`;
+            mainContainer.innerHTML = priceHtml + `<div class="buttons-group">${tBtn + vBtn}</div>`;
             title.parentNode.insertBefore(mainContainer, title.nextSibling);
         }
 
-        // --- ВИБРАНЕ (СЕРДЕЧКО) ---
+        // СЕРДЕЧКО
         var heart = document.createElement('div');
         heart.className = 'card-heart';
         heart.innerHTML = '❤';
         heart.title = "Додати в вибране";
-        
-        // Перевіряємо, чи є товар в улюблених
-        if (favorites.includes(productName)) {
-            heart.classList.add('liked');
-        }
+        if (favorites.includes(productName)) heart.classList.add('liked');
 
-        // Клік по сердечку
         heart.addEventListener('click', function(e) {
-            e.preventDefault(); // Щоб не переходило за посиланням картки
+            e.preventDefault();
             this.classList.toggle('liked');
             
+            favorites = JSON.parse(localStorage.getItem('dasha_favorites')) || [];
             if (this.classList.contains('liked')) {
                 if (!favorites.includes(productName)) favorites.push(productName);
             } else {
                 favorites = favorites.filter(item => item !== productName);
             }
-            
             localStorage.setItem('dasha_favorites', JSON.stringify(favorites));
             document.getElementById('favCount').innerText = `(${favorites.length})`;
             
-            // Якщо активний фільтр "Тільки вибране", приховуємо товар одразу
-            if (document.getElementById('favFilter').classList.contains('active') && !this.classList.contains('liked')) {
+            // Оновлюємо посилання "Замовити все"
+            updateOrderAllLinks();
+
+            // Якщо ми зараз у режимі перегляду вибраного - ховаємо товар
+            var panel = document.getElementById('favOrderPanel');
+            if (panel && panel.classList.contains('visible') && !this.classList.contains('liked')) {
                 article.style.display = 'none';
             }
         });
 
-        // Додаємо сердечко в картку (але перевіряємо, чи картинка є, щоб поставити поверх неї)
         var imgContainer = article.querySelector('.feed__image, .card__image') || article;
-        // Робимо контейнер relative, щоб absolute працював коректно
         if(getComputedStyle(imgContainer).position === 'static') imgContainer.style.position = 'relative';
         imgContainer.appendChild(heart);
     });
 
-    // --- 3. ЛОГІКА СОРТУВАННЯ ---
+    // --- 4. ЛОГІКА ПЕРЕМИКАННЯ "ВИБРАНЕ" ---
+    var favBtn = document.getElementById('favFilter');
+    var favPanel = document.getElementById('favOrderPanel');
+    var closeFavBtn = document.getElementById('closeFavBtn');
+
+    function toggleFavorites(show) {
+        var articles = document.querySelectorAll('article');
+        favorites = JSON.parse(localStorage.getItem('dasha_favorites')) || [];
+        
+        if (show) {
+            favBtn.classList.add('active');
+            favPanel.classList.add('visible');
+            updateOrderAllLinks();
+            
+            articles.forEach(art => {
+                var name = art.getAttribute('data-name');
+                art.style.display = favorites.includes(name) ? '' : 'none';
+            });
+        } else {
+            favBtn.classList.remove('active');
+            favPanel.classList.remove('visible');
+            articles.forEach(art => art.style.display = '');
+        }
+    }
+
+    if (favBtn) {
+        favBtn.addEventListener('click', function() {
+            var isActive = this.classList.contains('active');
+            toggleFavorites(!isActive);
+        });
+    }
+
+    if (closeFavBtn) {
+        closeFavBtn.addEventListener('click', function() {
+            toggleFavorites(false);
+        });
+    }
+
+    // --- 5. СОРТУВАННЯ ---
     var sortSelect = document.getElementById('sortOrder');
     if (sortSelect) {
         sortSelect.addEventListener('change', function() {
@@ -218,41 +272,12 @@
                 var priceB = parseInt(b.getAttribute('data-price'));
                 var nameA = a.getAttribute('data-name').toLowerCase();
                 var nameB = b.getAttribute('data-name').toLowerCase();
-
                 if (sortType === 'priceAsc') return priceA - priceB;
                 if (sortType === 'priceDesc') return priceB - priceA;
                 if (sortType === 'nameAsc') return nameA.localeCompare(nameB);
-                return 0; // Default
+                return 0;
             });
-
-            // Переставляємо елементи в DOM
-            itemsArray.forEach(function(item) {
-                container.appendChild(item);
-            });
-        });
-    }
-
-    // --- 4. ЛОГІКА ФІЛЬТРУ "ВИБРАНЕ" ---
-    var favBtn = document.getElementById('favFilter');
-    if (favBtn) {
-        favBtn.addEventListener('click', function() {
-            this.classList.toggle('active');
-            var showOnlyFav = this.classList.contains('active');
-            var articles = document.querySelectorAll('article');
-
-            articles.forEach(function(article) {
-                var title = article.querySelector('h1, h2, h3');
-                var productName = title.childNodes[0].textContent.trim();
-                if (!productName && title.querySelector('a')) productName = title.querySelector('a').innerText.trim();
-
-                var isFav = favorites.includes(productName);
-
-                if (showOnlyFav) {
-                    article.style.display = isFav ? '' : 'none';
-                } else {
-                    article.style.display = '';
-                }
-            });
+            itemsArray.forEach(function(item) { container.appendChild(item); });
         });
     }
 });</script></body></html>
