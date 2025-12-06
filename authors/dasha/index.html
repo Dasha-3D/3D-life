@@ -9,54 +9,43 @@
                     this.classList.add('is-loaded');
                 }, false);
             }
-        }</script><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0"><style>/* --- ГЛОБАЛЬНІ НАЛАШТУВАННЯ --- */
-    * { box-sizing: border-box; } /* ВАЖЛИВО: Щоб відступи не ламали ширину */
-    
+        }</script><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0"><style>/* --- 1. ГЛОБАЛЬНИЙ ФІКС ШИРИНИ (CRITICAL FIX) --- */
+    /* Цей блок гарантує, що нічого не вилізе за межі екрану */
+    * {
+        box-sizing: border-box; /* Враховувати рамки і відступи у ширину */
+    }
+
     html, body {
         overflow-x: hidden !important; 
         width: 100%;
         max-width: 100vw;
         position: relative;
         touch-action: pan-y;
+        margin: 0; padding: 0;
     }
 
-    /* Ховаємо логотип та заголовок теми */
+    /* Примусово обмежуємо ширину контенту */
+    main, .main__content, .feed, article, footer {
+        max-width: 100vw !important;
+        width: 100% !important;
+        overflow: hidden;
+    }
+
+    /* Ховаємо логотип */
     .logo, .header__logo, .navbar__brand, .hero__title { display: none !important; }
 
-    /* Примусово обмежуємо контент */
-    main, .main__content, .feed, article {
-        max-width: 100% !important;
-        overflow-wrap: break-word;
-    }
-
-    /* --- ПАНЕЛЬ УПРАВЛІННЯ --- */
+    /* --- 2. ПАНЕЛЬ УПРАВЛІННЯ --- */
     .shop-controls {
         background: #2b2b2b; 
         border-radius: 12px; 
         border: 1px solid #444;
-        padding: 12px;
+        padding: 10px; /* Зменшив відступ */
         margin-bottom: 20px;
         width: 100%;
+        max-width: 100%; /* Не ширше батьківського блоку */
         display: flex;
         flex-direction: column;
         gap: 10px;
-    }
-
-    /* Ряд з фільтрами */
-    .filters-row {
-        display: flex;
-        gap: 8px;
-        width: 100%;
-    }
-
-    /* АДАПТАЦІЯ ДЛЯ МОБІЛЬНИХ (Якщо екран менше 500px) */
-    @media (max-width: 500px) {
-        .filters-row {
-            flex-direction: column; /* Ставимо фільтри вертикально */
-        }
-        .sort-select, .fav-filter-btn {
-            width: 100% !important; /* На всю ширину */
-        }
     }
 
     /* ПОШУК */
@@ -66,10 +55,10 @@
         background: #444; 
         color: white; 
         border: 1px solid #666;
-        padding: 10px 40px 10px 15px; 
+        padding: 0 40px 0 15px; 
         border-radius: 8px; 
-        font-size: 16px; /* Захист від зуму */
-        height: 44px;
+        font-size: 16px; 
+        height: 44px; /* Фіксована висота */
     }
     
     .clear-search-btn {
@@ -79,25 +68,49 @@
     }
     .clear-search-btn.visible { display: flex; }
 
-    /* ВИПАДАЮЧІ СПИСКИ */
-    .sort-select { 
-        background-color: #444; color: white; border: 1px solid #666; 
-        padding: 0 15px; cursor: pointer; font-size: 14px;
-        border-radius: 8px; height: 44px; width: 100%;
+    /* ВИПАДАЮЧІ СПИСКИ ТА КНОПКИ */
+    /* Робимо їх однаковими за стилем */
+    .sort-select, .fav-filter-btn { 
+        width: 100%; 
+        height: 44px; 
+        background-color: #444; 
+        color: white; 
+        border: 1px solid #666; 
+        border-radius: 8px;
+        font-size: 14px;
+        cursor: pointer;
+    }
+
+    /* Стиль саме для селектів (стрілочка) */
+    .sort-select {
+        padding: 0 15px;
         appearance: none; -webkit-appearance: none;
         background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23FFFFFF%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
         background-repeat: no-repeat; background-position: right 15px center; background-size: 10px;
     }
     .sort-select option { background-color: #2b2b2b; }
 
-    /* КНОПКА ВИБРАНОГО */
+    /* Стиль кнопки Вибране */
     .fav-filter-btn {
-        background: transparent; border: 1px solid #ff4d4d; color: #ff4d4d;
-        height: 44px; border-radius: 8px; cursor: pointer; font-weight: bold;
-        display: flex; align-items: center; justify-content: center; gap: 6px;
-        transition: all 0.3s; width: 100%;
+        background: transparent; 
+        border: 1px solid #ff4d4d; 
+        color: #ff4d4d;
+        display: flex; align-items: center; justify-content: center; gap: 8px;
+        font-weight: bold;
+        transition: all 0.3s;
     }
     .fav-filter-btn.active { background: #ff4d4d; color: white; }
+
+    /* Блок для 3-го рядка (Сортування + Вибране) */
+    .controls-bottom-row {
+        display: flex;
+        gap: 10px;
+        width: 100%;
+    }
+    /* На дуже малих екранах вони ділять місце порівну */
+    .controls-bottom-row > * {
+        flex: 1;
+    }
 
     /* --- ПАНЕЛЬ ЗАМОВЛЕННЯ --- */
     .favorites-panel {
@@ -172,34 +185,35 @@
         setTimeout(() => { toast.classList.remove('show'); }, 2500);
     }
 
-    // --- СТВОРЕННЯ ПАНЕЛІ ---
+    // --- СТВОРЕННЯ ПАНЕЛІ (АДАПТИВНА ВЕРСІЯ) ---
     var feedContainer = document.querySelector('.feed, .main__content, main');
     if (feedContainer) {
         var catOptionsHTML = categoryRules.map(cat => `<option value="${cat.id}">${cat.label}</option>`).join('');
 
         var controlsHTML = `
             <div class="shop-controls">
-                <!-- Ряд 1: Пошук -->
+                <!-- 1 ПОВЕРХ: ПОШУК -->
                 <div class="search-wrapper">
                     <input type="text" id="searchInput" class="search-input" placeholder="🔍 Пошук по сайту..." autocomplete="off">
                     <span id="clearSearch" class="clear-search-btn">✕</span>
                 </div>
                 
-                <!-- Ряд 2: Фільтри (На мобільному стануть в стовпчик) -->
-                <div class="filters-row">
-                    <select id="categorySelect" class="sort-select">
-                        ${catOptionsHTML}
-                    </select>
+                <!-- 2 ПОВЕРХ: КАТЕГОРІЇ (СЕЛЕКТ) -->
+                <select id="categorySelect" class="sort-select">
+                    ${catOptionsHTML}
+                </select>
 
-                    <select id="sortOrder" class="sort-select">
+                <!-- 3 ПОВЕРХ: СОРТУВАННЯ + ВИБРАНЕ -->
+                <div class="controls-bottom-row">
+                    <select id="sortOrder" class="sort-select" style="flex: 1;">
                         <option value="default">Сортування</option>
                         <option value="priceAsc">Дешеві ↑</option>
                         <option value="priceDesc">Дорогі ↓</option>
                         <option value="nameAsc">А-Я</option>
                     </select>
 
-                    <button id="favFilter" class="fav-filter-btn">
-                        ❤ Вибране <span id="favCount">(${favorites.length})</span>
+                    <button id="favFilter" class="fav-filter-btn" style="flex: 1;">
+                        ❤ Вибране (<span id="favCount">${favorites.length}</span>)
                     </button>
                 </div>
             </div>
@@ -230,6 +244,7 @@
         
         articles.forEach(art => {
             var name = art.getAttribute('data-name').toLowerCase();
+            
             var matchesCategory = false;
             if (currentCategory === 'all') {
                 matchesCategory = true;
@@ -239,6 +254,7 @@
                     matchesCategory = rule.keywords.some(k => name.includes(k));
                 }
             }
+
             var matchesSearch = name.includes(searchTerm);
             var nameOriginal = art.getAttribute('data-name');
             var matchesFav = isFavMode ? favorites.includes(nameOriginal) : true;
@@ -251,7 +267,7 @@
         });
     }
 
-    // --- ОБРОБНИКИ ---
+    // --- ОБРОБНИК КАТЕГОРІЇ (DROPDOWN) ---
     var catSelect = document.getElementById('categorySelect');
     if (catSelect) {
         catSelect.addEventListener('change', function() {
@@ -260,6 +276,7 @@
         });
     }
 
+    // --- ОБРОБКА КАРТОК ---
     articles.forEach(function(article) {
         var title = article.querySelector('h1, h2, h3');
         if (!title) return;
@@ -268,6 +285,7 @@
         if (!productName && title.querySelector('a')) productName = title.querySelector('a').innerText.trim();
         article.setAttribute('data-name', productName);
 
+        // Ціна
         var excerptDiv = article.querySelector('.feed__excerpt, .card__excerpt, p');
         var priceHtml = "";
         var priceValue = 0; 
@@ -283,6 +301,7 @@
         article.setAttribute('data-price', priceValue);
         productPrices[productName] = priceValue;
 
+        // Кнопки (Одинарні)
         if (!title.querySelector('.action-row')) {
             var priceText = priceValue > 0 ? " (" + priceValue + " грн)" : "";
             var msg = encodeURIComponent("Доброго дня! Хочу замовити: " + productName + priceText);
@@ -324,6 +343,7 @@
         imgContainer.appendChild(heart);
     });
 
+    // --- ОНОВЛЕННЯ ПОСИЛАНЬ "ЗАМОВИТИ ВСЕ" ---
     function updateOrderAllLinks() {
         var favList = JSON.parse(localStorage.getItem('dasha_favorites')) || [];
         var countSpan = document.getElementById('favTotalCount');
@@ -350,6 +370,7 @@
         }
     }
 
+    // --- ІНШІ ОБРОБНИКИ (ПОШУК, ФІЛЬТРИ) ---
     var favBtn = document.getElementById('favFilter');
     var favPanel = document.getElementById('favOrderPanel');
     var closeFavBtn = document.getElementById('closeFavBtn');
@@ -388,6 +409,7 @@
         });
     }
 
+    // Сортування
     var sortSelect = document.getElementById('sortOrder');
     if (sortSelect) {
         sortSelect.addEventListener('change', function() {
