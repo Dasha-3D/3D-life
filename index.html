@@ -9,45 +9,39 @@
                     this.classList.add('is-loaded');
                 }, false);
             }
-        }</script><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0"><style>/* --- 1. АГРЕСИВНИЙ ФІКС ШИРИНИ (Щоб нічого не обрізало) --- */
+        }</script><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0"><style>/* --- 1. ГЛОБАЛЬНИЙ ФІКС (БЕЗПЕЧНИЙ) --- */
     * { box-sizing: border-box; }
 
     html, body {
-        overflow-x: hidden !important;
+        overflow-x: hidden !important; /* Забороняє прокрутку вбік */
         width: 100% !important;
-        max-width: 100% !important;
         margin: 0 !important;
         padding: 0 !important;
         position: relative;
     }
 
-    /* Виправляємо контейнери теми Publii */
+    /* Виправляємо контейнери */
     .wrapper, main, .main, .container, .feed {
-        max-width: 100vw !important;
+        max-width: 100% !important;
         width: 100% !important;
-        overflow-x: hidden !important;
-        padding-left: 10px !important; /* Мінімальні відступи безпеки */
-        padding-right: 10px !important;
-        margin: 0 auto !important;
+        overflow: hidden !important; /* Обрізає все зайве */
     }
 
     /* Ховаємо логотип */
     .logo, .header__logo, .navbar__brand, .hero__title { display: none !important; }
 
-    /* Виправлення карток товарів */
+    /* Картки товарів */
     article {
         width: 100% !important;
         max-width: 100% !important;
-        margin-left: 0 !important;
-        margin-right: 0 !important;
+        margin: 0 !important;
         box-sizing: border-box !important;
     }
     
-    /* Картинки не повинні вилазити */
-    article img, .feed__image img {
+    /* Картинки */
+    img {
         max-width: 100% !important;
         height: auto !important;
-        display: block;
     }
 
     /* --- 2. ПАНЕЛЬ УПРАВЛІННЯ --- */
@@ -57,22 +51,10 @@
         border: 1px solid #444;
         padding: 12px;
         margin-bottom: 20px;
-        width: 100%;
+        width: 100%; /* Тільки 100%, ніяких calc() */
         display: flex;
         flex-direction: column;
         gap: 10px;
-    }
-
-    /* СПЕЦІАЛЬНО ДЛЯ МОБІЛЬНИХ: Робимо панель на всю ширину без рамок */
-    @media (max-width: 600px) {
-        .shop-controls {
-            border-radius: 0;
-            border-left: none;
-            border-right: none;
-            margin-left: -10px; /* Компенсуємо відступ контейнера */
-            width: calc(100% + 20px); /* Розтягуємо на всю ширину */
-            padding: 10px;
-        }
     }
 
     /* Ряд з фільтрами */
@@ -82,7 +64,6 @@
         width: 100%;
     }
 
-    /* Адаптація фільтрів для дуже вузьких екранів */
     @media (max-width: 400px) {
         .filters-row { flex-direction: column; }
     }
@@ -188,37 +169,37 @@
         setTimeout(() => { toast.classList.remove('show'); }, 2500);
     }
 
-    // --- СТВОРЕННЯ ПАНЕЛІ ---
+    // --- СТВОРЕННЯ ПАНЕЛІ (АДАПТИВНА ВЕРСІЯ) ---
     var feedContainer = document.querySelector('.feed, .main__content, main');
     if (feedContainer) {
         var catOptionsHTML = categoryRules.map(cat => `<option value="${cat.id}">${cat.label}</option>`).join('');
 
         var controlsHTML = `
             <div class="shop-controls">
-                <!-- 1: ПОШУК -->
+                <!-- 1 ПОВЕРХ: ПОШУК -->
                 <div class="search-wrapper">
                     <input type="text" id="searchInput" class="search-input" placeholder="🔍 Пошук по сайту..." autocomplete="off">
                     <span id="clearSearch" class="clear-search-btn">✕</span>
                 </div>
                 
-                <!-- 2: ФІЛЬТРИ -->
-                <div class="filters-row">
-                    <select id="categorySelect" class="sort-select">
-                        ${catOptionsHTML}
-                    </select>
+                <!-- 2 ПОВЕРХ: КАТЕГОРІЇ -->
+                <select id="categorySelect" class="sort-select">
+                    ${catOptionsHTML}
+                </select>
 
+                <!-- 3 ПОВЕРХ: СОРТУВАННЯ + ВИБРАНЕ -->
+                <div class="filters-row">
                     <select id="sortOrder" class="sort-select">
                         <option value="default">Сортування</option>
                         <option value="priceAsc">Дешеві ↑</option>
                         <option value="priceDesc">Дорогі ↓</option>
                         <option value="nameAsc">А-Я</option>
                     </select>
-                </div>
 
-                <!-- 3: ВИБРАНЕ (Окремий рядок) -->
-                <button id="favFilter" class="fav-filter-btn">
-                    ❤ Вибране (<span id="favCount">${favorites.length}</span>)
-                </button>
+                    <button id="favFilter" class="fav-filter-btn">
+                        ❤ Вибране (<span id="favCount">${favorites.length}</span>)
+                    </button>
+                </div>
             </div>
             
             <div id="favOrderPanel" class="favorites-panel">
@@ -303,7 +284,7 @@
         article.setAttribute('data-price', priceValue);
         productPrices[productName] = priceValue;
 
-        // Кнопки
+        // Кнопки (Одинарні)
         if (!title.querySelector('.action-row')) {
             var priceText = priceValue > 0 ? " (" + priceValue + " грн)" : "";
             var msg = encodeURIComponent("Доброго дня! Хочу замовити: " + productName + priceText);
@@ -345,7 +326,7 @@
         imgContainer.appendChild(heart);
     });
 
-    // --- ОНОВЛЕННЯ ПОСИЛАНЬ ---
+    // --- ОНОВЛЕННЯ ПОСИЛАНЬ "ЗАМОВИТИ ВСЕ" ---
     function updateOrderAllLinks() {
         var favList = JSON.parse(localStorage.getItem('dasha_favorites')) || [];
         var countSpan = document.getElementById('favTotalCount');
@@ -372,7 +353,7 @@
         }
     }
 
-    // --- ІНШІ ОБРОБНИКИ ---
+    // --- ІНШІ ОБРОБНИКИ (ПОШУК, ФІЛЬТРИ) ---
     var favBtn = document.getElementById('favFilter');
     var favPanel = document.getElementById('favOrderPanel');
     var closeFavBtn = document.getElementById('closeFavBtn');
@@ -411,6 +392,7 @@
         });
     }
 
+    // Сортування
     var sortSelect = document.getElementById('sortOrder');
     if (sortSelect) {
         sortSelect.addEventListener('change', function() {
