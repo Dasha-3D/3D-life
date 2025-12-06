@@ -31,9 +31,17 @@
         }
         if (!productName) return;
         
+        // Текст повідомлення
+        var messageText = "Доброго дня! Хочу замовити: " + productName;
+        var encodedMessage = encodeURIComponent(messageText);
+
         // Формуємо посилання
-        var tgLink = "https://t.me/" + tgUsername + "?text=Доброго дня! Хочу замовити: " + encodeURIComponent(productName);
-        var viberLink = "viber://chat?number=%2B" + viberNumber; // Viber не завжди підтримує готовий текст, тому просто відкриваємо чат
+        // Telegram
+        var tgLink = "https://t.me/" + tgUsername + "?text=" + encodedMessage;
+        
+        // Viber (використовуємо параметр draft для тексту)
+        // %2B — це закодований плюс (+)
+        var viberLink = "viber://chat?number=%2B" + viberNumber + "&draft=" + encodedMessage;
 
         // Створюємо контейнер для кнопок
         var container = document.createElement('span');
