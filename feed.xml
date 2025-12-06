@@ -3,7 +3,7 @@
     <title>3D Life</title>
     <link href="https://dasha-3d.github.io/3D-life/feed.xml" rel="self" />
     <link href="https://dasha-3d.github.io/3D-life" />
-    <updated>2025-12-05T14:19:11+02:00</updated>
+    <updated>2025-12-05T14:31:16+02:00</updated>
     <author>
         <name>Dasha</name>
     </author>
@@ -19,18 +19,8 @@
         <media:content url="https://dasha-3d.github.io/3D-life/media/posts/2/hex.jpg" medium="image" />
 
         <updated>2025-12-05T12:36:07+02:00</updated>
-            <summary type="html">
-                <![CDATA[
-                        <img src="https://dasha-3d.github.io/3D-life/media/posts/2/hex.jpg" alt="" />
-                    ЗАМОВИТИ
-                ]]>
-            </summary>
-        <content type="html">
-            <![CDATA[
-                    <p><img src="https://dasha-3d.github.io/3D-life/media/posts/2/hex.jpg" class="type:primaryImage" alt="" /></p>
-                <p><a href="https://t.me/Dashieed"></a>ЗАМОВИТИ</p>
-            ]]>
-        </content>
+            <summary></summary>
+        <content></content>
     </entry>
     <entry>
         <title>Скелет Дракона</title>
@@ -51,8 +41,8 @@
         <content type="html">
             <![CDATA[
                     <p><img src="https://dasha-3d.github.io/3D-life/media/posts/1/dragon-skeleton.webp" class="type:primaryImage" alt="" /></p>
-                <p>Ціна: 75грн</p>
-<p><strong><span style="text-decoration: underline;"><span style="color: #2dc26b; text-decoration: underline;"><a href="@Birovalex" target="_blank" rel="noopener noreferrer" style="color: #2dc26b; text-decoration: underline;">ЗАМОВИТИ</a><a href="https://t.me/Dashieed" target="_blank" rel="noopener noreferrer"></a></span></span></strong></p>
+                <h1>Ціна: 75грн</h1>
+<h1><strong><span style="text-decoration: underline;"><span style="color: #2dc26b; text-decoration: underline;"><a href="https://t.me/Dashieed" target="_blank" rel="noopener noreferrer">ЗАМОВИТИ</a><a href="https://t.me/Dashieed"></a><a href="https://t.me/Dashieed" target="_blank" rel="noopener noreferrer"></a></span></span></strong></h1>
             ]]>
         </content>
     </entry>

@@ -13,8 +13,6 @@
             "id": "https://dasha-3d.github.io/3D-life/fidzhet-geksagon.html",
             "url": "https://dasha-3d.github.io/3D-life/fidzhet-geksagon.html",
             "title": "Фіджет Гексагон 70грн ",
-            "summary": "ЗАМОВИТИ",
-            "content_html": "<p><a href=\"https://t.me/Dashieed\"></a>ЗАМОВИТИ</p>",
             "image": "https://dasha-3d.github.io/3D-life/media/posts/2/hex.jpg",
             "author": {
                 "name": "Dasha"
@@ -22,14 +20,14 @@
             "tags": [
             ],
             "date_published": "2025-12-05T12:36:07+02:00",
-            "date_modified": "2025-12-05T14:19:11+02:00"
+            "date_modified": "2025-12-05T14:31:16+02:00"
         },
         {
             "id": "https://dasha-3d.github.io/3D-life/skelet-drakona.html",
             "url": "https://dasha-3d.github.io/3D-life/skelet-drakona.html",
             "title": "Скелет Дракона",
             "summary": "Ціна: 75грн ЗАМОВИТИ",
-            "content_html": "<p>Ціна: 75грн</p>\n<p><strong><span style=\"text-decoration: underline;\"><span style=\"color: #2dc26b; text-decoration: underline;\"><a href=\"@Birovalex\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color: #2dc26b; text-decoration: underline;\">ЗАМОВИТИ</a><a href=\"https://t.me/Dashieed\" target=\"_blank\" rel=\"noopener noreferrer\"></a></span></span></strong></p>",
+            "content_html": "<h1>Ціна: 75грн</h1>\n<h1><strong><span style=\"text-decoration: underline;\"><span style=\"color: #2dc26b; text-decoration: underline;\"><a href=\"https://t.me/Dashieed\" target=\"_blank\" rel=\"noopener noreferrer\">ЗАМОВИТИ</a><a href=\"https://t.me/Dashieed\"></a><a href=\"https://t.me/Dashieed\" target=\"_blank\" rel=\"noopener noreferrer\"></a></span></span></strong></h1>",
             "image": "https://dasha-3d.github.io/3D-life/media/posts/1/dragon-skeleton.webp",
             "author": {
                 "name": "Dasha"
@@ -37,7 +35,7 @@
             "tags": [
             ],
             "date_published": "2025-12-05T12:12:32+02:00",
-            "date_modified": "2025-12-05T13:11:32+02:00"
+            "date_modified": "2025-12-05T14:22:18+02:00"
         }
     ]
 }
