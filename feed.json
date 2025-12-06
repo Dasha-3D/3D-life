@@ -10,6 +10,21 @@
     },
     "items": [
         {
+            "id": "https://dasha-3d.github.io/3D-life/unitaz-z-nizhkami-prikol.html",
+            "url": "https://dasha-3d.github.io/3D-life/unitaz-z-nizhkami-prikol.html",
+            "title": "Унітаз з ніжками прикол",
+            "summary": "Унітаз з рухомими ніжками. 70грн",
+            "content_html": "\n  <p>\n    Унітаз з рухомими ніжками. 70грн\n  </p>",
+            "image": "https://dasha-3d.github.io/3D-life/media/posts/6/unitaz.webp",
+            "author": {
+                "name": "Dasha"
+            },
+            "tags": [
+            ],
+            "date_published": "2025-12-06T18:59:48+02:00",
+            "date_modified": "2025-12-06T18:59:48+02:00"
+        },
+        {
             "id": "https://dasha-3d.github.io/3D-life/drakon-gnuchkiy.html",
             "url": "https://dasha-3d.github.io/3D-life/drakon-gnuchkiy.html",
             "title": "Дракон гнучкий",
@@ -22,7 +37,7 @@
             "tags": [
             ],
             "date_published": "2025-12-06T12:08:04+02:00",
-            "date_modified": "2025-12-06T13:20:50+02:00"
+            "date_modified": "2025-12-06T18:48:41+02:00"
         },
         {
             "id": "https://dasha-3d.github.io/3D-life/fidzhet-geksagon.html",
@@ -37,7 +52,7 @@
             "tags": [
             ],
             "date_published": "2025-12-05T12:36:07+02:00",
-            "date_modified": "2025-12-06T13:21:49+02:00"
+            "date_modified": "2025-12-06T18:48:58+02:00"
         },
         {
             "id": "https://dasha-3d.github.io/3D-life/skelet-drakona.html",
