@@ -10,32 +10,53 @@
                 }, false);
             }
         }</script><script>document.addEventListener("DOMContentLoaded", function() {
-    // 1. Знаходимо всі картки товарів (тег article) і всі можливі заголовки
-    // Це покриває і звичайні пости, і "featured" (закріплені), і списки
+    // -----------------------------------------------------------
+    // НАЛАШТУВАННЯ (Змініть ці дані на свої)
+    // -----------------------------------------------------------
+    var viberNumber = "380681788275"; // Ваш номер (обов'язково 380...)
+    var tgUsername = "Dashieed";      // Ваш нік в Telegram (без @)
+    // -----------------------------------------------------------
+
+    // Знаходимо всі заголовки карток
     var titles = document.querySelectorAll('article h1, article h2, article h3, .feed__title, .card__title'); 
     
     titles.forEach(function(title) {
-        // Перевірка: чи не додали ми вже сюди кнопку? (щоб не було дублів)
-        if (title.querySelector('.tg-buy-btn')) return;
+        // Перевірка, щоб не дублювати кнопки
+        if (title.querySelector('.buy-buttons-container')) return;
 
-        // Перевірка: ігноруємо заголовки, які є посиланнями самі на себе (іноді буває в структурі)
-        // Але беремо текст обережно, ігноруючи текст самої кнопки, якщо вона раптом є
+        // Отримуємо назву товару
         var productName = title.childNodes[0].textContent.trim();
         if (!productName && title.querySelector('a')) {
              productName = title.querySelector('a').innerText.trim();
         }
-
-        // Якщо назви нема — пропускаємо
         if (!productName) return;
         
         // Формуємо посилання
-        var tgLink = "https://t.me/Dashieed?text=Доброго дня! Хочу замовити: " + encodeURIComponent(productName);
+        var tgLink = "https://t.me/" + tgUsername + "?text=Доброго дня! Хочу замовити: " + encodeURIComponent(productName);
+        var viberLink = "viber://chat?number=%2B" + viberNumber; // Viber не завжди підтримує готовий текст, тому просто відкриваємо чат
+
+        // Створюємо контейнер для кнопок
+        var container = document.createElement('span');
+        container.className = "buy-buttons-container";
+        container.style.cssText = "display: inline-flex; flex-wrap: wrap; gap: 5px; margin-left: 10px; vertical-align: middle;";
+
+        // HTML для кнопки Telegram
+        var tgBtn = `
+        <a href="${tgLink}" target="_blank" style="display: inline-flex; align-items: center; gap: 3px; font-size: 11px; background-color: #24A1DE; color: white; padding: 4px 8px; border-radius: 12px; text-decoration: none; border: none; cursor: pointer; white-space: nowrap; font-weight: normal; line-height: 1.2;">
+            <svg viewBox="0 0 24 24" width="12" height="12" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.962 6.502-1.359 8.627-.168.9-.5 1.201-.82 1.23-.697.064-1.226-.46-1.901-.903-1.056-.692-1.653-1.123-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.062 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.751-.244-1.349-.374-1.297-.789.027-.216.324-.437.893-.663 3.498-1.524 5.831-2.529 6.998-3.014 3.332-1.386 4.024-1.627 4.476-1.635.1-.002.321.023.465.14a.505.505 0 0 1 .171.325c.016.093.037.306.02.472z"/></svg>
+            Замовити
+        </a>`;
+
+        // HTML для кнопки Viber
+        var viberBtn = `
+        <a href="${viberLink}" target="_blank" title="Написати у Viber" style="display: inline-flex; align-items: center; gap: 3px; font-size: 11px; background-color: #7360f2; color: white; padding: 4px 8px; border-radius: 12px; text-decoration: none; border: none; cursor: pointer; white-space: nowrap; font-weight: normal; line-height: 1.2;">
+            <svg viewBox="0 0 24 24" width="12" height="12" fill="white" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.96627 20.3547L4.47953 22.846C4.40726 23.2198 4.84713 23.4981 5.16109 23.2773L8.85215 20.6713C10.2241 21.0567 11.6669 21.2002 13.0809 21.0913C18.3941 20.6811 22.5002 16.3429 22.5002 11.1396C22.5002 5.54922 17.8926 1 12.2359 1C6.57916 1 2 5.53037 2 11.1022C2 14.6148 3.86477 17.7289 6.75846 19.5376C6.18247 19.8279 5.58661 20.1009 4.96627 20.3547ZM7.06019 16.5165C6.98399 16.3533 6.77978 16.3311 6.62007 16.3458C6.46048 16.3603 6.27375 16.3603 6.08643 16.3603C5.89968 16.3603 5.59606 16.3817 5.33408 16.6661C5.07221 16.9504 4.33121 17.6473 4.33121 19.068C4.33121 20.4886 5.36625 21.8606 5.51571 22.0594C5.66504 22.2584 7.50201 25.3396 10.4578 26.3986C13.4137 27.4573 13.4137 26.3986 13.9452 26.3275C14.4764 26.2566 15.6596 25.6026 15.9038 24.9135C16.148 24.2244 16.148 23.6346 16.0827 23.5211C16.0172 23.4072 15.8584 23.3394 15.6339 23.226C15.4098 23.1123 14.3093 22.5713 14.1028 22.5006C13.8967 22.4294 13.7469 22.3939 13.5975 22.6212C13.4478 22.8484 13.0211 23.3457 12.8903 23.4947C12.7594 23.6441 12.6284 23.6653 12.4042 23.5517C12.1797 23.4382 11.4552 23.1994 10.5962 22.4334C9.91428 21.8256 9.45396 21.0746 9.32306 20.8471C9.1918 20.6202 9.30878 20.4993 9.42125 20.3876C9.52222 20.2872 9.6455 20.126 9.77663 19.9698C9.90731 19.8136 9.9515 19.6997 10.0384 19.5222C10.1256 19.3444 10.0818 19.1884 10.0163 19.0532C9.95101 18.9184 9.45427 17.6972 9.24823 17.2001C9.04751 16.7161 8.8463 16.7821 8.69429 16.7821L8.69176 16.7821C8.5414 16.7821 8.35467 16.7821 8.16781 16.7821C7.84227 16.7834 7.42399 16.9067 7.06019 16.5165Z"/></svg>
+            Замовити
+        </a>`;
+
+        container.innerHTML = tgBtn + viberBtn;
         
-        // Створюємо кнопку
-        var btnSpan = document.createElement('span');
-        btnSpan.innerHTML = ` <a href="${tgLink}" class="tg-buy-btn" target="_blank" style="display: inline-block; font-size: 0.6em; background-color: #24A1DE; color: white; padding: 3px 8px; border-radius: 10px; text-decoration: none; vertical-align: middle; margin-left: 8px; border: none; cursor: pointer; white-space: nowrap; font-weight: normal; line-height: 1.2;">Замовити</a>`;
-        
-        // Додаємо кнопку всередину заголовка
-        title.appendChild(btnSpan);
+        // Додаємо кнопки в заголовок
+        title.appendChild(container);
     });
 });</script></body></html>
