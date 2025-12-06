@@ -10,24 +10,26 @@
     },
     "items": [
         {
-            "id": "https://dasha-3d.github.io/3D-life/drakon-ruhomiy-32sm.html",
-            "url": "https://dasha-3d.github.io/3D-life/drakon-ruhomiy-32sm.html",
-            "title": "Дракон рухомий 32см",
-            "summary": "ЦІНА 95грн",
-            "content_html": "\n  <p>\n    <strong>ЦІНА 95грн</strong>\n  </p>\n\n  <p>\n    \n  </p>",
-            "image": "https://dasha-3d.github.io/3D-life/media/posts/4/dragon.jfif",
+            "id": "https://dasha-3d.github.io/3D-life/drakon-gnuchkiy.html",
+            "url": "https://dasha-3d.github.io/3D-life/drakon-gnuchkiy.html",
+            "title": "Дракон гнучкий",
+            "summary": "Ціна 95грн Довжина 32см",
+            "content_html": "\n    <h2 id=\"cina-95grn\">\n      Ціна 95грн\n    </h2>\n\n  <p>\n    Довжина 32см\n  </p>\n\n  <p>\n    \n  </p>",
+            "image": "https://dasha-3d.github.io/3D-life/media/posts/5/dragon.jfif",
             "author": {
                 "name": "Dasha"
             },
             "tags": [
             ],
-            "date_published": "2025-12-06T12:05:00+02:00",
-            "date_modified": "2025-12-06T12:05:20+02:00"
+            "date_published": "2025-12-06T12:08:04+02:00",
+            "date_modified": "2025-12-06T12:11:28+02:00"
         },
         {
             "id": "https://dasha-3d.github.io/3D-life/fidzhet-geksagon.html",
             "url": "https://dasha-3d.github.io/3D-life/fidzhet-geksagon.html",
-            "title": "Фіджет Гексагон 70грн ",
+            "title": "Фіджет Гексагон  ЦІНА70грн ",
+            "summary": "Фіджет рухомий шестикутник 10см",
+            "content_html": "<p>Фіджет рухомий шестикутник 10см</p>",
             "image": "https://dasha-3d.github.io/3D-life/media/posts/2/hex.jpg",
             "author": {
                 "name": "Dasha"
@@ -35,7 +37,7 @@
             "tags": [
             ],
             "date_published": "2025-12-05T12:36:07+02:00",
-            "date_modified": "2025-12-05T14:31:16+02:00"
+            "date_modified": "2025-12-06T12:09:05+02:00"
         },
         {
             "id": "https://dasha-3d.github.io/3D-life/skelet-drakona.html",

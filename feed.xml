@@ -3,34 +3,38 @@
     <title>3D Life</title>
     <link href="https://dasha-3d.github.io/3D-life/feed.xml" rel="self" />
     <link href="https://dasha-3d.github.io/3D-life" />
-    <updated>2025-12-06T12:05:20+02:00</updated>
+    <updated>2025-12-06T12:11:28+02:00</updated>
     <author>
         <name>Dasha</name>
     </author>
     <id>https://dasha-3d.github.io/3D-life</id>
 
     <entry>
-        <title>Дракон рухомий 32см</title>
+        <title>Дракон гнучкий</title>
         <author>
             <name>Dasha</name>
         </author>
-        <link href="https://dasha-3d.github.io/3D-life/drakon-ruhomiy-32sm.html"/>
-        <id>https://dasha-3d.github.io/3D-life/drakon-ruhomiy-32sm.html</id>
-        <media:content url="https://dasha-3d.github.io/3D-life/media/posts/4/dragon.jfif" medium="image" />
+        <link href="https://dasha-3d.github.io/3D-life/drakon-gnuchkiy.html"/>
+        <id>https://dasha-3d.github.io/3D-life/drakon-gnuchkiy.html</id>
+        <media:content url="https://dasha-3d.github.io/3D-life/media/posts/5/dragon.jfif" medium="image" />
 
-        <updated>2025-12-06T12:05:00+02:00</updated>
+        <updated>2025-12-06T12:08:04+02:00</updated>
             <summary type="html">
                 <![CDATA[
-                        <img src="https://dasha-3d.github.io/3D-life/media/posts/4/dragon.jfif" alt="" />
-                    ЦІНА 95грн
+                        <img src="https://dasha-3d.github.io/3D-life/media/posts/5/dragon.jfif" alt="" />
+                    Ціна 95грн Довжина 32см
                 ]]>
             </summary>
         <content type="html">
             <![CDATA[
-                    <p><img src="https://dasha-3d.github.io/3D-life/media/posts/4/dragon.jfif" class="type:primaryImage" alt="" /></p>
+                    <p><img src="https://dasha-3d.github.io/3D-life/media/posts/5/dragon.jfif" class="type:primaryImage" alt="" /></p>
                 
+    <h2 id="cina-95grn">
+      Ціна 95грн
+    </h2>
+
   <p>
-    <strong>ЦІНА 95грн</strong>
+    Довжина 32см
   </p>
 
   <p>
@@ -40,7 +44,7 @@
         </content>
     </entry>
     <entry>
-        <title>Фіджет Гексагон 70грн </title>
+        <title>Фіджет Гексагон  ЦІНА70грн </title>
         <author>
             <name>Dasha</name>
         </author>
@@ -49,8 +53,18 @@
         <media:content url="https://dasha-3d.github.io/3D-life/media/posts/2/hex.jpg" medium="image" />
 
         <updated>2025-12-05T12:36:07+02:00</updated>
-            <summary></summary>
-        <content></content>
+            <summary type="html">
+                <![CDATA[
+                        <img src="https://dasha-3d.github.io/3D-life/media/posts/2/hex.jpg" alt="" />
+                    Фіджет рухомий шестикутник 10см
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                    <p><img src="https://dasha-3d.github.io/3D-life/media/posts/2/hex.jpg" class="type:primaryImage" alt="" /></p>
+                <p>Фіджет рухомий шестикутник 10см</p>
+            ]]>
+        </content>
     </entry>
     <entry>
         <title>Скелет Дракона</title>
