@@ -3,29 +3,35 @@
     <title>3D Life</title>
     <link href="https://dasha-3d.github.io/3D-life/feed.xml" rel="self" />
     <link href="https://dasha-3d.github.io/3D-life" />
-    <updated>2025-12-06T11:57:07+02:00</updated>
+    <updated>2025-12-06T11:59:17+02:00</updated>
     <author>
         <name>Dasha</name>
     </author>
     <id>https://dasha-3d.github.io/3D-life</id>
 
     <entry>
-        <title>нвпніоао</title>
+        <title>Дракон 32см  95грн</title>
         <author>
             <name>Dasha</name>
         </author>
         <link href="https://dasha-3d.github.io/3D-life/nvpnioao.html"/>
         <id>https://dasha-3d.github.io/3D-life/nvpnioao.html</id>
+        <media:content url="https://dasha-3d.github.io/3D-life/media/posts/3/dragon.jfif" medium="image" />
 
         <updated>2025-12-06T11:57:07+02:00</updated>
             <summary></summary>
         <content type="html">
             <![CDATA[
+                    <p><img src="https://dasha-3d.github.io/3D-life/media/posts/3/dragon.jfif" class="type:primaryImage" alt="" /></p>
                 
     <figure class="post__image post__image--center">
-      <img loading="lazy" src="https://dasha-3d.github.io/3D-life/media/posts/3/Katana_Sword_fast_print_profil.3mf" height="null" width="null" alt="" >
+      <img loading="lazy" src="https://dasha-3d.github.io/3D-life/media/posts/3/Katana_Sword_fast_print_profil.3mf" height="[object Object]" width="[object Object]" alt="" >
       
     </figure>
+
+  <p>
+    
+  </p>
             ]]>
         </content>
     </entry>
