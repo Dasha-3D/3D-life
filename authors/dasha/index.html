@@ -9,54 +9,97 @@
                     this.classList.add('is-loaded');
                 }, false);
             }
-        }</script><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0"><style>/* --- МОБІЛЬНА АДАПТАЦІЯ --- */
-    html, body { overflow-x: hidden !important; width: 100%; position: relative; touch-action: pan-y; }
-    .buttons-group { display: flex; flex-wrap: wrap; gap: 8px; }
+        }</script><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0"><style>/* --- 1. ГЛОБАЛЬНИЙ ФІКС ШИРИНИ (Щоб не обрізало товари) --- */
+    html, body {
+        overflow-x: hidden !important; 
+        width: 100%;
+        position: relative;
+        touch-action: pan-y;
+    }
+    
+    /* Примусово обмежуємо ширину контенту */
+    main, .main__content, .feed {
+        max-width: 100vw !important;
+        box-sizing: border-box;
+        overflow: hidden; /* Ховає все, що стирчить */
+    }
+
+    /* Адаптація карток товарів */
+    article {
+        max-width: 100% !important;
+        box-sizing: border-box;
+        position: relative;
+    }
+    
+    /* Картинки всередині карток теж не повинні вилазити */
+    article img {
+        max-width: 100%;
+        height: auto;
+    }
 
     /* ПРИБИРАЄМО ЛОГОТИП */
     .logo, .header__logo, .navbar__brand, .hero__title { display: none !important; }
 
-    /* --- ПАНЕЛЬ УПРАВЛІННЯ --- */
+
+    /* --- 2. ПАНЕЛЬ УПРАВЛІННЯ (АДАПТИВНА СІТКА) --- */
     .shop-controls {
-        margin-bottom: 20px; padding: 15px; background: #2b2b2b; border-radius: 12px; border: 1px solid #444;
-        max-width: 100%; display: flex; flex-direction: column; gap: 10px;
+        display: flex;
+        flex-direction: column; /* Елементи один під одним */
+        gap: 12px; /* Відступи між рядками */
+        margin-bottom: 20px; 
+        padding: 15px; 
+        background: #2b2b2b; 
+        border-radius: 12px; 
+        border: 1px solid #444;
+        width: 100%;
+        box-sizing: border-box; /* Щоб padding не розширював блок */
     }
 
-    /* Ряд з випадаючими списками */
-    .filters-row {
-        display: flex; gap: 8px; width: 100%;
+    /* Рядок 3: Сортування і Вибране (50% на 50%) */
+    .controls-bottom-row {
+        display: flex;
+        gap: 10px;
+        width: 100%;
+    }
+
+    /* Стилі полів вводу і списків */
+    .search-input, .sort-select, .fav-filter-btn {
+        width: 100%; /* Завжди на всю доступну ширину */
+        height: 44px; /* Зручна висота для пальця */
+        box-sizing: border-box;
+        font-size: 16px; /* Захист від зуму */
+        border-radius: 8px;
     }
 
     /* ПОШУК */
     .search-wrapper { position: relative; width: 100%; }
     .search-input {
-        width: 100%; background: #444; color: white; border: 1px solid #666;
-        padding: 10px 35px 10px 15px; border-radius: 8px; font-size: 16px; box-sizing: border-box;
+        background: #444; color: white; border: 1px solid #666;
+        padding: 0 40px 0 15px; /* Місце для хрестика */
     }
     .clear-search-btn {
-        position: absolute; right: 10px; top: 50%; transform: translateY(-50%);
-        color: #aaa; cursor: pointer; font-weight: bold; font-size: 18px; display: none; padding: 5px; line-height: 1;
+        position: absolute; right: 0; top: 0; height: 44px; width: 44px;
+        display: flex; align-items: center; justify-content: center;
+        color: #aaa; cursor: pointer; font-size: 20px; display: none;
     }
-    .clear-search-btn.visible { display: block; }
+    .clear-search-btn.visible { display: flex; }
 
-    /* ВИПАДАЮЧІ СПИСКИ (Select) */
+    /* СПИСКИ (Категорії і Сортування) */
     .sort-select { 
-        background-color: #444; color: white; border: 1px solid #666; padding: 10px; border-radius: 8px; 
-        cursor: pointer; font-size: 14px; flex-grow: 1; width: 100%; /* Розтягуються рівномірно */
-        padding-right: 25px; /* Місце для стрілочки */
-        /* Кастомна стрілочка */
+        background-color: #444; color: white; border: 1px solid #666; 
+        padding: 0 15px; cursor: pointer;
         background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23FFFFFF%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
-        background-repeat: no-repeat; background-position: right .7em top 50%; background-size: .65em auto;
+        background-repeat: no-repeat; background-position: right 15px center; background-size: 12px;
         appearance: none; -webkit-appearance: none;
-        text-overflow: ellipsis; white-space: nowrap; overflow: hidden;
     }
     .sort-select option { background-color: #2b2b2b; }
     
     /* КНОПКА ВИБРАНОГО */
     .fav-filter-btn {
-        background: transparent; border: 1px solid #ff4d4d; color: #ff4d4d; padding: 0 12px; border-radius: 8px;
-        cursor: pointer; font-weight: bold; display: flex; align-items: center; justify-content: center; gap: 5px; transition: all 0.3s;
-        white-space: nowrap; height: 42px; /* Така ж висота як у селектів */
+        background: transparent; border: 1px solid #ff4d4d; color: #ff4d4d;
+        cursor: pointer; font-weight: bold; display: flex; align-items: center; justify-content: center; gap: 6px; 
+        transition: all 0.3s;
+        flex: 1; /* Займає половину рядка */
     }
     .fav-filter-btn.active { background: #ff4d4d; color: white; }
 
@@ -64,30 +107,35 @@
     .favorites-panel {
         display: none; background: #1a1a1a; border: 2px solid #FFD700; border-radius: 12px;
         padding: 20px; margin-bottom: 20px; text-align: center; animation: fadeIn 0.3s;
+        width: 100%; box-sizing: border-box;
     }
     .favorites-panel.visible { display: block; }
     
     .fav-title { color: #aaa; font-size: 1em; margin-bottom: 5px; }
     .fav-total-price { color: #FFD700; font-size: 1.4em; font-weight: 900; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; }
 
-    .fav-buttons-row { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
-    .big-order-btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 30px; color: white; text-decoration: none; font-weight: bold; font-size: 16px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
-    .back-btn { display: inline-flex; align-items: center; gap: 5px; padding: 10px 20px; border-radius: 30px; background: #444; color: white; cursor: pointer; border: none; font-size: 14px; }
-
-    /* --- АНІМАЦІЯ СЕРЦЯ --- */
-    .card-heart { position: absolute; top: 10px; right: 10px; font-size: 28px; cursor: pointer; z-index: 10; color: white; text-shadow: 0 0 5px rgba(0,0,0,0.8); transition: transform 0.2s; background: transparent; }
-    .card-heart:hover { transform: scale(1.1); }
-    .card-heart.liked { color: #ff4d4d; text-shadow: none; animation: heartBurst 0.6s forwards; }
-    @keyframes heartBurst { 0% { transform: scale(1); } 25% { transform: scale(1.5); } 40% { transform: scale(1); } 60% { transform: scale(1.3); } 100% { transform: scale(1); } }
+    .fav-buttons-row { display: flex; flex-direction: column; gap: 10px; width: 100%; }
+    .big-order-btn { display: flex; justify-content: center; align-items: center; gap: 8px; padding: 12px; border-radius: 30px; color: white; text-decoration: none; font-weight: bold; font-size: 16px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); width: 100%; box-sizing: border-box; }
+    .back-btn { display: inline-flex; justify-content: center; align-items: center; gap: 5px; padding: 10px 20px; border-radius: 30px; background: #444; color: white; cursor: pointer; border: none; font-size: 14px; margin-bottom: 10px;}
 
     /* --- ІНШЕ --- */
-    .toast-notification { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background-color: #333; color: white; padding: 12px 24px; border-radius: 30px; box-shadow: 0 5px 15px rgba(0,0,0,0.4); font-weight: bold; z-index: 9999; opacity: 0; visibility: hidden; transition: opacity 0.3s, bottom 0.3s; display: flex; align-items: center; gap: 10px; white-space: nowrap; border: 1px solid #FFD700; }
-    .toast-notification.show { opacity: 1; visibility: visible; bottom: 40px; }
-    article { position: relative; }
+    .buttons-group { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px;}
+    .action-row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 10px; margin-bottom: 10px; width: 100%; }
+    
+    .custom-price-tag { display: inline-block; font-size: 16px; font-weight: 800; color: #FFD700; background-color: #2b2b2b; padding: 6px 12px; border-radius: 12px; border: 1px solid #FFD700; box-shadow: 0 2px 5px rgba(0,0,0,0.2); white-space: nowrap; }
+    
     .feed__readmore, .read-more { display: none !important; }
     .feed__excerpt, .card__excerpt { margin-top: 12px; font-size: 0.95em; color: inherit; opacity: 0.8; display: block !important; }
-    .action-row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 10px; margin-bottom: 10px; }
-    .custom-price-tag { display: inline-block; font-size: 16px; font-weight: 800; color: #FFD700; background-color: #2b2b2b; padding: 6px 12px; border-radius: 12px; border: 1px solid #FFD700; box-shadow: 0 2px 5px rgba(0,0,0,0.2); white-space: nowrap; }
+
+    /* Анімація серця */
+    .card-heart { position: absolute; top: 10px; right: 10px; font-size: 28px; cursor: pointer; z-index: 10; color: white; text-shadow: 0 0 5px rgba(0,0,0,0.8); transition: transform 0.2s; background: transparent; }
+    .card-heart.liked { color: #ff4d4d; text-shadow: none; animation: heartBurst 0.6s forwards; }
+    @keyframes heartBurst { 0% { transform: scale(1); } 25% { transform: scale(1.5); } 100% { transform: scale(1); } }
+    
+    /* Сповіщення */
+    .toast-notification { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background-color: #333; color: white; padding: 12px 24px; border-radius: 30px; box-shadow: 0 5px 15px rgba(0,0,0,0.4); font-weight: bold; z-index: 9999; opacity: 0; visibility: hidden; transition: opacity 0.3s, bottom 0.3s; display: flex; align-items: center; gap: 10px; white-space: nowrap; border: 1px solid #FFD700; max-width: 90%; justify-content: center; }
+    .toast-notification.show { opacity: 1; visibility: visible; bottom: 40px; }
+    
     @keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }</style><div id="toast" class="toast-notification">✅ Товар додано в вибране</div><script>document.addEventListener("DOMContentLoaded", function() {
     // -----------------------------------------------------------
     // 1. ВАШІ ДАНІ (ЗМІНІТЬ!)
@@ -120,49 +168,43 @@
         setTimeout(() => { toast.classList.remove('show'); }, 2500);
     }
 
-    // --- СТВОРЕННЯ ПАНЕЛІ (ПОШУК + 2 СЕЛЕКТА + ВИБРАНЕ) ---
+    // --- СТВОРЕННЯ ПАНЕЛІ (АДАПТИВНА ВЕРСІЯ) ---
     var feedContainer = document.querySelector('.feed, .main__content, main');
     if (feedContainer) {
-        // Генеруємо ОПЦІЇ для випадаючого списку категорій
-        var catOptionsHTML = categoryRules.map(cat => 
-            `<option value="${cat.id}">${cat.label}</option>`
-        ).join('');
+        var catOptionsHTML = categoryRules.map(cat => `<option value="${cat.id}">${cat.label}</option>`).join('');
 
         var controlsHTML = `
             <div class="shop-controls">
-                <!-- Ряд 1: Пошук -->
+                <!-- 1 ПОВЕРХ: ПОШУК -->
                 <div class="search-wrapper">
                     <input type="text" id="searchInput" class="search-input" placeholder="🔍 Пошук по сайту..." autocomplete="off">
                     <span id="clearSearch" class="clear-search-btn">✕</span>
                 </div>
                 
-                <!-- Ряд 2: Фільтри -->
-                <div class="filters-row">
-                    <!-- КАТЕГОРІЇ (ВИПАДАЮЧИЙ СПИСОК) -->
-                    <select id="categorySelect" class="sort-select">
-                        ${catOptionsHTML}
-                    </select>
+                <!-- 2 ПОВЕРХ: КАТЕГОРІЇ -->
+                <select id="categorySelect" class="sort-select">
+                    ${catOptionsHTML}
+                </select>
 
-                    <!-- СОРТУВАННЯ -->
-                    <select id="sortOrder" class="sort-select">
+                <!-- 3 ПОВЕРХ: СОРТУВАННЯ + ВИБРАНЕ -->
+                <div class="controls-bottom-row">
+                    <select id="sortOrder" class="sort-select" style="flex: 1;">
                         <option value="default">Сортування</option>
-                        <option value="priceAsc">Від дешевих</option>
-                        <option value="priceDesc">Від дорогих</option>
-                        <option value="nameAsc">За назвою</option>
+                        <option value="priceAsc">Дешеві ↑</option>
+                        <option value="priceDesc">Дорогі ↓</option>
+                        <option value="nameAsc">А-Я</option>
                     </select>
 
-                    <!-- ВИБРАНЕ -->
                     <button id="favFilter" class="fav-filter-btn">
-                        ❤ <span id="favCount">${favorites.length}</span>
+                        ❤ Вибране <span id="favCount">(${favorites.length})</span>
                     </button>
                 </div>
             </div>
             
             <div id="favOrderPanel" class="favorites-panel">
                 <div class="fav-title">Вибрано товарів: <span id="favTotalCount">0</span></div>
-                <div class="fav-total-price">Загальна вартість: <span id="favTotalPriceValue">0</span> грн</div>
+                <div class="fav-total-price">Сума: <span id="favTotalPriceValue">0</span> грн</div>
                 <div class="fav-buttons-row">
-                    <button id="closeFavBtn" class="back-btn">← Повернутись</button>
                     <a id="orderAllTg" href="#" target="_blank" class="big-order-btn" style="background-color: #24A1DE;">
                         <svg viewBox="0 0 24 24" width="20" height="20" fill="white"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.962 6.502-1.359 8.627-.168.9-.5 1.201-.82 1.23-.697.064-1.226-.46-1.901-.903-1.056-.692-1.653-1.123-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.062 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.751-.244-1.349-.374-1.297-.789.027-.216.324-.437.893-.663 3.498-1.524 5.831-2.529 6.998-3.014 3.332-1.386 4.024-1.627 4.476-1.635.1-.002.321.023.465.14a.505.505 0 0 1 .171.325c.016.093.037.306.02.472z"/></svg>
                         Замовити все TG
@@ -171,6 +213,7 @@
                         <svg viewBox="0 0 24 24" width="20" height="20" fill="white"><path d="M22.5 11.1C22.5 5.5 17.9 1 12.2 1S2 5.5 2 11.1C2 14.6 3.9 17.7 6.8 19.5C6.2 19.8 5.6 20.1 5 20.4L4.5 22.8L8.9 20.7C10.2 21.1 11.7 21.2 13.1 21.1C18.4 20.7 22.5 16.3 22.5 11.1M17.4 16.3C16.8 17.2 15.5 17.5 14.9 17.6C12.5 17.9 8.8 15.2 6.9 12.3C6.1 11 6.1 9.7 7.4 8.5C7.8 8.1 8.3 7.7 8.7 7.4C9.1 7.1 9.4 7.3 9.6 7.7C9.9 8.3 10.6 10.2 10.7 10.4C10.8 10.6 10.7 10.9 10.5 11.1C10.3 11.3 10 11.6 9.8 11.8C9.6 12 9.4 12.3 9.6 12.7C10.1 13.7 11.1 15 12.6 16.3C13.2 16.8 13.7 16.9 14 16.6C14.3 16.3 14.8 15.7 15 15.3C15.2 15 15.5 15.1 15.8 15.2C16.1 15.3 17.6 16 17.9 16.2C18.2 16.3 18.4 16.4 18.4 16.6C18.4 16.6 18 17.1 17.4 16.3Z"/></svg>
                         Замовити все Viber
                     </a>
+                    <button id="closeFavBtn" class="back-btn">← Повернутись</button>
                 </div>
             </div>
         `;
@@ -185,7 +228,7 @@
         articles.forEach(art => {
             var name = art.getAttribute('data-name').toLowerCase();
             
-            // 1. Перевірка категорії
+            // 1. Категорія
             var matchesCategory = false;
             if (currentCategory === 'all') {
                 matchesCategory = true;
@@ -196,10 +239,10 @@
                 }
             }
 
-            // 2. Перевірка пошуку
+            // 2. Пошук
             var matchesSearch = name.includes(searchTerm);
 
-            // 3. Перевірка вибраного
+            // 3. Вибране
             var nameOriginal = art.getAttribute('data-name');
             var matchesFav = isFavMode ? favorites.includes(nameOriginal) : true;
 
@@ -211,7 +254,7 @@
         });
     }
 
-    // --- ОБРОБНИК ЗМІНИ КАТЕГОРІЇ (DROPDOWN) ---
+    // --- ОБРОБНИК КАТЕГОРІЇ (DROPDOWN) ---
     var catSelect = document.getElementById('categorySelect');
     if (catSelect) {
         catSelect.addEventListener('change', function() {
@@ -220,7 +263,7 @@
         });
     }
 
-    // --- ОБРОБКА КАРТОК (ЦІНИ, КНОПКИ, СЕРДЕЧКА) ---
+    // --- ОБРОБКА КАРТОК ---
     articles.forEach(function(article) {
         var title = article.querySelector('h1, h2, h3');
         if (!title) return;
@@ -229,7 +272,7 @@
         if (!productName && title.querySelector('a')) productName = title.querySelector('a').innerText.trim();
         article.setAttribute('data-name', productName);
 
-        // ЦІНА
+        // Ціна
         var excerptDiv = article.querySelector('.feed__excerpt, .card__excerpt, p');
         var priceHtml = "";
         var priceValue = 0; 
@@ -245,7 +288,7 @@
         article.setAttribute('data-price', priceValue);
         productPrices[productName] = priceValue;
 
-        // КНОПКИ (ОДИНАРНІ)
+        // Кнопки (Одинарні)
         if (!title.querySelector('.action-row')) {
             var priceText = priceValue > 0 ? " (" + priceValue + " грн)" : "";
             var msg = encodeURIComponent("Доброго дня! Хочу замовити: " + productName + priceText);
@@ -277,7 +320,7 @@
             }
             
             localStorage.setItem('dasha_favorites', JSON.stringify(favorites));
-            document.getElementById('favCount').innerText = `${favorites.length}`;
+            document.getElementById('favCount').innerText = `(${favorites.length})`;
             updateOrderAllLinks();
             applyFilters();
         });
