@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en-gb"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>All tags - 3D Dasha</title><meta name="robots" content="noindex, follow"><meta name="generator" content="Publii Open-Source CMS for Static Site"><link rel="alternate" type="application/atom+xml" href="https://dasha-3d.github.io/3D-life/feed.xml" title="3D Dasha - RSS"><link rel="alternate" type="application/json" href="https://dasha-3d.github.io/3D-life/feed.json" title="3D Dasha - JSON"><meta property="og:title" content="3D Dasha"><meta property="og:site_name" content="3D Dasha"><meta property="og:description" content=""><meta property="og:url" content="https://dasha-3d.github.io/3D-life/tags/"><meta property="og:type" content="website"><link rel="stylesheet" href="https://dasha-3d.github.io/3D-life/assets/css/style.css?v=b09e72b2ca1a38c969d44da51bb22509"><script type="application/ld+json">{"@context":"http://schema.org","@type":"Organization","name":"3D Dasha","url":"https://dasha-3d.github.io/3D-life/"}</script><noscript><style>img[loading] {
                     opacity: 1;
-                }</style></noscript><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0"><style>/* --- 1. ПРАВИЛЬНА АДАПТАЦІЯ ТА ВИДАЛЕННЯ ВІДСТУПІВ --- */
+                }</style></noscript><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0"><style>/* --- 1. ПРАВИЛЬНА АДАПТАЦІЯ --- */
     * { box-sizing: border-box; }
 
     html, body {
@@ -40,38 +40,38 @@
         }
     }
 
-    /* --- КАРУСЕЛЬ ЗОБРАЖЕНЬ (НОВЕ) --- */
+    /* --- КАРУСЕЛЬ ЗОБРАЖЕНЬ (ВИПРАВЛЕНО) --- */
     .product-gallery-wrapper {
         position: relative;
         width: 100%;
         margin-bottom: 10px;
         overflow: hidden;
         border-radius: 8px;
+        background: #000; /* Фон для фото */
     }
 
     .product-gallery {
         display: flex;
+        flex-wrap: nowrap; /* Забороняємо перенос */
         overflow-x: auto;
-        scroll-snap-type: x mandatory; /* Магнітний ефект при скролі */
+        scroll-snap-type: x mandatory;
         -webkit-overflow-scrolling: touch;
         width: 100%;
-        scrollbar-width: none; /* Firefox: приховати скролбар */
+        scrollbar-width: none;
     }
-    .product-gallery::-webkit-scrollbar {
-        display: none; /* Chrome/Safari: приховати скролбар */
-    }
+    .product-gallery::-webkit-scrollbar { display: none; }
 
     .product-gallery img {
-        flex: 0 0 100%; /* Кожне фото на всю ширину */
+        flex: 0 0 100%; /* ЖОРСТКО: 1 фото = 100% ширини */
         width: 100% !important;
         height: auto !important;
-        aspect-ratio: 1 / 1; /* Робить фото квадратними (за бажанням можна прибрати) */
+        aspect-ratio: 1 / 1; /* Квадратні фото */
         object-fit: cover;
-        scroll-snap-align: center;
+        scroll-snap-align: start; /* Зупинка на початку фото */
         display: block;
     }
 
-    /* Індикатор кількості фото (крапки) */
+    /* Індикатори (крапки) */
     .gallery-indicators {
         position: absolute;
         bottom: 10px;
@@ -84,22 +84,24 @@
         z-index: 5;
     }
     .gallery-dot {
-        width: 6px;
-        height: 6px;
+        width: 8px;
+        height: 8px;
         background: rgba(255, 255, 255, 0.4);
         border-radius: 50%;
-        box-shadow: 0 1px 2px rgba(0,0,0,0.5);
+        box-shadow: 0 1px 2px rgba(0,0,0,0.8);
+        transition: 0.3s;
     }
     .gallery-dot.active {
         background: #FFD700;
-        transform: scale(1.2);
+        transform: scale(1.3);
+        border: 1px solid #000;
     }
 
     /* Приховуємо старі елементи */
     .logo, .header__logo, .navbar__brand, .hero__title { display: none !important; }
     body { padding-top: 0 !important; }
 
-    /* --- ЗАГОЛОВОК 3D-LIFE --- */
+    /* --- ЗАГОЛОВОК --- */
     .site-branding-header {
         width: 100%;
         text-align: center;
@@ -115,7 +117,7 @@
         text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
     }
 
-    /* --- БІГУЧА СТРІЧКА --- */
+    /* --- БАНЕР --- */
     .top-3d-banner {
         width: 100%;
         background: linear-gradient(90deg, #111, #2b2b2b);
@@ -135,7 +137,6 @@
         justify-content: center;
         box-shadow: 0 5px 15px rgba(0,0,0,0.5);
     }
-   
     .banner-content {
         display: flex;
         gap: 50px;
@@ -162,7 +163,6 @@
         gap: 10px;
         box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     }
-
     .nav-row { width: 100%; margin-bottom: 5px; }
     .home-btn {
         display: flex; align-items: center; justify-content: center;
@@ -170,8 +170,6 @@
         text-decoration: none; padding: 10px; border-radius: 8px;
         font-weight: bold; border: 1px solid #555; transition: 0.2s;
     }
-    .home-btn:hover { background-color: #444; color: white; border-color: #777; }
-
     .search-wrapper { position: relative; width: 100%; }
     .search-input {
         width: 100%; background: #444; color: white; border: 1px solid #666;
@@ -183,10 +181,7 @@
         color: #aaa; cursor: pointer; font-size: 20px; display: none;
     }
     .clear-search-btn.visible { display: flex; }
-
     .filters-row { display: flex; gap: 8px; width: 100%; }
-    @media (max-width: 360px) { .filters-row { flex-direction: column; } }
-
     .sort-select, .fav-filter-btn {
         width: 100%; height: 44px; background-color: #444; color: white;
         border: 1px solid #666; border-radius: 8px; font-size: 14px; cursor: pointer;
@@ -203,7 +198,7 @@
     }
     .fav-filter-btn.active { background: #ff4d4d; color: white; }
 
-    /* --- ПАНЕЛЬ ЗАМОВЛЕННЯ --- */
+    /* --- ПАНЕЛЬ ВИБРАНОГО --- */
     .favorites-panel {
         display: none; background: #1a1a1a; border: 2px solid #FFD700; border-radius: 12px;
         padding: 15px; margin-bottom: 20px; text-align: center; animation: fadeIn 0.3s; width: 100%;
@@ -219,7 +214,6 @@
     .buttons-group { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; width: 100%; }
     .action-row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 10px; margin-bottom: 10px; width: 100%; }
     .custom-price-tag { display: inline-block; font-size: 16px; font-weight: 800; color: #FFD700; background-color: #2b2b2b; padding: 6px 12px; border-radius: 12px; border: 1px solid #FFD700; white-space: nowrap; }
-   
     .feed__readmore, .read-more { display: none !important; }
     .feed__excerpt, .card__excerpt { margin-top: 12px; font-size: 0.95em; color: inherit; opacity: 0.8; display: block !important; }
 
@@ -231,18 +225,11 @@
     /* Toast */
     .toast-notification { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background-color: #333; color: white; padding: 12px 20px; border-radius: 30px; box-shadow: 0 5px 15px rgba(0,0,0,0.4); font-weight: bold; z-index: 9999; opacity: 0; visibility: hidden; transition: opacity 0.3s, bottom 0.3s; display: flex; align-items: center; gap: 10px; white-space: nowrap; border: 1px solid #FFD700; width: auto; max-width: 90%; font-size: 14px; justify-content: center; }
     .toast-notification.show { opacity: 1; visibility: visible; bottom: 40px; }
-   
     @keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }</style><div id="toast" class="toast-notification">✅ Товар додано в вибране</div><script>document.addEventListener("DOMContentLoaded", function() {
-    // -----------------------------------------------------------
-    // 1. ВАШІ ДАНІ
-    // -----------------------------------------------------------
     var viberNumber = "380681788275";
     var tgUsername = "Dashieed";
     var homeLink = "index.html";
 
-    // -----------------------------------------------------------
-    // 2. КАТЕГОРІЇ
-    // -----------------------------------------------------------
     var categoryRules = [
         { id: 'all', label: '📂 Всі категорії' },
         { id: 'fidgets', label: '🌀 Фіджети', keywords: ['фіджет', 'fidget', 'гексагон', 'куб', 'антистрес', 'спінер'] },
@@ -266,11 +253,10 @@
         setTimeout(() => { toast.classList.remove('show'); }, 2500);
     }
 
-    // --- ВСТАВКА ЗАГОЛОВКУ, БАНЕРА І ПАНЕЛІ ---
+    // --- ВСТАВКА ІНТЕРФЕЙСУ ---
     var feedContainer = document.querySelector('.feed, .main__content, main');
     if (feedContainer) {
         var catOptionsHTML = categoryRules.map(cat => `<option value="${cat.id}">${cat.label}</option>`).join('');
-
         var brandingHTML = `<div class="site-branding-header">3D-LIFE</div>`;
         var topBannerHTML = `<div class="top-3d-banner"><div class="banner-content">🧊 3D ДРУК НА ЗАМОВЛЕННЯ • 📦 ДОСТАВКА ПО УКРАЇНІ • 🧊 3D ДРУК НА ЗАМОВЛЕННЯ • 📦 ДОСТАВКА ПО УКРАЇНІ</div></div>`;
         var controlsHTML = `
@@ -295,8 +281,12 @@
                 <div class="fav-title">Вибрано товарів: <span id="favTotalCount">0</span></div>
                 <div class="fav-total-price">Сума: <span id="favTotalPriceValue">0</span> грн</div>
                 <div class="fav-buttons-row">
-                    <a id="orderAllTg" href="#" target="_blank" class="big-order-btn" style="background-color: #24A1DE;">Замовити все TG</a>
-                    <a id="orderAllViber" href="#" target="_blank" class="big-order-btn" style="background-color: #7360f2;">Замовити все Viber</a>
+                    <a id="orderAllTg" href="#" target="_blank" class="big-order-btn" style="background-color: #24A1DE;">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="white"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.962 6.502-1.359 8.627-.168.9-.5 1.201-.82 1.23-.697.064-1.226-.46-1.901-.903-1.056-.692-1.653-1.123-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.062 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.751-.244-1.349-.374-1.297-.789.027-.216.324-.437.893-.663 3.498-1.524 5.831-2.529 6.998-3.014 3.332-1.386 4.024-1.627 4.476-1.635.1-.002.321.023.465.14a.505.505 0 0 1 .171.325c.016.093.037.306.02.472z"/></svg> Замовити все TG
+                    </a>
+                    <a id="orderAllViber" href="#" target="_blank" class="big-order-btn" style="background-color: #7360f2;">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="white"><path d="M22.5 11.1C22.5 5.5 17.9 1 12.2 1S2 5.5 2 11.1C2 14.6 3.9 17.7 6.8 19.5C6.2 19.8 5.6 20.1 5 20.4L4.5 22.8L8.9 20.7C10.2 21.1 11.7 21.2 13.1 21.1C18.4 20.7 22.5 16.3 22.5 11.1M17.4 16.3C16.8 17.2 15.5 17.5 14.9 17.6C12.5 17.9 8.8 15.2 6.9 12.3C6.1 11 6.1 9.7 7.4 8.5C7.8 8.1 8.3 7.7 8.7 7.4C9.1 7.1 9.4 7.3 9.6 7.7C9.9 8.3 10.6 10.2 10.7 10.4C10.8 10.6 10.7 10.9 10.5 11.1C10.3 11.3 10 11.6 9.8 11.8C9.6 12 9.4 12.3 9.6 12.7C10.1 13.7 11.1 15 12.6 16.3C13.2 16.8 13.7 16.9 14 16.6C14.3 16.3 14.8 15.7 15 15.3C15.2 15 15.5 15.1 15.8 15.2C16.1 15.3 17.6 16 17.9 16.2C18.2 16.3 18.4 16.4 18.4 16.6C18.4 16.6 18 17.1 17.4 16.3Z"/></svg> Замовити все Viber
+                    </a>
                     <button id="closeFavBtn" class="back-btn">← Повернутись</button>
                 </div>
             </div>
@@ -318,19 +308,20 @@
         var priceValue = 0;
         var priceHtml = "";
         
-        // --- ЗБІР КАРТИНОК ДЛЯ КАРУСЕЛІ ---
+        // --- 1. ЗБІР КАРТИНОК ---
         var allImages = [];
         
-        // 1. Головна картинка
+        // Шукаємо головне фото
         var featContainer = article.querySelector('.feed__image, .card__image');
         if (featContainer) {
             var mainImg = featContainer.querySelector('img');
             if (mainImg) allImages.push(mainImg);
         }
 
-        // 2. Картинки з опису
+        // Шукаємо фото в описі
         if (excerptDiv) {
             var text = excerptDiv.innerHTML;
+            // Витягуємо ціну
             var priceMatch = text.match(/(?:Ціна\s*)?(\d+\s*грн)/i);
             if (priceMatch) {
                 priceHtml = `<div class="custom-price-tag">${priceMatch[1]}</div>`;
@@ -338,18 +329,20 @@
                 priceValue = parseInt(priceMatch[1].replace(/\D/g, ''));
             }
             
-            // Шукаємо картинки в описі
+            // Шукаємо img в тезі img або figure
             var contentImages = excerptDiv.querySelectorAll('img');
             contentImages.forEach(img => {
                 allImages.push(img);
-                img.remove(); // Видаляємо з тексту, щоб не дублювались
+                // Видаляємо контейнер фігури або саму картинку з тексту
+                if(img.parentNode.tagName === 'FIGURE') img.parentNode.remove();
+                else img.remove();
             });
         }
         
         article.setAttribute('data-price', priceValue);
         productPrices[productName] = priceValue;
 
-        // --- СТВОРЕННЯ КАРУСЕЛІ ---
+        // --- 2. БУДУЄМО СЛАЙДЕР ---
         var galleryWrapper = document.createElement('div');
         galleryWrapper.className = 'product-gallery-wrapper';
         
@@ -358,20 +351,18 @@
         
         if (allImages.length > 0) {
             allImages.forEach(img => {
-                // Очищаємо інлайн стилі, щоб працював CSS
-                img.style.width = '';
-                img.style.height = '';
-                img.style.maxWidth = '';
+                img.style.width = ''; img.style.height = ''; img.style.maxWidth = '';
+                img.removeAttribute('srcset'); // Видаляємо адаптивність Publii, щоб не ламало
+                img.removeAttribute('sizes');
                 gallery.appendChild(img);
             });
         } else {
-            // Заглушка, якщо фото немає
-            gallery.innerHTML = '<div style="padding:20px; text-align:center; color:#555;">Фото відсутнє</div>';
+            gallery.innerHTML = '<div style="padding:40px; text-align:center; color:#555; background:#222;">Фото відсутнє</div>';
         }
 
         galleryWrapper.appendChild(gallery);
 
-        // Додаємо крапки, якщо фото більше 1
+        // Крапки навігації
         if (allImages.length > 1) {
             var dotsContainer = document.createElement('div');
             dotsContainer.className = 'gallery-indicators';
@@ -382,7 +373,6 @@
             });
             galleryWrapper.appendChild(dotsContainer);
             
-            // Логіка перемикання крапок при скролі
             gallery.addEventListener('scroll', function() {
                 var scrollLeft = gallery.scrollLeft;
                 var width = gallery.clientWidth;
@@ -393,21 +383,25 @@
             });
         }
 
-        // Вставляємо карусель на місце старої картинки або перед заголовком
+        // Вставка галереї
         if (featContainer) {
             featContainer.parentNode.replaceChild(galleryWrapper, featContainer);
         } else {
             title.parentNode.insertBefore(galleryWrapper, title);
         }
 
-        // --- КНОПКИ ЗАМОВЛЕННЯ ---
+        // --- 3. КНОПКИ ЗАМОВЛЕННЯ ---
         if (!title.querySelector('.action-row')) {
             var priceText = priceValue > 0 ? " (" + priceValue + " грн)" : "";
             var msg = encodeURIComponent("Доброго дня! Хочу замовити: " + productName + priceText);
             var btnStyle = "display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: white; padding: 7px 12px; border-radius: 20px; text-decoration: none; border: none; cursor: pointer; font-weight: bold; line-height: 1.2; box-shadow: 0 3px 5px rgba(0,0,0,0.2); transition: transform 0.2s;";
            
-            var tBtn = `<a href="https://t.me/${tgUsername}?text=${msg}" target="_blank" style="${btnStyle} background-color: #24A1DE;">Telegram</a>`;
-            var vBtn = `<a href="viber://chat?number=%2B${viberNumber}&draft=${msg}" target="_blank" style="${btnStyle} background-color: #7360f2;">Viber</a>`;
+            // SVG іконки + текст
+            var tgSvg = '<svg viewBox="0 0 24 24" width="16" height="16" fill="white"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.962 6.502-1.359 8.627-.168.9-.5 1.201-.82 1.23-.697.064-1.226-.46-1.901-.903-1.056-.692-1.653-1.123-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.062 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.751-.244-1.349-.374-1.297-.789.027-.216.324-.437.893-.663 3.498-1.524 5.831-2.529 6.998-3.014 3.332-1.386 4.024-1.627 4.476-1.635.1-.002.321.023.465.14a.505.505 0 0 1 .171.325c.016.093.037.306.02.472z"/></svg>';
+            var vbSvg = '<svg viewBox="0 0 24 24" width="16" height="16" fill="white"><path d="M22.5 11.1C22.5 5.5 17.9 1 12.2 1S2 5.5 2 11.1C2 14.6 3.9 17.7 6.8 19.5C6.2 19.8 5.6 20.1 5 20.4L4.5 22.8L8.9 20.7C10.2 21.1 11.7 21.2 13.1 21.1C18.4 20.7 22.5 16.3 22.5 11.1M17.4 16.3C16.8 17.2 15.5 17.5 14.9 17.6C12.5 17.9 8.8 15.2 6.9 12.3C6.1 11 6.1 9.7 7.4 8.5C7.8 8.1 8.3 7.7 8.7 7.4C9.1 7.1 9.4 7.3 9.6 7.7C9.9 8.3 10.6 10.2 10.7 10.4C10.8 10.6 10.7 10.9 10.5 11.1C10.3 11.3 10 11.6 9.8 11.8C9.6 12 9.4 12.3 9.6 12.7C10.1 13.7 11.1 15 12.6 16.3C13.2 16.8 13.7 16.9 14 16.6C14.3 16.3 14.8 15.7 15 15.3C15.2 15 15.5 15.1 15.8 15.2C16.1 15.3 17.6 16 17.9 16.2C18.2 16.3 18.4 16.4 18.4 16.6C18.4 16.6 18 17.1 17.4 16.3Z"/></svg>';
+
+            var tBtn = `<a href="https://t.me/${tgUsername}?text=${msg}" target="_blank" style="${btnStyle} background-color: #24A1DE;">${tgSvg} Замовити</a>`;
+            var vBtn = `<a href="viber://chat?number=%2B${viberNumber}&draft=${msg}" target="_blank" style="${btnStyle} background-color: #7360f2;">${vbSvg} Замовити</a>`;
            
             var mainContainer = document.createElement('div');
             mainContainer.className = "action-row";
@@ -415,7 +409,7 @@
             title.parentNode.insertBefore(mainContainer, title.nextSibling);
         }
 
-        // --- СЕРДЕЧКО (тепер додається до галереї) ---
+        // --- СЕРДЕЧКО ---
         var heart = document.createElement('div');
         heart.className = 'card-heart';
         heart.innerHTML = '❤';
@@ -436,11 +430,10 @@
             updateOrderAllLinks();
             applyFilters();
         });
-        
         galleryWrapper.appendChild(heart);
     });
 
-    // Функції фільтрації та кошика (без змін)
+    // --- ДОПОМІЖНІ ФУНКЦІЇ ---
     function updateOrderAllLinks() {
         var favList = JSON.parse(localStorage.getItem('dasha_favorites')) || [];
         var countSpan = document.getElementById('favTotalCount');
@@ -479,7 +472,6 @@
         });
     }
 
-    // Слухачі подій
     var catSelect = document.getElementById('categorySelect');
     if (catSelect) catSelect.addEventListener('change', function() { currentCategory = this.value; applyFilters(); });
 
