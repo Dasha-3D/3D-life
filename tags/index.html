@@ -1,31 +1,23 @@
 <!DOCTYPE html><html lang="uk"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>All tags - Dasha-3D</title><meta name="robots" content="noindex, follow"><meta name="generator" content="Publii Open-Source CMS for Static Site"><link rel="alternate" type="application/atom+xml" href="https://dasha-3d.github.io/3D-life/feed.xml" title="Dasha-3D - RSS"><link rel="alternate" type="application/json" href="https://dasha-3d.github.io/3D-life/feed.json" title="Dasha-3D - JSON"><meta property="og:title" content="Dasha-3D"><meta property="og:site_name" content="Dasha-3D"><meta property="og:description" content=""><meta property="og:url" content="https://dasha-3d.github.io/3D-life/tags/"><meta property="og:type" content="website"><link rel="stylesheet" href="https://dasha-3d.github.io/3D-life/assets/css/style.css?v=406c8e7c5f2190bc8d29368e9a04ae5b"><script type="application/ld+json">{"@context":"http://schema.org","@type":"Organization","name":"Dasha-3D","url":"https://dasha-3d.github.io/3D-life/"}</script><noscript><style>img[loading] {
                     opacity: 1;
-                }</style></noscript></head><body class="tags-template"><header class="top js-header"><a class="logo" href="https://dasha-3d.github.io/3D-life/">Dasha-3D</a></header><main class="page page--tags"><div class="hero hero--noimage"><header class="hero__content hero__content--centered"><div class="wrapper"><h1>Tags</h1><p class="page__desc">Collection of all 0 tags</p></div></header></div><div class="wrapper"><ul class="feed feed--grid"></ul></div></main><footer class="footer"><div class="wrapper"><div class="footer__copyright"><p>Powered by Publii</p></div><button id="backToTop" class="footer__bttop" aria-label="Back to top" title="Back to top"><svg width="20" height="20"><use xlink:href="https://dasha-3d.github.io/3D-life/assets/svg/svg-map.svg#toparrow"/></svg></button></div></footer><script defer="defer" src="https://dasha-3d.github.io/3D-life/assets/js/scripts.min.js?v=700105c316933a8202041b6415abb233"></script><script>window.publiiThemeMenuConfig={mobileMenuMode:'sidebar',animationSpeed:300,submenuWidth: 'auto',doubleClickTime:500,mobileMenuExpandableSubmenus:true,relatedContainerForOverlayMenuSelector:'.top'};</script><script>var images = document.querySelectorAll('img[loading]');
-        for (var i = 0; i < images.length; i++) {
-            if (images[i].complete) {
-                images[i].classList.add('is-loaded');
-            } else {
-                images[i].addEventListener('load', function () {
-                    this.classList.add('is-loaded');
-                }, false);
-            }
-        }</script><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0"><style>/* --- 1. БАЗОВІ НАЛАШТУВАННЯ --- */
+                }</style></noscript><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0"><style>/* --- 1. ПРАВИЛЬНА АДАПТАЦІЯ ТА ВИДАЛЕННЯ ВІДСТУПІВ --- */
     * { box-sizing: border-box; }
 
     html, body {
         overflow-x: hidden !important; 
         width: 100%;
         position: relative;
-        margin: 0 !important; 
-        padding: 0 !important;
+        margin: 0 !important; /* Прибираємо зовнішні відступи */
+        padding: 0 !important; /* Прибираємо внутрішні відступи */
         background-color: #1a1a1a;
         font-family: sans-serif;
     }
 
-    /* Гарантуємо, що контент не ховається під шапкою */
+    /* Гарантуємо, що основні контейнери не пхають контент вниз */
     main, .main, .container, .feed, header, .navbar {
         max-width: 100vw !important;
         box-sizing: border-box !important;
+        margin-top: 0 !important;
         padding-top: 0 !important;
     }
 
@@ -50,21 +42,22 @@
         }
     }
 
-    img { max-width: 100% !important; height: auto !important; border-radius: 6px; }
+    img { max-width: 100% !important; height: auto !important; }
     
     /* Ховаємо старі елементи теми */
     .logo, .header__logo, .navbar__brand, .hero__title { display: none !important; }
+    /* Якщо тема додає відступ зверху для хедера, прибираємо його */
     body { padding-top: 0 !important; }
 
 
-    /* --- ЗАГОЛОВОК 3D-DASHA --- */
+    /* --- ЗАГОЛОВОК 3D-LIFE (БЕЗ ЗАЙВОГО МІСЦЯ ЗВЕРХУ) --- */
     .site-branding-header {
         width: 100%;
         text-align: center;
         background-color: #1a1a1a;
-        padding: 15px 0 5px 0;
+        padding: 10px 0 5px 0; /* Мінімальний відступ зверху */
         margin: 0;
-        font-size: 32px; /* Збільшив шрифт */
+        font-size: 28px;
         font-weight: 900;
         color: #FFD700;
         text-transform: uppercase;
@@ -96,12 +89,15 @@
     
     .banner-content {
         display: flex;
-        gap: 50px;
-        animation: scrollText 15s linear infinite;
+        gap: 50px; /* Більший відступ між фразами */
+        animation: scrollText 12s linear infinite; /* Трохи повільніше */
     }
     @keyframes scrollText {
         0% { transform: translateX(100%); }
         100% { transform: translateX(-100%); }
+    }
+    @media (min-width: 600px) {
+        .banner-content { animation: none; transform: none; justify-content: center; width: 100%; }
     }
 
     /* --- ПАНЕЛЬ УПРАВЛІННЯ --- */
@@ -146,9 +142,8 @@
         width: 100%; height: 44px; background-color: #444; color: white; 
         border: 1px solid #666; border-radius: 8px; font-size: 14px; cursor: pointer;
     }
-    /* Стиль стрілочки для селекту */
     .sort-select {
-        padding: 0 10px;
+        padding: 0 30px 0 10px;
         appearance: none; -webkit-appearance: none;
         background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23FFFFFF%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
         background-repeat: no-repeat; background-position: right 10px center; background-size: 10px;
@@ -179,24 +174,6 @@
     .feed__readmore, .read-more { display: none !important; }
     .feed__excerpt, .card__excerpt { margin-top: 12px; font-size: 0.95em; color: inherit; opacity: 0.8; display: block !important; }
 
-    /* --- СЛАЙДЕР ФОТО (НОВЕ) --- */
-    .slider-container { position: relative; overflow: hidden; border-radius: 8px; margin-bottom: 10px; width: 100%; }
-    .slider-wrapper { display: flex; transition: transform 0.3s ease; width: 100%; }
-    .slider-slide { min-width: 100%; display: flex; justify-content: center; align-items: center; background: #000; }
-    /* Обмежуємо висоту слайдера, щоб не стрибало */
-    .slider-slide img { max-height: 400px; width: 100%; object-fit: cover; } 
-    
-    .slider-nav {
-        position: absolute; top: 50%; width: 100%; display: flex; justify-content: space-between;
-        transform: translateY(-50%); pointer-events: none; z-index: 5;
-    }
-    .slider-btn {
-        pointer-events: auto; background: rgba(0,0,0,0.5); color: white;
-        border: none; width: 30px; height: 30px; cursor: pointer; font-size: 18px;
-        display: flex; align-items: center; justify-content: center;
-        border-radius: 50%; margin: 0 5px;
-    }
-
     /* Сердечко */
     .card-heart { position: absolute; top: 10px; right: 10px; font-size: 28px; cursor: pointer; z-index: 10; color: white; text-shadow: 0 0 5px rgba(0,0,0,0.8); transition: transform 0.2s; background: transparent; }
     .card-heart.liked { color: #ff4d4d; text-shadow: none; animation: heartBurst 0.6s forwards; }
@@ -213,7 +190,8 @@
     var viberNumber = "380681788275"; 
     var tgUsername = "Dashieed";
     
-    // Посилання на головну
+    // ВИПРАВЛЕННЯ ПОМИЛКИ КНОПКИ "ГОЛОВНА"
+    // Використовуємо 'index.html', щоб працювало при перегляді файлу на ПК
     var homeLink = "index.html"; 
 
     // -----------------------------------------------------------
@@ -250,11 +228,12 @@
         // 1. ЗАГОЛОВОК (Зверху)
         var brandingHTML = `
             <div class="site-branding-header">
-                3D-DASHA
+                3D-LIFE
             </div>
         `;
 
-        // 2. БАНЕР
+        // 2. БАНЕР (ОНОВЛЕНИЙ ТЕКСТ: Тільки 3D друк та Доставка)
+        // Дублюємо текст, щоб стрічка була довшою і гарно крутилася
         var topBannerHTML = `
             <div class="top-3d-banner">
                 <div class="banner-content">
@@ -363,7 +342,7 @@
         article.setAttribute('data-price', priceValue);
         productPrices[productName] = priceValue;
 
-        // Кнопки (повернуто оригінальний вигляд з текстом "Замовити")
+        // Кнопки
         if (!title.querySelector('.action-row')) {
             var priceText = priceValue > 0 ? " (" + priceValue + " грн)" : "";
             var msg = encodeURIComponent("Доброго дня! Хочу замовити: " + productName + priceText);
@@ -378,71 +357,11 @@
             title.parentNode.insertBefore(mainContainer, title.nextSibling);
         }
 
-        // --- ЛОГІКА СЛАЙДЕРА (ГОЛОВНА ЗМІНА) ---
-        var images = article.querySelectorAll('img');
-        
-        // Перевіряємо, чи це основні картинки (іноді теми додають іконки)
-        // Будемо вважати всі картинки всередині статті слайдами
-        
-        if (images.length > 1) {
-            // 1. Створюємо контейнер
-            var sliderHTML = `<div class="slider-container"><div class="slider-wrapper">`;
-            
-            // 2. Додаємо картинки в слайди
-            images.forEach(img => {
-                // Клонуємо картинку
-                var clonedImg = img.cloneNode(true);
-                clonedImg.style.display = 'block'; // На випадок якщо була схована
-                sliderHTML += `<div class="slider-slide">${clonedImg.outerHTML}</div>`;
-                // Ховаємо оригінал, щоб не дублювалось
-                img.style.display = 'none';
-            });
-
-            // 3. Додаємо кнопки навігації
-            sliderHTML += `</div><div class="slider-nav"><button class="slider-btn prev">‹</button><button class="slider-btn next">›</button></div></div>`;
-            
-            // 4. Вставляємо слайдер замість першої картинки
-            var firstImg = images[0];
-            firstImg.insertAdjacentHTML('beforebegin', sliderHTML);
-
-            // 5. Активуємо JS для цього конкретного слайдера
-            var sliderContainer = firstImg.previousElementSibling; // Це наш .slider-container
-            var wrapper = sliderContainer.querySelector('.slider-wrapper');
-            var slides = sliderContainer.querySelectorAll('.slider-slide');
-            var prevBtn = sliderContainer.querySelector('.prev');
-            var nextBtn = sliderContainer.querySelector('.next');
-            var currentIndex = 0;
-
-            function updateSlider() {
-                wrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
-            }
-
-            prevBtn.addEventListener('click', (e) => {
-                e.preventDefault(); // Щоб не перекидало на гору
-                currentIndex = (currentIndex > 0) ? currentIndex - 1 : slides.length - 1;
-                updateSlider();
-            });
-
-            nextBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                currentIndex = (currentIndex < slides.length - 1) ? currentIndex + 1 : 0;
-                updateSlider();
-            });
-        }
-
-        // --- СЕРДЕЧКО ---
-        // Визначаємо куди вставити сердечко (на слайдер або на картинку)
-        var targetContainer = article.querySelector('.slider-container') || article.querySelector('.feed__image, .card__image') || article;
-        // Робимо relative, щоб сердечко позиціонувалось відносно картинки
-        if (window.getComputedStyle(targetContainer).position === 'static') {
-            targetContainer.style.position = 'relative';
-        }
-
+        // Сердечко
         var heart = document.createElement('div');
         heart.className = 'card-heart';
         heart.innerHTML = '❤';
         if (favorites.includes(productName)) heart.classList.add('liked');
-        
         heart.addEventListener('click', function(e) {
             e.preventDefault();
             this.classList.toggle('liked');
@@ -455,12 +374,14 @@
                 showToast("❌ Товар видалено з вибраного");
             }
             localStorage.setItem('dasha_favorites', JSON.stringify(favorites));
-            document.getElementById('favCount').innerText = favorites.length;
+            document.getElementById('favCount').innerText = `(${favorites.length})`;
             updateOrderAllLinks();
             applyFilters();
         });
         
-        targetContainer.appendChild(heart);
+        var imgContainer = article.querySelector('.feed__image, .card__image') || article;
+        if(getComputedStyle(imgContainer).position === 'static') imgContainer.style.position = 'relative';
+        imgContainer.appendChild(heart);
     });
 
     function updateOrderAllLinks() {
@@ -496,6 +417,8 @@
         favBtn.addEventListener('click', () => {
             favBtn.classList.toggle('active');
             favPanel.classList.toggle('visible');
+            var hero = document.querySelector('.hero, header.hero');
+            if(hero) hero.style.display = favPanel.classList.contains('visible') ? 'none' : '';
             if(favPanel.classList.contains('visible')) updateOrderAllLinks();
             applyFilters();
         });
@@ -530,7 +453,436 @@
             itemsArray.forEach(item => container.appendChild(item));
         });
     }
+});</script></head><body class="tags-template"><header class="top js-header"><a class="logo" href="https://dasha-3d.github.io/3D-life/">Dasha-3D</a></header><main class="page page--tags"><div class="hero hero--noimage"><header class="hero__content hero__content--centered"><div class="wrapper"><h1>Tags</h1><p class="page__desc">Collection of all 0 tags</p></div></header></div><div class="wrapper"><ul class="feed feed--grid"></ul></div></main><footer class="footer"><div class="wrapper"><div class="footer__copyright"><p>Powered by Publii</p></div><button id="backToTop" class="footer__bttop" aria-label="Back to top" title="Back to top"><svg width="20" height="20"><use xlink:href="https://dasha-3d.github.io/3D-life/assets/svg/svg-map.svg#toparrow"/></svg></button></div></footer><script defer="defer" src="https://dasha-3d.github.io/3D-life/assets/js/scripts.min.js?v=700105c316933a8202041b6415abb233"></script><script>window.publiiThemeMenuConfig={mobileMenuMode:'sidebar',animationSpeed:300,submenuWidth: 'auto',doubleClickTime:500,mobileMenuExpandableSubmenus:true,relatedContainerForOverlayMenuSelector:'.top'};</script><script>var images = document.querySelectorAll('img[loading]');
+        for (var i = 0; i < images.length; i++) {
+            if (images[i].complete) {
+                images[i].classList.add('is-loaded');
+            } else {
+                images[i].addEventListener('load', function () {
+                    this.classList.add('is-loaded');
+                }, false);
+            }
+        }</script><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0"><style>/* --- 1. ГЛОБАЛЬНІ СТИЛІ --- */
+    * { box-sizing: border-box; }
     
-    // Ініціалізація лічильників при старті
-    updateOrderAllLinks();
+    html, body {
+        background-color: #1a1a1a !important;
+        font-family: sans-serif;
+        overflow-x: hidden;
+        margin: 0 !important; padding: 0 !important;
+    }
+
+    /* Гарантуємо білий текст на темному фоні */
+    body, p, h1, h2, h3, h4, a, span, div, li {
+        color: #ffffff !important; 
+    }
+    
+    /* Відступи для контенту */
+    main, .main, .container, .feed {
+        padding-top: 0 !important;
+        width: 100% !important;
+        max-width: 600px !important; /* Обмежуємо ширину на ПК для краси */
+        margin: 0 auto !important;
+    }
+
+    /* Ховаємо зайві елементи теми */
+    .logo, .header__logo, .navbar__brand, .hero__title, .post__footer, .post__meta { display: none !important; }
+
+    /* --- ШАПКА 3D-DASHA --- */
+    .site-branding-header {
+        width: 100%; text-align: center; background: #1a1a1a;
+        padding: 20px 0 10px 0; font-size: 32px; font-weight: 900;
+        color: #FFD700 !important; text-transform: uppercase; letter-spacing: 3px;
+        text-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+    }
+
+    /* --- БІГУЧА СТРІЧКА --- */
+    .top-3d-banner {
+        width: 100%; background: linear-gradient(90deg, #111, #333);
+        border-top: 1px solid #444; border-bottom: 2px solid #FFD700;
+        margin-bottom: 20px; overflow: hidden; padding: 8px 0;
+    }
+    .banner-content {
+        display: flex; gap: 50px; color: #FFD700 !important;
+        font-weight: 800; text-transform: uppercase; font-size: 13px;
+        animation: scrollText 15s linear infinite; white-space: nowrap;
+    }
+    @keyframes scrollText { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
+
+    /* --- ПАНЕЛЬ УПРАВЛІННЯ --- */
+    .shop-controls {
+        background: #2b2b2b; border-radius: 12px; border: 1px solid #444;
+        padding: 15px; margin: 0 10px 30px 10px;
+        display: flex; flex-direction: column; gap: 10px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+    }
+    .nav-row { width: 100%; }
+    .home-btn {
+        display: flex; align-items: center; justify-content: center; width: 100%;
+        background: #333; border: 1px solid #555; color: white !important;
+        padding: 10px; border-radius: 8px; text-decoration: none; font-weight: bold;
+    }
+    .search-wrapper { position: relative; width: 100%; }
+    .search-input {
+        width: 100%; height: 40px; background: #444; color: white !important;
+        border: 1px solid #666; border-radius: 8px; padding: 0 35px 0 10px; font-size: 16px;
+    }
+    .clear-search-btn {
+        position: absolute; right: 0; top: 0; height: 40px; width: 40px;
+        display: none; align-items: center; justify-content: center;
+        color: #aaa !important; cursor: pointer;
+    }
+    .clear-search-btn.visible { display: flex; }
+    .filters-row { display: flex; gap: 10px; width: 100%; }
+    .sort-select, .fav-filter-btn { 
+        width: 100%; height: 40px; background: #444; color: white !important;
+        border: 1px solid #666; border-radius: 8px; font-size: 14px;
+    }
+    .fav-filter-btn {
+        background: transparent; border: 1px solid #ff4d4d; color: #ff4d4d !important;
+        display: flex; align-items: center; justify-content: center; font-weight: bold;
+    }
+    .fav-filter-btn.active { background: #ff4d4d; color: white !important; }
+
+    /* --- ПАНЕЛЬ "РАЗОМ" --- */
+    .favorites-panel {
+        display: none; background: #1a1a1a; border: 2px solid #FFD700; border-radius: 12px;
+        padding: 15px; margin: 0 10px 20px 10px; text-align: center;
+    }
+    .favorites-panel.visible { display: block; }
+    .fav-total-price { color: #FFD700 !important; font-size: 1.4em; font-weight: 900; margin: 10px 0; }
+    .big-order-btn {
+        display: flex; justify-content: center; align-items: center;
+        padding: 10px; border-radius: 30px; color: white !important;
+        text-decoration: none; font-weight: bold; margin-bottom: 8px;
+        width: 100%; font-size: 14px;
+    }
+
+    /* --- СТИЛІ КАРТКИ ТОВАРУ (ВИПРАВЛЕНІ) --- */
+    article {
+        display: flex !important;
+        flex-direction: column !important; /* Жорстко вертикально */
+        background: #252525;
+        border-radius: 12px;
+        padding: 15px;
+        margin-bottom: 25px;
+        border: 1px solid #333;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        position: relative;
+    }
+
+    /* Слайдер фото */
+    .slider-container {
+        width: 100%; 
+        position: relative; 
+        overflow: hidden; 
+        border-radius: 8px;
+        background: #000;
+        margin-bottom: 15px;
+        aspect-ratio: 4/3; /* Співвідношення сторін щоб не було чорних полос */
+        display: flex; 
+        align-items: center; 
+        justify-content: center;
+    }
+    .slider-wrapper { display: flex; transition: transform 0.3s ease; width: 100%; height: 100%; }
+    .slider-slide { 
+        min-width: 100%; 
+        height: 100%;
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
+    }
+    .slider-slide img { 
+        width: 100% !important; 
+        height: 100% !important; 
+        object-fit: cover !important; /* Заповнює весь блок */
+        display: block !important;
+    }
+    
+    .slider-nav {
+        position: absolute; top: 50%; width: 100%; transform: translateY(-50%);
+        display: flex; justify-content: space-between; padding: 0 10px; pointer-events: none;
+    }
+    .slider-arrow {
+        pointer-events: auto; background: rgba(0,0,0,0.6); color: white !important;
+        width: 30px; height: 30px; border-radius: 50%; border: 1px solid #fff;
+        display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 18px;
+    }
+
+    /* Заголовок та ціна */
+    .card-info { margin-bottom: 10px; text-align: left; }
+    .card-title { font-size: 20px; font-weight: bold; margin: 0 0 5px 0; line-height: 1.2; }
+    
+    .custom-price-tag {
+        display: inline-block; background: #333; color: #FFD700 !important;
+        border: 1px solid #FFD700; padding: 4px 10px; border-radius: 6px;
+        font-weight: 900; font-size: 16px; margin-bottom: 10px;
+    }
+
+    /* Кнопки замовлення */
+    .action-row {
+        display: flex; 
+        gap: 10px; 
+        margin-top: auto; 
+        width: 100%;
+    }
+    .buy-btn-link {
+        flex: 1; /* Рівномірна ширина */
+        display: inline-flex; align-items: center; justify-content: center; gap: 5px;
+        padding: 10px; border-radius: 8px; color: white !important; text-decoration: none;
+        font-weight: bold; font-size: 14px; box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    }
+
+    /* Сердечко */
+    .heart-icon {
+        position: absolute; top: 10px; right: 10px; font-size: 28px;
+        color: white !important; text-shadow: 0 0 5px rgba(0,0,0,0.8);
+        cursor: pointer; z-index: 10;
+    }
+    .heart-icon.active { color: #ff4d4d !important; text-shadow: none; transform: scale(1.1); }
+
+    /* Тост повідомлення */
+    .toast-msg {
+        position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%);
+        background: #333; color: white !important; padding: 10px 20px; border-radius: 20px;
+        border: 1px solid #FFD700; z-index: 9999; opacity: 0; visibility: hidden; transition: 0.3s;
+        white-space: nowrap;
+    }
+    .toast-msg.show { opacity: 1; visibility: visible; bottom: 50px; }</style><div id="toast" class="toast-msg"></div><script>document.addEventListener("DOMContentLoaded", function() {
+    // --- ДАНІ ---
+    const VIBER = "380681788275"; 
+    const TG = "Dashieed";
+    const HOME = "index.html"; 
+
+    // --- КАТЕГОРІЇ ---
+    const cats = [
+        { id: 'all', label: '📂 Всі категорії' },
+        { id: 'fidgets', label: '🌀 Фіджети', key: ['фіджет', 'fidget', 'антистрес', 'куб'] },
+        { id: 'dragons', label: '🐉 Дракони', key: ['дракон', 'dragon', 'змія', 'динозавр'] },
+        { id: 'toys', label: '🧸 Іграшки', key: ['іграшка', 'покемон', 'маріо', 'роблокс'] },
+        { id: 'decor', label: '🏠 Декор', key: ['ваза', 'кашпо', 'декор', 'лампа'] }
+    ];
+
+    const container = document.querySelector('.feed, .main__content, main') || document.body;
+    let favs = JSON.parse(localStorage.getItem('dasha_favs')) || [];
+    let prices = {};
+
+    // --- 1. ВСТАВЛЯЄМО ШАПКУ ---
+    const headerHTML = `
+        <div class="site-branding-header">3D-DASHA</div>
+        <div class="top-3d-banner">
+            <div class="banner-content">
+                🧊 3D ДРУК • 📦 ВІДПРАВКА ПО УКРАЇНІ • 🇺🇦 ЗРОБЛЕНО З ЛЮБОВ'Ю • 🧊 3D ДРУК
+            </div>
+        </div>
+        <div class="shop-controls">
+            <a href="${HOME}" class="home-btn">🏠 Головна сторінка</a>
+            <div class="search-wrapper">
+                <input type="text" id="sInput" class="search-input" placeholder="🔍 Пошук...">
+                <div id="sClear" class="clear-search-btn">✕</div>
+            </div>
+            <div class="filters-row">
+                <select id="catSelect" class="sort-select">
+                    ${cats.map(c => `<option value="${c.id}">${c.label}</option>`).join('')}
+                </select>
+            </div>
+            <div class="filters-row">
+                <select id="sortSelect" class="sort-select">
+                    <option value="def">Сортування</option>
+                    <option value="up">Ціна: від дешевих</option>
+                    <option value="down">Ціна: від дорогих</option>
+                </select>
+                <button id="favBtn" class="fav-filter-btn">❤ Вибране (<span id="favCount">0</span>)</button>
+            </div>
+        </div>
+        <div id="favPanel" class="favorites-panel">
+            <div class="fav-total-price">Разом: <span id="favSum">0</span> грн</div>
+            <a id="btnTg" href="#" target="_blank" class="big-order-btn" style="background:#24A1DE;">Telegram</a>
+            <a id="btnVb" href="#" target="_blank" class="big-order-btn" style="background:#7360f2;">Viber</a>
+            <button id="closeFav" class="home-btn" style="width: auto; margin: 0 auto; display: block;">Згорнути</button>
+        </div>
+    `;
+    container.insertAdjacentHTML('afterbegin', headerHTML);
+
+    // --- 2. ОБРОБКА ТОВАРІВ ---
+    const articles = document.querySelectorAll('article');
+    
+    articles.forEach(art => {
+        // Збір даних
+        let titleEl = art.querySelector('h1, h2, h3, h2 a');
+        if(!titleEl) return;
+        let name = titleEl.textContent.trim();
+        art.setAttribute('data-name', name);
+
+        // Ціна
+        let textEl = art.querySelector('p, .feed__excerpt, .card__excerpt');
+        let price = 0;
+        if(textEl) {
+            let match = textEl.innerHTML.match(/(\d+)\s*грн/i);
+            if(match) {
+                price = parseInt(match[1]);
+                textEl.innerHTML = textEl.innerHTML.replace(match[0], '');
+            }
+        }
+        art.setAttribute('data-price', price);
+        prices[name] = price;
+
+        // Збір фото для слайдера
+        // 1. Шукаємо всі фото в тілі статті
+        let images = Array.from(art.querySelectorAll('img'));
+        // 2. Якщо фото нема, шукаємо в стилях background-image (іноді теми так роблять)
+        if(images.length === 0) {
+            let bgDiv = art.querySelector('[style*="background-image"]');
+            if(bgDiv) {
+                let style = window.getComputedStyle(bgDiv);
+                let url = style.backgroundImage.slice(4, -1).replace(/"/g, "");
+                if(url) images.push({src: url});
+            }
+        }
+
+        // --- БУДУЄМО НОВИЙ HTML КАРТКИ ---
+        
+        // 1. Слайдер (або одне фото)
+        let sliderHTML = '';
+        if(images.length > 0) {
+            sliderHTML = `<div class="slider-container"><div class="slider-wrapper">`;
+            images.forEach(img => {
+                // Використовуємо src знайденого фото
+                sliderHTML += `<div class="slider-slide"><img src="${img.src}" alt="${name}"></div>`;
+            });
+            sliderHTML += `</div>`;
+            // Додаємо стрілки тільки якщо фото > 1
+            if(images.length > 1) {
+                sliderHTML += `<div class="slider-nav">
+                    <div class="slider-arrow prev">‹</div>
+                    <div class="slider-arrow next">›</div>
+                </div>`;
+            }
+            sliderHTML += `<div class="heart-icon ${favs.includes(name)?'active':''}">❤</div></div>`;
+        } else {
+            // Якщо фото взагалі не знайдено - заглушка, але зазвичай featured image завжди є
+             sliderHTML = `<div class="slider-container" style="height:50px; background:#333; color:#555; display:flex; align-items:center; justify-content:center;">Фото відсутнє</div>`;
+        }
+
+        // 2. Інфо блок
+        let infoHTML = `
+            <div class="card-info">
+                <div class="card-title">${name}</div>
+                ${price > 0 ? `<div class="custom-price-tag">${price} грн</div>` : ''}
+                <div style="font-size: 14px; color: #ccc;">${textEl ? textEl.textContent.substring(0, 100) : ''}...</div>
+            </div>
+        `;
+
+        // 3. Кнопки
+        let msg = encodeURIComponent(`Привіт! Хочу замовити: ${name} (${price} грн)`);
+        let btnsHTML = `
+            <div class="action-row">
+                <a href="https://t.me/${TG}?text=${msg}" target="_blank" class="buy-btn-link" style="background:#24A1DE;">
+                   ✈ Telegram
+                </a>
+                <a href="viber://chat?number=%2B${VIBER}&draft=${msg}" target="_blank" class="buy-btn-link" style="background:#7360f2;">
+                   📞 Viber
+                </a>
+            </div>
+        `;
+
+        // ПОВНА ЗАМІНА ВМІСТУ
+        art.innerHTML = sliderHTML + infoHTML + btnsHTML;
+
+        // --- ЛОГІКА СЛАЙДЕРА (JS) ---
+        if(images.length > 1) {
+            let wrapper = art.querySelector('.slider-wrapper');
+            let prev = art.querySelector('.prev');
+            let next = art.querySelector('.next');
+            let idx = 0;
+            let count = images.length;
+            
+            function move(i) {
+                if(i < 0) i = count - 1;
+                if(i >= count) i = 0;
+                idx = i;
+                wrapper.style.transform = `translateX(-${idx * 100}%)`;
+            }
+            prev.onclick = (e) => { e.preventDefault(); move(idx - 1); };
+            next.onclick = (e) => { e.preventDefault(); move(idx + 1); };
+        }
+
+        // --- ЛОГІКА СЕРДЕЧКА ---
+        let heart = art.querySelector('.heart-icon');
+        if(heart) {
+            heart.onclick = (e) => {
+                e.preventDefault();
+                heart.classList.toggle('active');
+                if(heart.classList.contains('active')) {
+                    if(!favs.includes(name)) favs.push(name);
+                    showToast('✅ Додано в вибране');
+                } else {
+                    favs = favs.filter(n => n !== name);
+                    showToast('❌ Видалено');
+                }
+                localStorage.setItem('dasha_favs', JSON.stringify(favs));
+                updateFavs();
+            };
+        }
+    });
+
+    // --- ДОДАТКОВІ ФУНКЦІЇ ---
+    function showToast(txt) {
+        let t = document.getElementById('toast');
+        t.innerText = txt; t.classList.add('show');
+        setTimeout(()=>t.classList.remove('show'), 2000);
+    }
+
+    function updateFavs() {
+        document.getElementById('favCount').innerText = favs.length;
+        let sum = 0;
+        let list = [];
+        favs.forEach(n => {
+            let p = prices[n] || 0;
+            sum += p;
+            list.push(`- ${n} (${p} грн)`);
+        });
+        document.getElementById('favSum').innerText = sum;
+        
+        let txt = encodeURIComponent(`Замовлення з сайту:\n${list.join('\n')}\n\nРазом: ${sum} грн`);
+        document.getElementById('btnTg').href = `https://t.me/${TG}?text=${txt}`;
+        document.getElementById('btnVb').href = `viber://chat?number=%2B${VIBER}&draft=${txt}`;
+        
+        if(document.getElementById('favBtn').classList.contains('active')) doFilter();
+    }
+
+    function doFilter() {
+        let term = document.getElementById('sInput').value.toLowerCase();
+        let cat = document.getElementById('catSelect').value;
+        let showFav = document.getElementById('favBtn').classList.contains('active');
+        
+        document.getElementById('sClear').style.display = term ? 'flex' : 'none';
+
+        articles.forEach(art => {
+            let name = art.getAttribute('data-name').toLowerCase();
+            let visible = true;
+            if(term && !name.includes(term)) visible = false;
+            if(cat !== 'all') {
+                let rule = cats.find(c => c.id === cat);
+                if(rule && !rule.key.some(k => name.includes(k))) visible = false;
+            }
+            if(showFav && !favs.includes(art.getAttribute('data-name'))) visible = false;
+            art.style.display = visible ? 'flex' : 'none'; // Важливо: повертаємо flex
+        });
+    }
+
+    // Події
+    document.getElementById('sInput').oninput = doFilter;
+    document.getElementById('sClear').onclick = () => { 
+        document.getElementById('sInput').value = ''; doFilter(); 
+    };
+    document.getElementById('catSelect').onchange = doFilter;
+    document.getElementById('favBtn').onclick = function() {
+        this.classList.toggle('active');
+        document.getElementById('favPanel').classList.toggle('visible');
+        doFilter();
+    };
+    document.getElementById('closeFav').onclick = () => document.getElementById('favBtn').click();
+
+    updateFavs();
 });</script></body></html>
