@@ -10,6 +10,21 @@
     },
     "items": [
         {
+            "id": "https://dasha-3d.github.io/3D-life/drakon.html",
+            "url": "https://dasha-3d.github.io/3D-life/drakon.html",
+            "title": "Дракон",
+            "summary": "95грн",
+            "content_html": "\n  <p>\n    95грн\n  </p>\n\n    <figure class=\"post__image post__image--center\">\n      <img loading=\"lazy\" src=\"https://dasha-3d.github.io/3D-life/media/posts/2/dragon.jpg\" height=\"1440\" width=\"1080\" alt=\"\"  sizes=\"(max-width: 1920px) 100vw, 1920px\" srcset=\"https://dasha-3d.github.io/3D-life/media/posts/2/responsive/dragon-xs.jpg 640w ,https://dasha-3d.github.io/3D-life/media/posts/2/responsive/dragon-sm.jpg 768w ,https://dasha-3d.github.io/3D-life/media/posts/2/responsive/dragon-md.jpg 1024w ,https://dasha-3d.github.io/3D-life/media/posts/2/responsive/dragon-lg.jpg 1366w ,https://dasha-3d.github.io/3D-life/media/posts/2/responsive/dragon-xl.jpg 1600w ,https://dasha-3d.github.io/3D-life/media/posts/2/responsive/dragon-2xl.jpg 1920w\">\n      \n    </figure>",
+            "image": "https://dasha-3d.github.io/3D-life/media/posts/2/Wei-Xin-Tu-Pian_20240810185348.jpg",
+            "author": {
+                "name": "Dasha"
+            },
+            "tags": [
+            ],
+            "date_published": "2025-12-09T18:41:56+02:00",
+            "date_modified": "2025-12-09T18:41:56+02:00"
+        },
+        {
             "id": "https://dasha-3d.github.io/3D-life/drakon-gnuchkiy-32-sm.html",
             "url": "https://dasha-3d.github.io/3D-life/drakon-gnuchkiy-32-sm.html",
             "title": "Дракон гнучкий 32 см",
