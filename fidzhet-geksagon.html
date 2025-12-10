@@ -1,23 +1,28 @@
 <!DOCTYPE html><html lang="uk"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Фіджет Гексагон  - Dasha-3D</title><meta name="description" content="Фіджет рухомий шестикутник, сторона 5.5 см. Колір: на замовлення. 110грн"><meta name="generator" content="Publii Open-Source CMS for Static Site"><link rel="canonical" href="https://dasha-3d.github.io/3D-life/fidzhet-geksagon.html"><link rel="alternate" type="application/atom+xml" href="https://dasha-3d.github.io/3D-life/feed.xml" title="Dasha-3D - RSS"><link rel="alternate" type="application/json" href="https://dasha-3d.github.io/3D-life/feed.json" title="Dasha-3D - JSON"><meta property="og:title" content="Фіджет Гексагон "><meta property="og:image" content="https://dasha-3d.github.io/3D-life/media/posts/2/hex.jpg"><meta property="og:image:width" content="1000"><meta property="og:image:height" content="1000"><meta property="og:site_name" content="Dasha-3D"><meta property="og:description" content="Фіджет рухомий шестикутник, сторона 5.5 см. Колір: на замовлення. 110грн"><meta property="og:url" content="https://dasha-3d.github.io/3D-life/fidzhet-geksagon.html"><meta property="og:type" content="article"><link rel="stylesheet" href="https://dasha-3d.github.io/3D-life/assets/css/style.css?v=406c8e7c5f2190bc8d29368e9a04ae5b"><script type="application/ld+json">{"@context":"http://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://dasha-3d.github.io/3D-life/fidzhet-geksagon.html"},"headline":"Фіджет Гексагон ","datePublished":"2025-12-05T12:36+02:00","dateModified":"2025-12-06T19:06+02:00","image":{"@type":"ImageObject","url":"https://dasha-3d.github.io/3D-life/media/posts/2/hex.jpg","height":1000,"width":1000},"description":"Фіджет рухомий шестикутник, сторона 5.5 см. Колір: на замовлення. 110грн","author":{"@type":"Person","name":"Dasha","url":"https://dasha-3d.github.io/3D-life/authors/dasha/"},"publisher":{"@type":"Organization","name":"Dasha"}}</script><noscript><style>img[loading] {
                     opacity: 1;
-                }</style></noscript><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0"><style>/* --- 1. ГЛОБАЛЬНІ --- */
+                }</style></noscript><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0"><style>/* --- 1. ТЕМА "SILVER" --- */
     * { box-sizing: border-box; }
     html, body {
         overflow-x: hidden !important; width: 100%; margin: 0 !important; padding: 0 !important;
-        background-color: #e5e5e5; font-family: sans-serif; color: #333;
+        background-color: #e5e5e5; font-family: sans-serif; color: #000;
     }
 
-    /* --- ХОВАЄМО ЗАЙВУ НАВІГАЦІЮ --- */
+    /* --- ХОВАЄМО ЗАЙВЕ --- */
     .navbar, .js-navbar, .top-nav, .site-header, #masthead, 
     .header__logo, .brand, .logo, .hero__title { display: none !important; }
     body > header { display: none !important; }
     
+    /* ХОВАЄМО НАВІГАЦІЮ "НАСТУПНИЙ ТОВАР" (Щоб не було 2 товари) */
+    .post__nav, .post__footer, .read-next, .related-posts, nav.post__nav {
+        display: none !important;
+    }
+
     main, .main, .container, .feed { 
         margin-top: 0 !important; padding-top: 20px !important; 
         max-width: 1200px !important; margin-left: auto !important; margin-right: auto !important; 
     }
 
-    /* --- СТИЛІ КАРТОК (Головна) ТА ПОСТІВ (Товар) --- */
+    /* --- КАРТКИ --- */
     article, .card, .post, .feed__item, .entry {
         display: flex !important; flex-direction: column !important;
         background: #ffffff !important; padding: 0 !important;
@@ -26,8 +31,7 @@
         border: 1px solid #fff; overflow: hidden;
     }
 
-    /* --- ФОТО (ВИПРАВЛЕНО ДЛЯ ТОВАРУ) --- */
-    /* Показуємо post-hero, бо там фото товару */
+    /* --- ФОТО --- */
     .hero, .post-hero { display: block !important; padding: 0 !important; margin: 0 !important; background: transparent !important; }
     
     figure, .post__image, .card__image, .entry__media, .post-hero__media {
@@ -36,21 +40,22 @@
     }
     img { width: 100% !important; height: auto !important; display: block !important; border-radius: 0 !important; }
 
-    /* --- ТЕКСТ --- */
+    /* --- ТЕКСТ (ЧОРНИЙ КОЛІР) --- */
     .card__content, .post__content, .entry__header, article header, .feed__content, .post__entry {
         padding: 20px !important; background: #ffffff !important; width: 100% !important; display: block !important;
     }
     
-    /* --- ЗАГОЛОВКИ (ЖОРСТКО ЧОРНІ) --- */
-    h1, h2, h3, .card__title, .post__title, .entry__title, .feed__title, .hero__title {
-        display: block !important; color: #000000 !important; /* ЧОРНИЙ */
+    /* ПРИМУСОВИЙ ЧОРНИЙ КОЛІР ДЛЯ ЗАГОЛОВКІВ */
+    h1, h2, h3, h4, h5, .card__title, .post__title, .entry__title, .feed__title, .hero__title,
+    .card__title a, .post__title a {
+        display: block !important; color: #000000 !important; 
         text-decoration: none !important; font-size: 1.5rem !important;
         font-weight: 900 !important; margin: 10px 0 15px 0 !important;
         line-height: 1.2 !important; text-shadow: none !important; 
         opacity: 1 !important; visibility: visible !important;
     }
     
-    .feed__excerpt, .card__excerpt, p { color: #444 !important; font-size: 1rem; display: block !important; }
+    .feed__excerpt, .card__excerpt, p { color: #333 !important; font-size: 1rem; display: block !important; }
 
     /* --- ІНТЕРФЕЙС --- */
     .site-main-header {
@@ -65,7 +70,7 @@
     .banner-content { display: flex; gap: 50px; padding-left: 100%; animation: scrollText 30s linear infinite; }
     @keyframes scrollText { 0% { transform: translateX(0); } 100% { transform: translateX(-200%); } }
 
-    /* ПАНЕЛЬ УПРАВЛІННЯ */
+    /* ПАНЕЛЬ */
     .shop-controls {
         background: #ffffff; border-radius: 16px; border: 1px solid #ccc;
         padding: 15px; margin-bottom: 30px; width: 95%; max-width: 800px;
@@ -86,7 +91,7 @@
     .fav-filter-btn { border: 2px solid #ff4d4d; color: #ff4d4d; display: flex; align-items: center; justify-content: center; }
     .fav-filter-btn.active { background: #ff4d4d; color: white; }
 
-    /* ПАНЕЛЬ ВИБРАНОГО */
+    /* КОШИК */
     .favorites-panel {
         display: none; background: #fff; border: 3px solid #FFD700; border-radius: 16px;
         padding: 25px; margin: 0 auto 30px auto; text-align: center; width: 95%; max-width: 600px;
@@ -150,8 +155,8 @@ function initShop() {
         { id: 'decor', label: '🏠 Декор', keywords: ['ваза', 'кашпо', 'декор', 'лампа', 'підставка', 'органайзер', 'брелок', 'череп', 'фігурка'] }
     ];
 
-    // Збираємо всі можливі контейнери товарів (і картки, і повні пости)
-    var articleNodes = document.querySelectorAll('article, .post, .entry, .card, .feed__item, main article');
+    // Збираємо пости (виключаємо навігацію з пошуку)
+    var articleNodes = document.querySelectorAll('article:not(.post__nav-item), .post, .card');
     var articles = Array.from(articleNodes);
     
     if (articles.length === 0) { setTimeout(initShop, 1000); return; }
@@ -200,46 +205,47 @@ function initShop() {
     }
 
     articles.forEach(function(article) {
-        // Універсальний пошук заголовка (і для головної, і для сторінки товару)
-        var title = article.querySelector('h1, h2, h3, .post__title, .card__title');
-        
-        if (!title) {
-            // Якщо це сторінка товару, h1 може бути десь вище або в header
-            // Пробуємо знайти h1 всередині article
-            var possibleH1 = article.querySelector('h1');
-            if (possibleH1) title = possibleH1;
-        }
+        // Пропускаємо, якщо це вже оброблений або "схований" блок
+        if (getComputedStyle(article).display === 'none') return;
 
+        var title = article.querySelector('h1, h2, h3, .post__title, .card__title');
+        if (!title) {
+            var potentialLink = article.querySelector('a');
+            if (potentialLink && potentialLink.textContent.length > 2) {
+                title = document.createElement('h2');
+                title.className = 'card__title';
+                title.innerHTML = `<a href="${potentialLink.href}">${potentialLink.textContent}</a>`;
+                article.insertBefore(title, article.firstChild);
+            }
+        }
         if (!title) return;
 
         var productName = title.textContent.trim();
         article.setAttribute('data-name', productName);
 
-        // Ціна (шукаємо всюди)
         var excerptDiv = article.querySelector('.feed__excerpt, .card__excerpt, p, .post__excerpt, .post__content, .entry__content');
         var priceValue = 0; 
         
+        // Шукаємо і обробляємо ціну
         if (excerptDiv) {
             var text = excerptDiv.innerHTML;
-            // Шукаємо ціну формату "100 грн", "100грн"
             var priceMatch = text.match(/(?:Ціна\s*)?(\d+\s*грн)/i);
             
-            // Якщо знайшли ціну, і це НЕ вже оброблений блок
-            if (priceMatch && !excerptDiv.querySelector('.custom-price-tag')) {
-                // Тільки якщо це короткий опис, замінюємо. Якщо це повний контент - просто додаємо.
-                if (excerptDiv.classList.contains('post__content') || excerptDiv.classList.contains('entry__content')) {
-                     // Для сторінки товару нічого не видаляємо, просто знаходимо цифру
-                     priceValue = parseInt(priceMatch[1].replace(/\D/g, ''));
-                     
-                     // Додаємо плашку ціни після заголовка
+            // Якщо знайшли ціну і ще не ставили плашку
+            if (priceMatch && !article.querySelector('.custom-price-tag')) {
+                priceValue = parseInt(priceMatch[1].replace(/\D/g, ''));
+                
+                // Якщо це сторінка товару (великий текст), не видаляємо текст, просто додаємо плашку
+                var isFullPost = excerptDiv.classList.contains('post__content') || excerptDiv.classList.contains('entry__content');
+                if (isFullPost) {
                      var priceBadge = document.createElement('div');
                      priceBadge.className = 'custom-price-tag';
                      priceBadge.innerText = priceMatch[1];
+                     // Вставляємо одразу після заголовка
                      title.parentNode.insertBefore(priceBadge, title.nextSibling);
                 } else {
-                    // Для картки на головній
+                    // Якщо це картка, замінюємо текст ціни на плашку
                     excerptDiv.innerHTML = text.replace(priceMatch[0], ''); 
-                    priceValue = parseInt(priceMatch[1].replace(/\D/g, ''));
                     var priceBadge = document.createElement('div');
                     priceBadge.className = 'custom-price-tag';
                     priceBadge.innerText = priceMatch[1];
@@ -249,18 +255,17 @@ function initShop() {
         }
         article.setAttribute('data-price', priceValue);
 
-        // КНОПКИ
+        // ВСТАВЛЯЄМО КНОПКИ (ТІЛЬКИ ЯКЩО ЇХ ЩЕ НЕМАЄ)
         if (!article.querySelector('.action-row')) {
             var priceText = priceValue > 0 ? " (" + priceValue + " грн)" : "";
             var msg = encodeURIComponent("👋 Привіт! Хочу замовити: " + productName + priceText);
-            
             var btnStyle = "display: inline-flex; align-items: center; justify-content: center; font-size: 14px; color: white; padding: 10px 16px; border-radius: 25px; text-decoration: none; border: none; cursor: pointer; font-weight: bold; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: transform 0.2s;";
             var tgIcon = `<svg viewBox="0 0 24 24" width="18" height="18" fill="white" style="margin-right:6px;"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.962 6.502-1.359 8.627-.168.9-.5 1.201-.82 1.23-.697.064-1.226-.46-1.901-.903-1.056-.692-1.653-1.123-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.062 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.751-.244-1.349-.374-1.297-.789.027-.216.324-.437.893-.663 3.498-1.524 5.831-2.529 6.998-3.014 3.332-1.386 4.024-1.627 4.476-1.635.1-.002.321.023.465.14a.505.505 0 0 1 .171.325c.016.093.037.306.02.472z"/></svg>`;
             var vbIcon = `<svg viewBox="0 0 24 24" width="18" height="18" fill="white" style="margin-right:6px;"><path d="M22.5 11.1C22.5 5.5 17.9 1 12.2 1S2 5.5 2 11.1C2 14.6 3.9 17.7 6.8 19.5C6.2 19.8 5.6 20.1 5 20.4L4.5 22.8L8.9 20.7C10.2 21.1 11.7 21.2 13.1 21.1C18.4 20.7 22.5 16.3 22.5 11.1M17.4 16.3C16.8 17.2 15.5 17.5 14.9 17.6C12.5 17.9 8.8 15.2 6.9 12.3C6.1 11 6.1 9.7 7.4 8.5C7.8 8.1 8.3 7.7 8.7 7.4C9.1 7.1 9.4 7.3 9.6 7.7C9.9 8.3 10.6 10.2 10.7 10.4C10.8 10.6 10.7 10.9 10.5 11.1C10.3 11.3 10 11.6 9.8 11.8C9.6 12 9.4 12.3 9.6 12.7C10.1 13.7 11.1 15 12.6 16.3C13.2 16.8 13.7 16.9 14 16.6C14.3 16.3 14.8 15.7 15 15.3C15.2 15 15.5 15.1 15.8 15.2C16.1 15.3 17.6 16 17.9 16.2C18.2 16.3 18.4 16.4 18.4 16.6C18.4 16.6 18 17.1 17.4 16.3Z"/></svg>`;
             
             var btnsHTML = `<div class="action-row"><div class="buttons-group"><a href="https://t.me/${tgUsername}?text=${msg}" target="_blank" style="${btnStyle} background-color: #24A1DE;">${tgIcon} Замовити</a><a href="viber://chat?number=%2B${viberNumber}&draft=${msg}" target="_blank" style="${btnStyle} background-color: #7360f2;">${vbIcon} Замовити</a></div></div>`;
             
-            // Вставляємо кнопки. Якщо це сторінка товару (є ціна), то після ціни. Інакше після заголовка.
+            // Логіка вставки: Після ціни, якщо вона є. Інакше після заголовка.
             var priceEl = article.querySelector('.custom-price-tag');
             if (priceEl) {
                 priceEl.insertAdjacentHTML('afterend', btnsHTML);
@@ -337,7 +342,7 @@ function initShop() {
     }
 
     function sortArticles(type) {
-        var currentItems = Array.from(document.querySelectorAll('article, .post, .entry, .card, .feed__item'));
+        var currentItems = Array.from(document.querySelectorAll('article:not(.post__nav-item), .post, .card'));
         if (currentItems.length === 0) return;
         var parent = currentItems[0].parentNode;
         currentItems.sort(function(a, b) {
