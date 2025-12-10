@@ -9,7 +9,7 @@
                     this.classList.add('is-loaded');
                 }, false);
             }
-        }</script><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0"><style>/* --- 1. ГЛОБАЛЬНІ СТИЛІ --- */
+        }</script><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0"><style>/* --- 1. СВІТЛА ТЕМА (ГЛОБАЛЬНІ СТИЛІ) --- */
     * { box-sizing: border-box; }
     
     html, body {
@@ -17,121 +17,156 @@
         width: 100%;
         margin: 0 !important;
         padding: 0 !important;
-        background-color: #1a1a1a;
-        font-family: sans-serif;
+        background-color: #f4f4f4; /* Світло-сірий фон */
+        font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        color: #333333; /* Темний текст */
     }
 
-    /* --- 2. ПРАВИЛЬНЕ ПРИХОВУВАННЯ ШАПКИ --- */
-    /* Ховаємо ТІЛЬКИ верхнє меню сайту, але НЕ чіпаємо заголовки всередині карток */
-    body > header, 
-    .navbar, .js-navbar, .top-nav, 
-    .site-header, #masthead, 
-    .header__logo, .brand, .logo {
+    /* --- 2. ПРИХОВУВАННЯ СТАРОЇ ШАПКИ --- */
+    body > header, .navbar, .js-navbar, .top-nav, 
+    .site-header, #masthead, .header__logo, .brand, .logo,
+    .hero, .post-hero {
         display: none !important;
     }
 
-    /* Відновлюємо видимість заголовків у товарах, якщо тема їх ховає */
+    /* Відновлення видимості заголовків у товарах */
     article header, .card header, .post header {
-        display: block !important; 
-        padding: 0 !important;
-        margin: 0 0 10px 0 !important;
+        display: block !important; padding: 0 !important; margin: 0 0 10px 0 !important;
     }
 
-    /* Гарантуємо відступи для контенту */
+    /* Відступи контенту */
     main, .main, .container, .feed {
-        margin-top: 0 !important;
-        padding-top: 0 !important;
-        max-width: 100vw !important;
+        margin-top: 0 !important; padding-top: 20px !important;
+        max-width: 1200px !important; margin-left: auto !important; margin-right: auto !important;
     }
 
-    /* --- 3. ТЕКСТИ І КОЛЬОРИ --- */
-    /* Робимо заголовки видимими і білими */
+    /* --- 3. ТЕКСТИ І КАРТКИ (СВІТЛІ) --- */
     article h1, article h2, article h3, 
     .card__title, .feed__title, 
     .card__title a, .feed__title a {
-        display: block !important; /* Примусово показуємо */
-        color: #ffffff !important;
+        display: block !important;
+        color: #111111 !important; /* Чорний заголовок */
         text-decoration: none !important;
-        text-shadow: 1px 1px 2px #000;
-        font-size: 1.2rem !important;
-        font-weight: bold !important;
-        margin-bottom: 5px !important;
+        text-shadow: none !important;
+        font-size: 1.1rem !important;
+        font-weight: 700 !important;
+        margin-bottom: 8px !important;
+        line-height: 1.3 !important;
     }
     
     .feed__excerpt, .card__excerpt, p {
-        color: #cccccc !important;
+        color: #555555 !important; /* Сірий текст опису */
         font-size: 0.95rem;
     }
 
-    img { max-width: 100% !important; height: auto !important; border-radius: 8px; }
+    img { max-width: 100% !important; height: auto !important; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
 
-    /* --- 4. ЕЛЕМЕНТИ ІНТЕРФЕЙСУ (ПАНЕЛЬ, БАНЕР) --- */
+    /* --- 4. ЕЛЕМЕНТИ ІНТЕРФЕЙСУ --- */
+    
+    /* Заголовок сайту */
     .site-main-header {
-        width: 100%; text-align: center; background-color: #1a1a1a;
-        padding: 15px 0 10px 0; margin: 0;
-        font-size: 26px; font-weight: 900; color: #FFD700;
-        text-transform: uppercase; letter-spacing: 2px;
-        text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
-        border-bottom: 1px solid #333;
+        width: 100%; text-align: center; 
+        background-color: #ffffff; /* Білий фон */
+        padding: 15px 0; margin: 0;
+        font-size: 24px; font-weight: 900; 
+        color: #333; /* Темний текст */
+        text-transform: uppercase; letter-spacing: 1px;
+        border-bottom: 1px solid #e0e0e0;
+        position: relative; z-index: 100;
     }
 
+    /* Бігучий рядок (Темний для контрасту) */
     .top-3d-banner {
-        width: 100%; background: linear-gradient(90deg, #111, #2b2b2b);
-        color: #FFD700; font-weight: 800; font-size: 13px;
-        text-transform: uppercase; padding: 8px 0;
-        border-bottom: 2px solid #FFD700; margin-bottom: 20px;
+        width: 100%; background: #222; /* Темний фон */
+        color: #FFD700; font-weight: 700; font-size: 13px;
+        text-transform: uppercase; padding: 10px 0;
         overflow: hidden; white-space: nowrap; display: flex;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
     
     .banner-content {
         display: flex; gap: 50px; padding-left: 100%;
-        animation: scrollText 15s linear infinite;
+        animation: scrollText 30s linear infinite; /* Сповільнено до 30с */
     }
     @keyframes scrollText { 0% { transform: translateX(0); } 100% { transform: translateX(-200%); } }
 
+    /* Панель управління */
     .shop-controls {
-        background: #2b2b2b; border-radius: 12px; border: 1px solid #444;
-        padding: 12px; margin-bottom: 25px; width: 100%;
-        display: flex; flex-direction: column; gap: 10px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        background: #ffffff; border-radius: 16px; 
+        border: 1px solid #e0e0e0;
+        padding: 15px; margin-bottom: 30px; width: 95%; max-width: 800px;
+        margin-left: auto; margin-right: auto;
+        display: flex; flex-direction: column; gap: 12px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.05);
     }
 
     .search-input {
-        width: 100%; background: #444; color: white; border: 1px solid #666;
-        padding: 0 40px 0 15px; border-radius: 8px; font-size: 16px; height: 44px;
+        width: 100%; background: #f9f9f9; color: #333; 
+        border: 1px solid #ddd;
+        padding: 0 40px 0 15px; border-radius: 10px; font-size: 16px; height: 48px;
+        transition: 0.3s;
     }
-    .filters-row { display: flex; gap: 8px; width: 100%; }
+    .search-input:focus { outline: none; border-color: #FFD700; background: #fff; }
+    
+    .filters-row { display: flex; gap: 10px; width: 100%; }
+    
     .sort-select, .fav-filter-btn { 
-        width: 100%; height: 44px; background-color: #444; color: white; 
-        border: 1px solid #666; border-radius: 8px; font-size: 14px; cursor: pointer;
+        width: 100%; height: 48px; background-color: #f9f9f9; color: #333; 
+        border: 1px solid #ddd; border-radius: 10px; font-size: 14px; cursor: pointer;
+        font-weight: 600;
+    }
+    .fav-filter-btn {
+        background: transparent; border: 2px solid #ff4d4d; color: #ff4d4d;
+        display: flex; align-items: center; justify-content: center; gap: 6px;
     }
     .fav-filter-btn.active { background: #ff4d4d; color: white; }
 
     /* --- 5. КОШИК ТА КНОПКИ --- */
     .favorites-panel {
-        display: none; background: #1a1a1a; border: 2px solid #FFD700; border-radius: 12px;
-        padding: 15px; margin-bottom: 20px; text-align: center; width: 100%;
+        display: none; background: #fff; border: 2px solid #FFD700; border-radius: 16px;
+        padding: 20px; margin: 0 auto 30px auto; text-align: center; width: 95%; max-width: 600px;
+        box-shadow: 0 10px 30px rgba(255, 215, 0, 0.15);
     }
     .favorites-panel.visible { display: block; }
-    .fav-total-price { color: #FFD700; font-size: 1.3em; font-weight: 900; margin-bottom: 15px; }
-    .big-order-btn { display: flex; justify-content: center; align-items: center; gap: 8px; padding: 12px; border-radius: 30px; color: white; text-decoration: none; font-weight: bold; width: 100%; margin-bottom: 10px; }
-    .back-btn { padding: 10px 20px; border-radius: 30px; background: #444; color: white; border: none; width: 100%; }
-
-    .buttons-group { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; width: 100%; }
-    .action-row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 5px; margin-bottom: 15px; width: 100%; }
-    .custom-price-tag { font-size: 16px; font-weight: 800; color: #FFD700; background-color: #2b2b2b; padding: 6px 12px; border-radius: 12px; border: 1px solid #FFD700; }
+    .fav-total-price { color: #333; font-size: 1.4em; font-weight: 900; margin-bottom: 15px; }
     
-    .card-heart { position: absolute; top: 10px; right: 10px; font-size: 28px; cursor: pointer; z-index: 10; color: white; text-shadow: 0 0 5px rgba(0,0,0,0.8); transition: transform 0.2s; }
-    .card-heart.liked { color: #ff4d4d; animation: heartBurst 0.6s forwards; }
+    .big-order-btn { 
+        display: flex; justify-content: center; align-items: center; gap: 10px; 
+        padding: 14px; border-radius: 30px; color: white; text-decoration: none; 
+        font-weight: bold; width: 100%; margin-bottom: 10px; 
+        font-size: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        transition: transform 0.2s;
+    }
+    .big-order-btn:active { transform: scale(0.98); }
+    
+    .back-btn { padding: 10px 20px; border-radius: 30px; background: #eee; color: #333; border: none; width: 100%; font-weight: bold; cursor: pointer; }
+
+    .buttons-group { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; width: 100%; }
+    .action-row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 5px; margin-bottom: 20px; width: 100%; }
+    
+    /* Цінник: Жовтий фон, темний текст */
+    .custom-price-tag { 
+        font-size: 15px; font-weight: 800; color: #333; 
+        background-color: #FFD700; padding: 6px 14px; 
+        border-radius: 20px; 
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    /* Сердечко */
+    .card-heart { 
+        position: absolute; top: 10px; right: 10px; font-size: 26px; 
+        cursor: pointer; z-index: 10; color: white; 
+        filter: drop-shadow(0 0 3px rgba(0,0,0,0.5)); /* Тінь щоб було видно на білому */
+        transition: transform 0.2s; 
+    }
+    .card-heart.liked { color: #ff4d4d; filter: none; animation: heartBurst 0.6s forwards; }
     @keyframes heartBurst { 0% { transform: scale(1); } 50% { transform: scale(1.4); } 100% { transform: scale(1); } }
     
-    .toast-notification { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background-color: #333; color: white; padding: 12px 20px; border-radius: 30px; z-index: 9999; opacity: 0; visibility: hidden; transition: 0.3s; border: 1px solid #FFD700; font-weight: bold;}
-    .toast-notification.show { opacity: 1; visibility: visible; bottom: 40px; }</style><div id="toast" class="toast-notification">✅ Товар додано в вибране</div><script>window.addEventListener("DOMContentLoaded", function() {
-    // ДАНІ
+    .toast-notification { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); background-color: #333; color: white; padding: 12px 24px; border-radius: 30px; z-index: 9999; opacity: 0; visibility: hidden; transition: 0.3s; font-weight: bold; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+    .toast-notification.show { opacity: 1; visibility: visible; bottom: 50px; }</style><div id="toast" class="toast-notification">✅ Товар додано в вибране</div><script>window.addEventListener("DOMContentLoaded", function() {
     var viberNumber = "380681788275"; 
     var tgUsername = "Dashieed";
     
-    // КАТЕГОРІЇ
     var categoryRules = [
         { id: 'all', label: '📂 Всі категорії' },
         { id: 'fidgets', label: '🌀 Фіджети', keywords: ['фіджет', 'fidget', 'гексагон', 'куб', 'антистрес', 'спінер', 'clicker'] },
@@ -155,16 +190,18 @@
         setTimeout(() => { toast.classList.remove('show'); }, 2500);
     }
 
-    // --- СТВОРЕННЯ ПАНЕЛІ (Заголовок, Банер, Фільтри) ---
-    // Шукаємо контейнер для вставки (пробуємо різні варіанти Publii)
-    var feedContainer = document.querySelector('.feed') || document.querySelector('.main__content') || document.querySelector('main') || document.body;
-    
-    if (feedContainer && !document.querySelector('.shop-controls')) {
-        // Чистимо старі елементи, якщо вони є
-        var oldHeaders = document.querySelectorAll('.site-main-header');
+    // --- ВСТАВКА ВЕРХНЬОЇ ЧАСТИНИ ---
+    // Вставляємо прямо в BODY, щоб було видно на мобільному гарантовано
+    if (!document.querySelector('.shop-controls')) {
+        // Чистимо старі елементи
+        var oldHeaders = document.querySelectorAll('.site-main-header, .top-3d-banner');
         oldHeaders.forEach(el => el.remove());
 
         var catOptionsHTML = categoryRules.map(cat => `<option value="${cat.id}">${cat.label}</option>`).join('');
+        
+        // Іконки SVG
+        var tgIcon = `<svg viewBox="0 0 24 24" width="20" height="20" fill="white" style="margin-right:5px; vertical-align:middle;"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.962 6.502-1.359 8.627-.168.9-.5 1.201-.82 1.23-.697.064-1.226-.46-1.901-.903-1.056-.692-1.653-1.123-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.062 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.751-.244-1.349-.374-1.297-.789.027-.216.324-.437.893-.663 3.498-1.524 5.831-2.529 6.998-3.014 3.332-1.386 4.024-1.627 4.476-1.635.1-.002.321.023.465.14a.505.505 0 0 1 .171.325c.016.093.037.306.02.472z"/></svg>`;
+        var vbIcon = `<svg viewBox="0 0 24 24" width="20" height="20" fill="white" style="margin-right:5px; vertical-align:middle;"><path d="M22.5 11.1C22.5 5.5 17.9 1 12.2 1S2 5.5 2 11.1C2 14.6 3.9 17.7 6.8 19.5C6.2 19.8 5.6 20.1 5 20.4L4.5 22.8L8.9 20.7C10.2 21.1 11.7 21.2 13.1 21.1C18.4 20.7 22.5 16.3 22.5 11.1M17.4 16.3C16.8 17.2 15.5 17.5 14.9 17.6C12.5 17.9 8.8 15.2 6.9 12.3C6.1 11 6.1 9.7 7.4 8.5C7.8 8.1 8.3 7.7 8.7 7.4C9.1 7.1 9.4 7.3 9.6 7.7C9.9 8.3 10.6 10.2 10.7 10.4C10.8 10.6 10.7 10.9 10.5 11.1C10.3 11.3 10 11.6 9.8 11.8C9.6 12 9.4 12.3 9.6 12.7C10.1 13.7 11.1 15 12.6 16.3C13.2 16.8 13.7 16.9 14 16.6C14.3 16.3 14.8 15.7 15 15.3C15.2 15 15.5 15.1 15.8 15.2C16.1 15.3 17.6 16 17.9 16.2C18.2 16.3 18.4 16.4 18.4 16.6C18.4 16.6 18 17.1 17.4 16.3Z"/></svg>`;
 
         var headerHtml = `
             <div class="site-main-header">3D ДРУК НА ЗАМОВЛЕННЯ</div>
@@ -186,48 +223,35 @@
             </div>
             <div id="favOrderPanel" class="favorites-panel">
                 <div class="fav-total-price">Сума: <span id="favTotalPriceValue">0</span> грн</div>
-                <a id="orderAllTg" href="#" target="_blank" class="big-order-btn" style="background-color: #24A1DE;">✈ Замовити (TG)</a>
-                <a id="orderAllViber" href="#" target="_blank" class="big-order-btn" style="background-color: #7360f2;">📞 Замовити (Viber)</a>
+                <a id="orderAllTg" href="#" target="_blank" class="big-order-btn" style="background-color: #24A1DE;">${tgIcon} Замовити все</a>
+                <a id="orderAllViber" href="#" target="_blank" class="big-order-btn" style="background-color: #7360f2;">${vbIcon} Замовити все</a>
                 <button id="closeFavBtn" class="back-btn">← Повернутись</button>
             </div>
         `;
         
-        // Вставляємо перед основним контентом (feed)
-        // Якщо feedContainer це main, вставляємо на початок
-        if (feedContainer.firstChild) {
-            var wrapper = document.createElement('div');
-            wrapper.innerHTML = headerHtml;
-            feedContainer.insertBefore(wrapper, feedContainer.firstChild);
-        } else {
-            feedContainer.innerHTML = headerHtml;
-        }
+        // Вставляємо на початок BODY
+        var wrapper = document.createElement('div');
+        wrapper.innerHTML = headerHtml;
+        document.body.insertBefore(wrapper, document.body.firstChild);
     }
 
     // --- ОБРОБКА ТОВАРІВ ---
     articles.forEach(function(article) {
-        // Спробуємо знайти заголовок або хоча б посилання в ньому
         var title = article.querySelector('h1, h2, h3, .post__title, .card__title');
-        
-        // Якщо заголовка немає (тема його ховає або не генерує)
         if (!title) {
-            // Пробуємо знайти перше посилання, яке зазвичай є заголовком
             var potentialLink = article.querySelector('a');
             if (potentialLink && potentialLink.textContent.length > 3) {
-                // Створюємо штучний заголовок, якщо його немає
                 title = document.createElement('h2');
                 title.className = 'card__title';
-                title.style.color = 'white';
                 title.innerHTML = `<a href="${potentialLink.href}">${potentialLink.textContent}</a>`;
                 article.insertBefore(title, article.firstChild);
             }
         }
-
-        if (!title) return; // Якщо зовсім нічого не знайшли, пропускаємо
+        if (!title) return;
 
         var productName = title.textContent.trim();
         article.setAttribute('data-name', productName);
 
-        // Ціна
         var excerptDiv = article.querySelector('.feed__excerpt, .card__excerpt, p, .post__excerpt');
         var priceValue = 0; 
         
@@ -237,37 +261,37 @@
             if (priceMatch) {
                 excerptDiv.innerHTML = text.replace(priceMatch[0], ''); 
                 priceValue = parseInt(priceMatch[1].replace(/\D/g, ''));
-                // Додаємо красиву плашку ціни
                 var priceBadge = document.createElement('div');
                 priceBadge.className = 'custom-price-tag';
                 priceBadge.innerText = priceMatch[1];
-                
-                // Вставляємо ціну перед описом
                 excerptDiv.parentNode.insertBefore(priceBadge, excerptDiv);
             }
         }
         article.setAttribute('data-price', priceValue);
         productPrices[productName] = priceValue;
 
-        // --- ДОДАВАННЯ КНОПОК ---
+        // --- КНОПКИ З ІКОНКАМИ ---
         if (!article.querySelector('.action-row')) {
             var priceText = priceValue > 0 ? " (" + priceValue + " грн)" : "";
             var msg = encodeURIComponent("👋 Привіт! Хочу замовити: " + productName + priceText);
-            var btnStyle = "display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: white; padding: 8px 14px; border-radius: 20px; text-decoration: none; border: none; cursor: pointer; font-weight: bold; box-shadow: 0 3px 5px rgba(0,0,0,0.2);";
             
+            var btnStyle = "display: inline-flex; align-items: center; justify-content: center; font-size: 14px; color: white; padding: 10px 16px; border-radius: 25px; text-decoration: none; border: none; cursor: pointer; font-weight: bold; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: transform 0.2s;";
+            
+            // Іконки
+            var tgIcon = `<svg viewBox="0 0 24 24" width="18" height="18" fill="white" style="margin-right:6px;"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.962 6.502-1.359 8.627-.168.9-.5 1.201-.82 1.23-.697.064-1.226-.46-1.901-.903-1.056-.692-1.653-1.123-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.062 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.751-.244-1.349-.374-1.297-.789.027-.216.324-.437.893-.663 3.498-1.524 5.831-2.529 6.998-3.014 3.332-1.386 4.024-1.627 4.476-1.635.1-.002.321.023.465.14a.505.505 0 0 1 .171.325c.016.093.037.306.02.472z"/></svg>`;
+            var vbIcon = `<svg viewBox="0 0 24 24" width="18" height="18" fill="white" style="margin-right:6px;"><path d="M22.5 11.1C22.5 5.5 17.9 1 12.2 1S2 5.5 2 11.1C2 14.6 3.9 17.7 6.8 19.5C6.2 19.8 5.6 20.1 5 20.4L4.5 22.8L8.9 20.7C10.2 21.1 11.7 21.2 13.1 21.1C18.4 20.7 22.5 16.3 22.5 11.1M17.4 16.3C16.8 17.2 15.5 17.5 14.9 17.6C12.5 17.9 8.8 15.2 6.9 12.3C6.1 11 6.1 9.7 7.4 8.5C7.8 8.1 8.3 7.7 8.7 7.4C9.1 7.1 9.4 7.3 9.6 7.7C9.9 8.3 10.6 10.2 10.7 10.4C10.8 10.6 10.7 10.9 10.5 11.1C10.3 11.3 10 11.6 9.8 11.8C9.6 12 9.4 12.3 9.6 12.7C10.1 13.7 11.1 15 12.6 16.3C13.2 16.8 13.7 16.9 14 16.6C14.3 16.3 14.8 15.7 15 15.3C15.2 15 15.5 15.1 15.8 15.2C16.1 15.3 17.6 16 17.9 16.2C18.2 16.3 18.4 16.4 18.4 16.6C18.4 16.6 18 17.1 17.4 16.3Z"/></svg>`;
+
             var btnsHTML = `
                 <div class="action-row">
                     <div class="buttons-group">
-                        <a href="https://t.me/${tgUsername}?text=${msg}" target="_blank" style="${btnStyle} background-color: #24A1DE;">Замовити</a>
-                        <a href="viber://chat?number=%2B${viberNumber}&draft=${msg}" target="_blank" style="${btnStyle} background-color: #7360f2;">Замовити</a>
+                        <a href="https://t.me/${tgUsername}?text=${msg}" target="_blank" style="${btnStyle} background-color: #24A1DE;">${tgIcon} Замовити</a>
+                        <a href="viber://chat?number=%2B${viberNumber}&draft=${msg}" target="_blank" style="${btnStyle} background-color: #7360f2;">${vbIcon} Замовити</a>
                     </div>
                 </div>`;
-            
-            // Вставляємо кнопки ПІСЛЯ заголовка
             title.insertAdjacentHTML('afterend', btnsHTML);
         }
 
-        // --- СЕРДЕЧКО ---
+        // Сердечко
         if (!article.querySelector('.card-heart')) {
             var heart = document.createElement('div');
             heart.className = 'card-heart';
@@ -300,7 +324,6 @@
         }
     });
 
-    // --- ФУНКЦІЇ ---
     function updateFavPanel() {
         var favList = JSON.parse(localStorage.getItem('dasha_favorites')) || [];
         var totalSum = 0;
@@ -311,7 +334,8 @@
             list.push(`- ${name} (${p} грн)`);
         });
         document.getElementById('favTotalPriceValue').innerText = totalSum;
-        var msg = encodeURIComponent("📋 Замовлення (Вибране):\n" + list.join("\n") + "\n\n💰 СУМА: " + totalSum + " грн");
+        // ОНОВЛЕНИЙ ТЕКСТ ДЛЯ ВИБРАНОГО
+        var msg = encodeURIComponent("👋 Привіт! Хочу замовити з вибраного:\n" + list.join("\n") + "\n\n💰 СУМА: " + totalSum + " грн");
         document.getElementById('orderAllTg').href = "https://t.me/" + tgUsername + "?text=" + msg;
         document.getElementById('orderAllViber').href = "viber://chat?number=%2B" + viberNumber + "&draft=" + msg;
     }
@@ -319,7 +343,6 @@
     function applyFilters() {
         var term = document.getElementById('searchInput').value.toLowerCase();
         var favMode = document.getElementById('favFilter').classList.contains('active');
-        
         articles.forEach(art => {
             var name = art.getAttribute('data-name').toLowerCase();
             var catMatch = (currentCategory === 'all');
@@ -329,15 +352,12 @@
             }
             var searchMatch = name.includes(term);
             var favMatch = favMode ? favorites.includes(art.getAttribute('data-name')) : true;
-            
             art.style.display = (catMatch && searchMatch && favMatch) ? '' : 'none';
         });
     }
 
-    // Слухачі подій
     document.getElementById('categorySelect').addEventListener('change', function() { currentCategory = this.value; applyFilters(); });
     document.getElementById('searchInput').addEventListener('input', applyFilters);
-    
     var favBtn = document.getElementById('favFilter');
     favBtn.addEventListener('click', () => {
         favBtn.classList.toggle('active');
