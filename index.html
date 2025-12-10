@@ -1,160 +1,121 @@
 <!DOCTYPE html><html lang="uk"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Dasha-3D</title><meta name="generator" content="Publii Open-Source CMS for Static Site"><link rel="canonical" href="https://dasha-3d.github.io/3D-life/"><link rel="alternate" type="application/atom+xml" href="https://dasha-3d.github.io/3D-life/feed.xml" title="Dasha-3D - RSS"><link rel="alternate" type="application/json" href="https://dasha-3d.github.io/3D-life/feed.json" title="Dasha-3D - JSON"><meta property="og:title" content="Dasha-3D"><meta property="og:site_name" content="Dasha-3D"><meta property="og:description" content=""><meta property="og:url" content="https://dasha-3d.github.io/3D-life/"><meta property="og:type" content="website"><link rel="stylesheet" href="https://dasha-3d.github.io/3D-life/assets/css/style.css?v=406c8e7c5f2190bc8d29368e9a04ae5b"><script type="application/ld+json">{"@context":"http://schema.org","@type":"Organization","name":"Dasha-3D","url":"https://dasha-3d.github.io/3D-life/"}</script><noscript><style>img[loading] {
                     opacity: 1;
-                }</style></noscript><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0"><style>/* --- 1. ТЕМА "SILVER" --- */
+                }</style></noscript><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0"><style>/* --- ГЛОБАЛЬНІ --- */
     * { box-sizing: border-box; }
-    
     html, body {
-        overflow-x: hidden !important;
-        width: 100%;
-        margin: 0 !important;
-        padding: 0 !important;
-        background-color: #dcdcdc; 
-        font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-        color: #333; 
+        overflow-x: hidden !important; width: 100%; margin: 0 !important; padding: 0 !important;
+        background-color: #e5e5e5; /* Світло-сірий фон */
+        font-family: sans-serif; color: #333;
     }
 
-    /* --- 2. ПРИХОВУВАННЯ СТАРОЇ ШАПКИ --- */
-    body > header, .navbar, .js-navbar, .top-nav, 
-    .site-header, #masthead, .header__logo, .brand, .logo,
-    .hero, .post-hero {
-        display: none !important;
+    /* --- ХОВАЄМО ЗАЙВЕ --- */
+    .navbar, .js-navbar, .top-nav, .site-header, #masthead, .header__logo, .brand, .logo, .hero, .post-hero { display: none !important; }
+    body > header { display: none !important; }
+    main, .main, .container, .feed { margin-top: 0 !important; padding-top: 20px !important; max-width: 1200px !important; margin-left: auto !important; margin-right: auto !important; }
+
+    /* --- КАРТКИ ТОВАРІВ --- */
+    article, .card, .post, .feed__item, .entry {
+        display: flex !important; flex-direction: column !important;
+        background: #ffffff !important; padding: 0 !important;
+        border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        margin-bottom: 25px; position: relative !important;
+        border: 1px solid #fff;
     }
 
-    article header, .card header, .post header {
-        display: block !important; padding: 0 !important; margin: 0 0 10px 0 !important;
+    /* ФОТО */
+    figure, .post__image, .card__image, .entry__media {
+        display: block !important; width: 100% !important; height: auto !important;
+        margin: 0 !important; order: -1 !important;
     }
+    img { width: 100% !important; height: auto !important; display: block !important; border-radius: 16px 16px 0 0 !important; }
 
-    main, .main, .container, .feed {
-        margin-top: 0 !important; padding-top: 20px !important;
-        max-width: 1200px !important; margin-left: auto !important; margin-right: auto !important;
-    }
-
-    /* --- 3. СТИЛІ КАРТОК --- */
-    article, .card, .post, .feed__item {
-        background: #ffffff;
-        padding: 15px;
-        border-radius: 12px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-        margin-bottom: 20px;
-        position: relative; 
-        display: block;
-    }
-
-    article h1, article h2, article h3, .card__title, .feed__title, .card__title a, .feed__title a {
-        display: block !important;
-        color: #111 !important; 
-        text-decoration: none !important;
-        font-size: 1.1rem !important;
-        font-weight: 700 !important;
-        margin-bottom: 8px !important;
-        line-height: 1.3 !important;
+    /* ТЕКСТ І ЗАГОЛОВКИ - РОБИМО ЧОРНИМИ */
+    .card__content, .post__content, .entry__header, article header, .feed__content {
+        padding: 20px !important; background: #ffffff !important; width: 100% !important; display: block !important;
     }
     
-    .feed__excerpt, .card__excerpt, p {
-        color: #444 !important;
-        font-size: 0.95rem;
+    /* ЖОРСТКИЙ ЧОРНИЙ КОЛІР ДЛЯ НАЗВ */
+    h1, h2, h3, .card__title, .post__title, .entry__title, .feed__title,
+    h1 a, h2 a, h3 a, .card__title a, .post__title a {
+        display: block !important; color: #000000 !important; /* Чорний */
+        text-decoration: none !important; font-size: 1.3rem !important;
+        font-weight: 900 !important; margin: 5px 0 10px 0 !important;
+        line-height: 1.2 !important; text-shadow: none !important; opacity: 1 !important; visibility: visible !important;
     }
+    
+    .feed__excerpt, .card__excerpt, p { color: #555 !important; font-size: 1rem; display: block !important; }
 
-    img { max-width: 100% !important; height: auto !important; border-radius: 8px; }
-
-    /* --- 4. ІНТЕРФЕЙС --- */
+    /* --- ІНТЕРФЕЙС --- */
     .site-main-header {
-        width: 100%; text-align: center; 
-        background-color: #333;
-        padding: 15px 0; margin: 0;
-        font-size: 24px; font-weight: 900; 
-        color: #FFD700;
-        text-transform: uppercase; letter-spacing: 1px;
+        width: 100%; text-align: center; background-color: #333; padding: 15px 0;
+        font-size: 24px; font-weight: 900; color: #FFD700; text-transform: uppercase;
         border-bottom: 4px solid #FFD700;
-        position: relative; z-index: 100;
     }
-
     .top-3d-banner {
-        width: 100%; background: #222; 
-        color: #fff; font-weight: 700; font-size: 13px;
-        text-transform: uppercase; padding: 10px 0;
-        overflow: hidden; white-space: nowrap; display: flex;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        width: 100%; background: #222; color: #fff; font-weight: 700; font-size: 13px;
+        padding: 10px 0; overflow: hidden; display: flex;
     }
-    
-    .banner-content {
-        display: flex; gap: 50px; padding-left: 100%;
-        animation: scrollText 30s linear infinite; 
-    }
+    .banner-content { display: flex; gap: 50px; padding-left: 100%; animation: scrollText 30s linear infinite; }
     @keyframes scrollText { 0% { transform: translateX(0); } 100% { transform: translateX(-200%); } }
 
+    /* ПАНЕЛЬ УПРАВЛІННЯ */
     .shop-controls {
-        background: #ffffff; border-radius: 16px; 
-        border: 1px solid #ccc;
+        background: #ffffff; border-radius: 16px; border: 1px solid #ccc;
         padding: 15px; margin-bottom: 30px; width: 95%; max-width: 800px;
-        margin-left: auto; margin-right: auto;
-        display: flex; flex-direction: column; gap: 12px;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        margin-left: auto; margin-right: auto; display: flex; flex-direction: column; gap: 12px;
     }
-
     .nav-row { width: 100%; margin-bottom: 5px; }
     .home-btn {
-        display: flex; align-items: center; justify-content: center; gap: 8px;
-        width: 100%; background-color: #333; color: white;
-        text-decoration: none; padding: 10px; border-radius: 10px;
-        font-weight: bold; transition: 0.2s;
+        display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%;
+        background-color: #333; color: white; text-decoration: none; padding: 12px;
+        border-radius: 12px; font-weight: bold;
     }
-
-    .search-input {
-        width: 100%; background: #f0f0f0; color: #333; border: 1px solid #ccc;
-        padding: 0 40px 0 15px; border-radius: 10px; font-size: 16px; height: 48px;
-    }
-    
+    .search-input { width: 100%; background: #f0f0f0; color: #333; border: 1px solid #ccc; padding: 0 40px 0 15px; border-radius: 10px; height: 48px; }
     .filters-row { display: flex; gap: 10px; width: 100%; }
-    
     .sort-select, .fav-filter-btn { 
         width: 100%; height: 48px; background-color: #f0f0f0; color: #333; 
-        border: 1px solid #ccc; border-radius: 10px; font-size: 14px; cursor: pointer; font-weight: 600;
+        border: 1px solid #ccc; border-radius: 10px; cursor: pointer; font-weight: 600;
     }
-    .fav-filter-btn {
-        background: transparent; border: 2px solid #ff4d4d; color: #ff4d4d;
-        display: flex; align-items: center; justify-content: center; gap: 6px;
-    }
+    .fav-filter-btn { border: 2px solid #ff4d4d; color: #ff4d4d; display: flex; align-items: center; justify-content: center; }
     .fav-filter-btn.active { background: #ff4d4d; color: white; }
 
+    /* ПАНЕЛЬ ВИБРАНОГО */
     .favorites-panel {
-        display: none; background: #fff; border: 2px solid #FFD700; border-radius: 16px;
-        padding: 20px; margin: 0 auto 30px auto; text-align: center; width: 95%; max-width: 600px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        display: none; background: #fff; border: 3px solid #FFD700; border-radius: 16px;
+        padding: 25px; margin: 0 auto 30px auto; text-align: center; width: 95%; max-width: 600px;
+        box-shadow: 0 100px 200px rgba(0,0,0,0.5); position: relative; z-index: 999;
     }
-    .favorites-panel.visible { display: block; }
-    .fav-total-price { color: #333; font-size: 1.4em; font-weight: 900; margin-bottom: 15px; }
+    .favorites-panel.visible { display: block; animation: popIn 0.3s; }
+    @keyframes popIn { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
     
+    .fav-total-price { color: #333; font-size: 1.5em; font-weight: 900; margin-bottom: 15px; }
     .big-order-btn { 
         display: flex; justify-content: center; align-items: center; gap: 10px; 
         padding: 14px; border-radius: 30px; color: white; text-decoration: none; 
-        font-weight: bold; width: 100%; margin-bottom: 10px; font-size: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        font-weight: bold; width: 100%; margin-bottom: 10px; font-size: 16px;
     }
-    .back-btn { padding: 10px 20px; border-radius: 30px; background: #eee; color: #333; border: none; width: 100%; font-weight: bold; cursor: pointer; }
+    /* КНОПКА ПОВЕРНУТИСЬ - ЯСКРАВА */
+    .back-btn { 
+        padding: 12px 20px; border-radius: 30px; background: #333; color: white; 
+        border: none; width: 100%; font-weight: bold; cursor: pointer; font-size: 16px;
+        margin-top: 10px;
+    }
 
-    .buttons-group { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; width: 100%; }
-    .action-row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 5px; margin-bottom: 20px; width: 100%; }
-    
+    .buttons-group { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px; width: 100%; }
+    .action-row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 5px; margin-bottom: 0px; width: 100%; }
     .custom-price-tag { 
-        display: inline-block; width: fit-content;
-        font-size: 14px; font-weight: 800; color: #333; 
-        background-color: #FFD700; padding: 5px 12px; 
-        border-radius: 8px; margin-bottom: 8px;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        display: inline-block; width: fit-content; font-size: 18px; font-weight: 800; color: #333; 
+        background-color: #FFD700; padding: 6px 14px; border-radius: 10px; margin-bottom: 10px;
     }
     
     .card-heart { 
-        position: absolute; top: 15px; right: 15px; font-size: 28px; 
-        cursor: pointer; z-index: 999; color: #ccc; 
-        background: rgba(255,255,255,0.95); 
-        border-radius: 50%; width: 45px; height: 45px;
-        display: flex; align-items: center; justify-content: center;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        position: absolute; top: 15px; right: 15px; font-size: 28px; cursor: pointer; z-index: 999; 
+        color: #ccc; background: rgba(255,255,255,0.95); border-radius: 50%; width: 45px; height: 45px;
+        display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     }
-    .card-heart.liked { color: #ff4d4d; animation: heartBurst 0.6s forwards; }
-    @keyframes heartBurst { 0% { transform: scale(1); } 50% { transform: scale(1.4); } 100% { transform: scale(1); } }
+    .card-heart.liked { color: #ff4d4d; }
     
-    .toast-notification { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); background-color: #333; color: white; padding: 12px 24px; border-radius: 30px; z-index: 9999; opacity: 0; visibility: hidden; transition: 0.3s; font-weight: bold; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+    .toast-notification { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); background-color: #333; color: white; padding: 12px 24px; border-radius: 30px; z-index: 9999; opacity: 0; visibility: hidden; transition: 0.3s; font-weight: bold; }
     .toast-notification.show { opacity: 1; visibility: visible; bottom: 50px; }</style><div id="toast" class="toast-notification">✅ Товар додано в вибране</div></head><body class="home-template"><header class="top js-header"><a class="logo" href="https://dasha-3d.github.io/3D-life/">Dasha-3D</a></header><main><div class="hero hero--noimage"><header class="hero__content hero__content--centered"><div class="wrapper"><h4 class="align-center"><strong><em>3D Друк на замовлення.</em></strong><br>Друк 3D-фігурок — обирайте з каталогу або надавайте власну модель!</h4></div></header></div><div class="wrapper feed"><article class="feed__item"><figure class="feed__image"><img src="https://dasha-3d.github.io/3D-life/media/posts/6/unitaz.webp" srcset="https://dasha-3d.github.io/3D-life/media/posts/6/responsive/unitaz-xs.webp 640w, https://dasha-3d.github.io/3D-life/media/posts/6/responsive/unitaz-sm.webp 768w, https://dasha-3d.github.io/3D-life/media/posts/6/responsive/unitaz-md.webp 1024w" sizes="(min-width: 600px) calc(4.38vw + 143px), 87.86vw" loading="lazy" height="1162" width="1000" alt=""></figure><div class="feed__content"><header><h2 class="feed__title"><a href="https://dasha-3d.github.io/3D-life/unitaz-z-nizhkami-prikol.html">Унітаз з ніжками прикол</a></h2></header><p>Унітаз з рухомими ніжками. Колір: на замовлення.70грн</p></div></article><article class="feed__item"><figure class="feed__image"><img src="https://dasha-3d.github.io/3D-life/media/posts/5/2024-10-07_6b65dee2424b2.webp" srcset="https://dasha-3d.github.io/3D-life/media/posts/5/responsive/2024-10-07_6b65dee2424b2-xs.webp 640w, https://dasha-3d.github.io/3D-life/media/posts/5/responsive/2024-10-07_6b65dee2424b2-sm.webp 768w, https://dasha-3d.github.io/3D-life/media/posts/5/responsive/2024-10-07_6b65dee2424b2-md.webp 1024w" sizes="(min-width: 600px) calc(4.38vw + 143px), 87.86vw" loading="lazy" height="750" width="1000" alt=""></figure><div class="feed__content"><header><h2 class="feed__title"><a href="https://dasha-3d.github.io/3D-life/drakon-gnuchkiy.html">Дракон гнучкий</a></h2></header><p>Довжина 32см. Колір: на замовлення. 95грн</p></div></article><article class="feed__item"><figure class="feed__image"><img src="https://dasha-3d.github.io/3D-life/media/posts/2/hex.jpg" srcset="https://dasha-3d.github.io/3D-life/media/posts/2/responsive/hex-xs.jpg 640w, https://dasha-3d.github.io/3D-life/media/posts/2/responsive/hex-sm.jpg 768w, https://dasha-3d.github.io/3D-life/media/posts/2/responsive/hex-md.jpg 1024w" sizes="(min-width: 600px) calc(4.38vw + 143px), 87.86vw" loading="lazy" height="1000" width="1000" alt=""></figure><div class="feed__content"><header><h2 class="feed__title"><a href="https://dasha-3d.github.io/3D-life/fidzhet-geksagon.html">Фіджет Гексагон </a></h2></header><p>Фіджет рухомий шестикутник, сторона 5.5 см. Колір: на замовлення. 110грн</p></div></article><article class="feed__item"><figure class="feed__image"><img src="https://dasha-3d.github.io/3D-life/media/posts/1/dragon-skeleton.webp" srcset="https://dasha-3d.github.io/3D-life/media/posts/1/responsive/dragon-skeleton-xs.webp 640w, https://dasha-3d.github.io/3D-life/media/posts/1/responsive/dragon-skeleton-sm.webp 768w, https://dasha-3d.github.io/3D-life/media/posts/1/responsive/dragon-skeleton-md.webp 1024w" sizes="(min-width: 600px) calc(4.38vw + 143px), 87.86vw" loading="lazy" height="750" width="1000" alt=""></figure><div class="feed__content"><header><h2 class="feed__title"><a href="https://dasha-3d.github.io/3D-life/skelet-drakona.html">Скелет Дракона</a></h2></header><p>Висота 10см. Колір: на замовлення. 90грн</p></div></article></div></main><footer class="footer"><div class="wrapper"><div class="footer__copyright"><p>Powered by Publii</p></div><button id="backToTop" class="footer__bttop" aria-label="Back to top" title="Back to top"><svg width="20" height="20"><use xlink:href="https://dasha-3d.github.io/3D-life/assets/svg/svg-map.svg#toparrow"/></svg></button></div></footer><script defer="defer" src="https://dasha-3d.github.io/3D-life/assets/js/scripts.min.js?v=700105c316933a8202041b6415abb233"></script><script>window.publiiThemeMenuConfig={mobileMenuMode:'sidebar',animationSpeed:300,submenuWidth: 'auto',doubleClickTime:500,mobileMenuExpandableSubmenus:true,relatedContainerForOverlayMenuSelector:'.top'};</script><script>var images = document.querySelectorAll('img[loading]');
         for (var i = 0; i < images.length; i++) {
             if (images[i].complete) {
@@ -165,8 +126,7 @@
                 }, false);
             }
         }</script><script>document.addEventListener("DOMContentLoaded", function() {
-    // Невелика затримка, щоб Publii встиг намалювати HTML
-    setTimeout(initShop, 100);
+    setTimeout(initShop, 200);
 });
 
 function initShop() {
@@ -174,26 +134,22 @@ function initShop() {
     var tgUsername = "Dashieed";
     var homeLink = "index.html"; 
     
+    // КАТЕГОРІЇ - Перевірте, чи слова співпадають з назвами ваших товарів!
     var categoryRules = [
         { id: 'all', label: '📂 Всі категорії' },
         { id: 'fidgets', label: '🌀 Фіджети', keywords: ['фіджет', 'fidget', 'гексагон', 'куб', 'антистрес', 'спінер', 'clicker'] },
         { id: 'animals', label: '🐾 Тварини', keywords: ['дракон', 'змія', 'кіт', 'пес', 'собака', 'жаба', 'капібара', 'ведмідь', 'тварина', 'сова', 'лисиця', 'rex', 'дино'] },
         { id: 'weapons', label: '⚔️ Зброя', keywords: ['меч', 'ніж', 'катана', 'пістолет', 'сокира', 'керамбіт', 'кунай', 'зброя'] },
-        { id: 'funny', label: '🤪 Кумедні', keywords: ['прикол', 'мем', 'сміш', 'гусак', 'качка', 'рок', 'жест', 'дуля', 'funny', 'середній палець'] },
+        { id: 'funny', label: '🤪 Кумедні', keywords: ['прикол', 'мем', 'сміш', 'гусак', 'качка', 'рок', 'жест', 'дуля', 'funny', 'середній палець', 'унітаз'] },
         { id: 'puzzles', label: '🧩 Пазли', keywords: ['пазл', 'puzzle', 'головоломка', 'конструктор', 'lego', 'лего', 'тетріс'] },
         { id: 'heroes', label: '🧸 Ігрові персонажі', keywords: ['покемон', 'маріо', 'гра', 'game', 'персонаж', 'роблокс', 'майнкрафт', 'among', 'brawl', 'бравл', 'стіч'] },
         { id: 'decor', label: '🏠 Декор', keywords: ['ваза', 'кашпо', 'декор', 'лампа', 'підставка', 'органайзер', 'брелок', 'череп', 'фігурка'] }
     ];
 
-    // Збираємо товари в реальний масив
     var articleNodes = document.querySelectorAll('article, .post, .entry, .card, .feed__item');
     var articles = Array.from(articleNodes);
     
-    // Якщо товарів немає, пробуємо ще раз через півсекунди (для повільних тем)
-    if (articles.length === 0) {
-        setTimeout(initShop, 500);
-        return;
-    }
+    if (articles.length === 0) { setTimeout(initShop, 1000); return; }
 
     var favorites = JSON.parse(localStorage.getItem('dasha_favorites')) || [];
     var toast = document.getElementById('toast');
@@ -205,12 +161,11 @@ function initShop() {
         setTimeout(() => { toast.classList.remove('show'); }, 2500);
     }
 
-    // --- 1. ШАПКА І ПАНЕЛЬ ---
+    // --- 1. ВСТАВКА ІНТЕРФЕЙСУ ---
     if (!document.querySelector('.shop-controls')) {
         document.querySelectorAll('.site-main-header, .top-3d-banner').forEach(el => el.remove());
 
         var catOptionsHTML = categoryRules.map(cat => `<option value="${cat.id}">${cat.label}</option>`).join('');
-        
         var tgIcon = `<svg viewBox="0 0 24 24" width="20" height="20" fill="white" style="margin-right:5px; vertical-align:middle;"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.962 6.502-1.359 8.627-.168.9-.5 1.201-.82 1.23-.697.064-1.226-.46-1.901-.903-1.056-.692-1.653-1.123-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.062 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.751-.244-1.349-.374-1.297-.789.027-.216.324-.437.893-.663 3.498-1.524 5.831-2.529 6.998-3.014 3.332-1.386 4.024-1.627 4.476-1.635.1-.002.321.023.465.14a.505.505 0 0 1 .171.325c.016.093.037.306.02.472z"/></svg>`;
         var vbIcon = `<svg viewBox="0 0 24 24" width="20" height="20" fill="white" style="margin-right:5px; vertical-align:middle;"><path d="M22.5 11.1C22.5 5.5 17.9 1 12.2 1S2 5.5 2 11.1C2 14.6 3.9 17.7 6.8 19.5C6.2 19.8 5.6 20.1 5 20.4L4.5 22.8L8.9 20.7C10.2 21.1 11.7 21.2 13.1 21.1C18.4 20.7 22.5 16.3 22.5 11.1M17.4 16.3C16.8 17.2 15.5 17.5 14.9 17.6C12.5 17.9 8.8 15.2 6.9 12.3C6.1 11 6.1 9.7 7.4 8.5C7.8 8.1 8.3 7.7 8.7 7.4C9.1 7.1 9.4 7.3 9.6 7.7C9.9 8.3 10.6 10.2 10.7 10.4C10.8 10.6 10.7 10.9 10.5 11.1C10.3 11.3 10 11.6 9.8 11.8C9.6 12 9.4 12.3 9.6 12.7C10.1 13.7 11.1 15 12.6 16.3C13.2 16.8 13.7 16.9 14 16.6C14.3 16.3 14.8 15.7 15 15.3C15.2 15 15.5 15.1 15.8 15.2C16.1 15.3 17.6 16 17.9 16.2C18.2 16.3 18.4 16.4 18.4 16.6C18.4 16.6 18 17.1 17.4 16.3Z"/></svg>`;
 
@@ -237,9 +192,10 @@ function initShop() {
             </div>
             <div id="favOrderPanel" class="favorites-panel">
                 <div class="fav-total-price">Сума: <span id="favTotalPriceValue">0</span> грн</div>
+                <div id="favListContainer" style="margin-bottom:15px; color:#555; font-size:14px;"></div>
                 <a id="orderAllTg" href="#" target="_blank" class="big-order-btn" style="background-color: #24A1DE;">${tgIcon} Замовити все</a>
                 <a id="orderAllViber" href="#" target="_blank" class="big-order-btn" style="background-color: #7360f2;">${vbIcon} Замовити все</a>
-                <button id="closeFavBtn" class="back-btn">← Повернутись</button>
+                <button id="closeFavBtn" class="back-btn">← ПОВЕРНУТИСЬ</button>
             </div>
         `;
         
@@ -250,8 +206,10 @@ function initShop() {
 
     // --- 2. ОБРОБКА ТОВАРІВ ---
     articles.forEach(function(article) {
+        // Знаходимо заголовок
         var title = article.querySelector('h1, h2, h3, .post__title, .card__title');
         
+        // Штучний заголовок, якщо його немає
         if (!title) {
             var potentialLink = article.querySelector('a');
             if (potentialLink && potentialLink.textContent.length > 2) {
@@ -266,6 +224,7 @@ function initShop() {
         var productName = title.textContent.trim();
         article.setAttribute('data-name', productName);
 
+        // Ціна
         var excerptDiv = article.querySelector('.feed__excerpt, .card__excerpt, p, .post__excerpt');
         var priceValue = 0; 
         
@@ -283,7 +242,7 @@ function initShop() {
         }
         article.setAttribute('data-price', priceValue);
 
-        // КНОПКИ З ІКОНКАМИ
+        // КНОПКИ
         if (!article.querySelector('.action-row')) {
             var priceText = priceValue > 0 ? " (" + priceValue + " грн)" : "";
             var msg = encodeURIComponent("👋 Привіт! Хочу замовити: " + productName + priceText);
@@ -309,7 +268,6 @@ function initShop() {
             heart.innerHTML = '❤';
             if (favorites.includes(productName)) heart.classList.add('liked');
             
-            // ВАЖЛИВО: Захист від спливання подій
             heart.onclick = function(e) { e.preventDefault(); e.stopPropagation(); };
             
             heart.addEventListener('click', function(e) {
@@ -342,7 +300,6 @@ function initShop() {
         var list = [];
         
         favList.forEach(name => {
-            // Шукаємо ціну в масиві articles
             var found = articles.find(a => a.getAttribute('data-name') === name);
             var p = found ? parseInt(found.getAttribute('data-price')) : 0;
             totalSum += p;
@@ -350,16 +307,18 @@ function initShop() {
         });
 
         document.getElementById('favTotalPriceValue').innerText = totalSum;
+        // Оновлюємо список у панелі
+        document.getElementById('favListContainer').innerText = list.length > 0 ? list.join("\n") : "Поки що пусто";
+
         var msg = encodeURIComponent("👋 Привіт! Хочу замовити з вибраного:\n" + list.join("\n") + "\n\n💰 СУМА: " + totalSum + " грн");
         document.getElementById('orderAllTg').href = "https://t.me/" + tgUsername + "?text=" + msg;
         document.getElementById('orderAllViber').href = "viber://chat?number=%2B" + viberNumber + "&draft=" + msg;
     }
 
+    // СОРТУВАННЯ
     function sortArticles(type) {
-        // Оновлюємо список
         var currentItems = Array.from(document.querySelectorAll('article, .post, .entry, .card, .feed__item'));
         if (currentItems.length === 0) return;
-        
         var parent = currentItems[0].parentNode;
 
         currentItems.sort(function(a, b) {
@@ -374,38 +333,73 @@ function initShop() {
             return 0;
         });
 
-        currentItems.forEach(function(el) {
-            parent.appendChild(el);
-        });
+        currentItems.forEach(function(el) { parent.appendChild(el); });
     }
 
+    // ФІЛЬТРАЦІЯ (Головна функція)
     function applyFilters() {
         var term = document.getElementById('searchInput').value.toLowerCase();
         var favMode = document.getElementById('favFilter').classList.contains('active');
+        
         articles.forEach(art => {
             var name = art.getAttribute('data-name').toLowerCase();
+            
+            // Категорії
             var catMatch = (currentCategory === 'all');
             if (currentCategory !== 'all') {
                 var rule = categoryRules.find(r => r.id === currentCategory);
-                if (rule) catMatch = rule.keywords.some(k => name.includes(k));
+                if (rule) {
+                    // Перевіряємо в назві або в тексті опису
+                    var content = art.innerText.toLowerCase();
+                    catMatch = rule.keywords.some(k => content.includes(k));
+                }
             }
+
+            // Пошук
             var searchMatch = name.includes(term);
-            var favMatch = favMode ? favorites.includes(art.getAttribute('data-name')) : true;
-            art.style.display = (catMatch && searchMatch && favMatch) ? '' : 'none';
+
+            // Вибране
+            var favMatch = true;
+            if (favMode) {
+                // Якщо режим вибраного, показуємо ТІЛЬКИ ті, що є в списку
+                favMatch = favorites.includes(art.getAttribute('data-name'));
+            }
+
+            if (catMatch && searchMatch && favMatch) {
+                art.style.display = 'flex'; // Показуємо (flex для збереження стилю картки)
+            } else {
+                art.style.setProperty('display', 'none', 'important'); // Ховаємо
+            }
         });
     }
 
+    // ПОДІЇ
     document.getElementById('categorySelect').addEventListener('change', function() { currentCategory = this.value; applyFilters(); });
     document.getElementById('searchInput').addEventListener('input', applyFilters);
+    
+    // Кнопка Вибране (Фільтр)
     var favBtn = document.getElementById('favFilter');
     favBtn.addEventListener('click', () => {
         favBtn.classList.toggle('active');
-        document.getElementById('favOrderPanel').classList.toggle('visible');
-        updateFavPanel(); applyFilters();
+        
+        // Відкриваємо/закриваємо панель
+        var panel = document.getElementById('favOrderPanel');
+        if (favBtn.classList.contains('active')) {
+            panel.classList.add('visible');
+        } else {
+            panel.classList.remove('visible');
+        }
+        
+        updateFavPanel();
+        applyFilters(); // Фільтруємо товари на сторінці
     });
-    document.getElementById('closeFavBtn').addEventListener('click', () => favBtn.click());
+
+    // Кнопка Повернутись (Закриває панель і фільтр)
+    document.getElementById('closeFavBtn').addEventListener('click', () => {
+        favBtn.classList.remove('active');
+        document.getElementById('favOrderPanel').classList.remove('visible');
+        applyFilters(); // Повертаємо всі товари
+    });
     
-    document.getElementById('sortOrder').addEventListener('change', function() {
-        sortArticles(this.value);
-    });
+    document.getElementById('sortOrder').addEventListener('change', function() { sortArticles(this.value); });
 }</script></body></html>
