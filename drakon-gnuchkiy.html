@@ -63,28 +63,32 @@
         font-size: 24px; font-weight: 900; color: #FFD700; text-transform: uppercase;
         border-bottom: 4px solid #FFD700;
     }
-    /* ВИПРАВЛЕНА БІГУЧА СТРІЧКА */
+    /* --- ВИПРАВЛЕНА БІГУЧА СТРІЧКА (ПОВНИЙ КОД) --- */
     .top-3d-banner {
-        width: 100%; 
-        background: #222; 
-        color: #fff; 
-        font-weight: 700; 
-        font-size: 12px;       /* Менший шрифт */
-        padding: 4px 0;        /* Мінімальні відступи зверху і знизу */
-        overflow: hidden; 
-        display: flex;
-        align-items: center;   /* Центруємо текст по вертикалі */
-        height: auto;
-        line-height: 1;
-    }
-    
-    .banner-content { 
-        display: block;        /* Змінено з flex на block для кращої сумісності */
-        white-space: nowrap;   /* <--- ЦЕ ГОЛОВНЕ: забороняє тексту переноситись вниз */
-        padding-left: 100%; 
-        animation: scrollText 30s linear infinite; 
+        width: 100%;
+        background: #222;       /* Чорний фон */
+        color: #fff;            /* Білий текст */
+        font-weight: 700;
+        font-size: 13px;        /* Розмір шрифту */
+        padding: 5px 0;         /* Вузька висота */
+        overflow: hidden;       /* Ховаємо все, що вилазить за межі */
+        white-space: nowrap;    /* Текст суворо в один рядок */
+        display: flex;          /* Щоб вирівняти по центру */
+        align-items: center;
     }
 
+    .banner-content {
+        display: inline-block;
+        white-space: nowrap;
+        padding-left: 100%;             /* Стартуємо з-за правого краю */
+        animation: scrollText 25s linear infinite; /* Час прокрутки */
+    }
+
+    /* ВАЖЛИВО: Без цього блоку текст не буде рухатись! */
+    @keyframes scrollText {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-100%); }
+    }
     /* ПАНЕЛЬ */
     .shop-controls {
         background: #ffffff; border-radius: 16px; border: 1px solid #ccc;
