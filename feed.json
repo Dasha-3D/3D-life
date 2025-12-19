@@ -10,6 +10,81 @@
     },
     "items": [
         {
+            "id": "https://dasha-3d.github.io/3D-life/brelok-motika-z-maynkraftu.html",
+            "url": "https://dasha-3d.github.io/3D-life/brelok-motika-z-maynkraftu.html",
+            "title": "Брелок мотика з майнкрафту",
+            "summary": "Брелок мотика з майнкрафту. Колір на вибір. 15грн",
+            "content_html": "\n  <p>\n    Брелок мотика з майнкрафту. Колір на вибір. 15грн\n  </p>",
+            "image": "https://dasha-3d.github.io/3D-life/media/posts/16/Hoe.png",
+            "author": {
+                "name": "Dasha"
+            },
+            "tags": [
+            ],
+            "date_published": "2025-12-19T16:41:55+02:00",
+            "date_modified": "2025-12-19T16:41:55+02:00"
+        },
+        {
+            "id": "https://dasha-3d.github.io/3D-life/brelok-mech-z-maynkraftu.html",
+            "url": "https://dasha-3d.github.io/3D-life/brelok-mech-z-maynkraftu.html",
+            "title": "Брелок меч з майнкрафту",
+            "summary": "Брелок меч з майнкрафту. Колір на вибір. 15грн",
+            "content_html": "\n  <p>\n    Брелок меч з майнкрафту. Колір на вибір. 15грн\n  </p>",
+            "image": "https://dasha-3d.github.io/3D-life/media/posts/15/Sword.png",
+            "author": {
+                "name": "Dasha"
+            },
+            "tags": [
+            ],
+            "date_published": "2025-12-19T16:38:58+02:00",
+            "date_modified": "2025-12-19T16:38:58+02:00"
+        },
+        {
+            "id": "https://dasha-3d.github.io/3D-life/mini-geksagon.html",
+            "url": "https://dasha-3d.github.io/3D-life/mini-geksagon.html",
+            "title": "Міні гексагон",
+            "summary": "Міні гексагон. Колір на замовлення. 70грн",
+            "content_html": "\n  <p>\n    Міні гексагон. Колір на замовлення. 70грн\n  </p>",
+            "image": "https://dasha-3d.github.io/3D-life/media/posts/14/20250109_165515540_iOS.jpg",
+            "author": {
+                "name": "Dasha"
+            },
+            "tags": [
+            ],
+            "date_published": "2025-12-19T16:16:56+02:00",
+            "date_modified": "2025-12-19T16:16:56+02:00"
+        },
+        {
+            "id": "https://dasha-3d.github.io/3D-life/kit-pruzhina.html",
+            "url": "https://dasha-3d.github.io/3D-life/kit-pruzhina.html",
+            "title": "Кіт пружина",
+            "summary": "Кіт пружина. Колір на замовлення. 100грн",
+            "content_html": "\n  <p>\n    Кіт пружина. Колір на замовлення. 100грн\n  </p>",
+            "image": "https://dasha-3d.github.io/3D-life/media/posts/13/Wei-Xin-Tu-Pian_20241127134303.jpg",
+            "author": {
+                "name": "Dasha"
+            },
+            "tags": [
+            ],
+            "date_published": "2025-12-19T16:11:11+02:00",
+            "date_modified": "2025-12-19T16:11:11+02:00"
+        },
+        {
+            "id": "https://dasha-3d.github.io/3D-life/fidzhet-kub-brelok.html",
+            "url": "https://dasha-3d.github.io/3D-life/fidzhet-kub-brelok.html",
+            "title": "Фіджет куб брелок",
+            "summary": "Брелок фіджет куб. Колір на замовлення. 65грн",
+            "content_html": "\n  <p>\n    Брелок фіджет куб. Колір на замовлення. 65грн\n  </p>\n\n    <figure class=\"post__image post__image--center\">\n      <img loading=\"lazy\" src=\"https://dasha-3d.github.io/3D-life/media/posts/12/2024-12-08_9d183f077d4528.webp\" height=\"960\" width=\"540\" alt=\"\"  sizes=\"(max-width: 1920px) 100vw, 1920px\" srcset=\"https://dasha-3d.github.io/3D-life/media/posts/12/responsive/2024-12-08_9d183f077d4528-xs.webp 640w ,https://dasha-3d.github.io/3D-life/media/posts/12/responsive/2024-12-08_9d183f077d4528-sm.webp 768w ,https://dasha-3d.github.io/3D-life/media/posts/12/responsive/2024-12-08_9d183f077d4528-md.webp 1024w ,https://dasha-3d.github.io/3D-life/media/posts/12/responsive/2024-12-08_9d183f077d4528-lg.webp 1366w ,https://dasha-3d.github.io/3D-life/media/posts/12/responsive/2024-12-08_9d183f077d4528-xl.webp 1600w ,https://dasha-3d.github.io/3D-life/media/posts/12/responsive/2024-12-08_9d183f077d4528-2xl.webp 1920w\">\n      \n    </figure>",
+            "image": "https://dasha-3d.github.io/3D-life/media/posts/12/2024-12-08_a3263ef53025a8.webp",
+            "author": {
+                "name": "Dasha"
+            },
+            "tags": [
+            ],
+            "date_published": "2025-12-19T16:04:30+02:00",
+            "date_modified": "2025-12-19T16:04:30+02:00"
+        },
+        {
             "id": "https://dasha-3d.github.io/3D-life/krokodil.html",
             "url": "https://dasha-3d.github.io/3D-life/krokodil.html",
             "title": "Крокодил",
@@ -83,66 +158,6 @@
             ],
             "date_published": "2025-12-12T17:02:28+02:00",
             "date_modified": "2025-12-12T17:05:48+02:00"
-        },
-        {
-            "id": "https://dasha-3d.github.io/3D-life/unitaz-z-nizhkami-prikol.html",
-            "url": "https://dasha-3d.github.io/3D-life/unitaz-z-nizhkami-prikol.html",
-            "title": "Унітаз з ніжками прикол",
-            "summary": "Унітаз з рухомими ніжками. Колір: на замовлення.70грн",
-            "content_html": "\n  <p>\n    Унітаз з рухомими ніжками. Колір: на замовлення.70грн\n  </p>\n\n    <figure class=\"post__image post__image--center\">\n      <img loading=\"lazy\" src=\"\" height=\"750\" width=\"1000\" alt=\"\"  data-is-external-image=\"true\">\n      \n    </figure>",
-            "image": "https://dasha-3d.github.io/3D-life/media/posts/6/unitaz.webp",
-            "author": {
-                "name": "Dasha"
-            },
-            "tags": [
-            ],
-            "date_published": "2025-12-06T18:59:48+02:00",
-            "date_modified": "2025-12-12T16:57:26+02:00"
-        },
-        {
-            "id": "https://dasha-3d.github.io/3D-life/drakon-gnuchkiy.html",
-            "url": "https://dasha-3d.github.io/3D-life/drakon-gnuchkiy.html",
-            "title": "Дракон гнучкий",
-            "summary": "Довжина 32см. Колір: на замовлення. 95грн",
-            "content_html": "\n  <p>\n    Довжина 32см. Колір: на замовлення. 95грн\n  </p>\n\n  <p>\n    \n  </p>",
-            "image": "https://dasha-3d.github.io/3D-life/media/posts/5/2024-10-07_6b65dee2424b2.webp",
-            "author": {
-                "name": "Dasha"
-            },
-            "tags": [
-            ],
-            "date_published": "2025-12-06T12:08:04+02:00",
-            "date_modified": "2025-12-06T19:22:49+02:00"
-        },
-        {
-            "id": "https://dasha-3d.github.io/3D-life/fidzhet-geksagon.html",
-            "url": "https://dasha-3d.github.io/3D-life/fidzhet-geksagon.html",
-            "title": "Фіджет Гексагон ",
-            "summary": "Фіджет рухомий шестикутник, сторона 5.5 см. Колір: на замовлення. 110грн",
-            "content_html": "<p>Фіджет рухомий шестикутник, сторона 5.5 см. Колір: на замовлення. 110грн</p>",
-            "image": "https://dasha-3d.github.io/3D-life/media/posts/2/hex.jpg",
-            "author": {
-                "name": "Dasha"
-            },
-            "tags": [
-            ],
-            "date_published": "2025-12-05T12:36:07+02:00",
-            "date_modified": "2025-12-06T19:06:21+02:00"
-        },
-        {
-            "id": "https://dasha-3d.github.io/3D-life/skelet-drakona.html",
-            "url": "https://dasha-3d.github.io/3D-life/skelet-drakona.html",
-            "title": "Скелет Дракона",
-            "summary": "Висота 10см. Колір: на замовлення. 90грн",
-            "content_html": "<p>Висота 10см. Колір: на замовлення. 90грн</p>",
-            "image": "https://dasha-3d.github.io/3D-life/media/posts/1/dragon-skeleton.webp",
-            "author": {
-                "name": "Dasha"
-            },
-            "tags": [
-            ],
-            "date_published": "2025-12-05T12:12:32+02:00",
-            "date_modified": "2025-12-06T19:06:30+02:00"
         }
     ]
 }
